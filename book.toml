@@ -1,0 +1,6 @@
+[book]
+authors = ["oraqlle"]
+language = "en"
+multilingual = false
+src = "src"
+title = "book.cpp"
