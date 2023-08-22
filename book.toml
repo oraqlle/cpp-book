@@ -1,6 +1,13 @@
 [book]
-authors = ["oraqlle"]
+authors = ["Tyler Swann"]
+title = "The C++ Book"
+description = "The C++ Programming Language"
+
 language = "en"
 multilingual = false
+
 src = "src"
-title = "book.cpp"
+
+[output.html]
+mathjax-support = true
+git-repository-url = "https://github.com/oraqlle/cpp-book"
