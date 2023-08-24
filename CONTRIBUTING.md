@@ -48,7 +48,7 @@ Any and all contributions are always very much appreciated. However, to make sur
    When applicable, please squash adjacent _wip_ commits into a single _logical_ commit.
    If your contribution has several logical commits, it's fine.
 6. Push the changes to your fork (`git push origin <your_branch>`).
-7. Open a pull request against the package's `dev` branch (not against `main`).
+7. Open a pull request against the package's `dev` branch (not against `master`).
 
 I will do my best to respond in a timely manner. I might discuss your patch and suggest some modifications, or I might amend your patch myself and ask you for feedback.
 You will always be given proper credit.

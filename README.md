@@ -14,7 +14,7 @@ You can build this book you must clone this repository using Git. You can then b
 
 ```sh
 $ git clone https://github.com/oraqlle/cpp-book.git
-$ cd HPP
+$ cd cpp-book
 
 # Build ...
 $ mdbook build

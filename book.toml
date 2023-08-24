@@ -11,3 +11,6 @@ src = "src"
 [output.html]
 mathjax-support = true
 git-repository-url = "https://github.com/oraqlle/cpp-book"
+
+[output.html.code.hidelines]
+cpp = "$"
