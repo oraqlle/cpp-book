@@ -8,7 +8,6 @@
 - [Getting Started](getting-started/getting-started.md)
   - [Installation](getting-started/installation.md)
     - [Windows]()
-    - [WSL]()
     - [Linux]()
     - [MacOS]()
   - [`Hello, World!`](getting-started/hello-world.md)
@@ -18,48 +17,46 @@
 
 - [Project: Guessing Game](getting-started/guessing-game.md)
 
-## A Tour of C++
+<!-- ## A Tour of C++
 
 - [A Tour of C++]()
   - [GCC and CMake]()
-  - [Functions and Variables]()
+  - [Functions and Variables]() -->
 
-## Fundamentals Types
+## Data and Types
 
-- [C++ Fundamentals]()
-  - [Variables]()
+- [Data and Types]()
   - [Data Types]()
+  - [Variables]()
   - [Mutability]()
-  - [Type Aliasing]()
-  
-## The C++ Type System
-
-- [The C++ Type System]()
-  - [Value Categories]()
-  - [Copies, Moves and Ownership]()
-  - [Type Deduction]()  <!-- `auto` -->
-  - [Storage Types]()  <!-- `static` etc. -->
+  - [The Type System]()
+    - [Value Categories]()
+    - [Copies, Moves and Ownership]()
+    - [Type Deduction]()  <!-- `auto` -->
+    - [Storage Types and Durations]()  <!-- `static` etc. & static vs. thread vs. automatic vs. dynamic -->
+    - [Type Aliasing]()
   - [C++ vs C]()  <!-- Talk about mangling and linkage -->
 
 ## Expressions and Statements
 
-- [Precedence and Associativity]()
-- [Blocks]()
-- [Operators]()
-- [Equality, Ordering and Logical Operators]()
-  - [Equality and Ordering]()
-  - [Three Way Comparisons]()
-  - [Logical Operators]()
-- [Functions]()  <!-- overloading, qualifiers -->
-- [Control Flow]()
-  - [Conditional Statements]()
-  - [Loops]()
-    - [While Loop]()
-    - [Do-While Loop]()
-    - [Range-For Loop]()
-    - [Index-For Loop]()
-- [Lambdas]()
-- [Compile Time Expressions]()
+- [Expressions and Statements]()
+  - [Precedence and Associativity]()
+  - [Blocks]()
+  - [Operators]()
+  - [Equality, Ordering and Logical Operators]()
+    - [Equality and Ordering]()
+    - [Three Way Comparisons]()
+    - [Logical Operators]()
+  - [Functions]()  <!-- overloading, qualifiers -->
+  - [Control Flow]()
+    - [Conditional Statements]()
+    - [Loops]()
+      - [While Loop]()
+      - [Do-While Loop]()
+      - [Range-For Loop]()
+      - [Index-For Loop]()
+  - [Lambdas]()
+  - [Compile Time Expressions]()
 
 ## Memory
 
@@ -73,13 +70,14 @@
   - [Strings]()
     - [String Literals]()
     - [Character Slices]()
+    - [String Views]()
     - [Strings]()
     - [Character Types for Strings and UTF-8]()
   - [Arrays, Vectors and Spans]()
     - [Arrays]()
     - [Vectors]()
     - [Spans]()
-  - [Dynamic Memory Allocations]()
+  - [Manual Dynamic Memory Allocations]()
     - [New and Delete]()
     - [Allocators]()
     - [C Based Memory Allocations]()
@@ -92,12 +90,13 @@
   - [Stacktraces]()
   - [Early Termination]()  <!-- `std::exit` etc. -->
 
-## Headers, Namespaces and Modules
+## Headers, Namespaces, Modules and Projects
 
-- [Headers, Namespaces and Modules]()
+- [Headers, Namespaces, Modules and Projects]()
   - [Headers]()
   - [Namespaces]()
   - [Modules]()
+  - [CMake]()
 
 ## Utility Types and Functions
 
@@ -189,19 +188,23 @@
 
 - [Generic Programming]()
   - [Templates]()
+    - [Generic Functions]()
+    - [Generic Classes]()
+    - [Generic Values]()
   - [Type Traits and Template Meta Programming]()
   - [Concepts]()
-  - [Constrained Type Deduction]()  <!-- `std::integral auto a` where `std::integral` is a concept -->
+    - [Constrained Type Deduction]()  <!-- `std::integral auto a` where `std::integral` is a concept -->
 
-## Algorithms, Iterators and Ranges
+## Algorithms, Iterators, Ranges and Views
 
-- [Algorithms, Iterators and Ranges]()
+- [Algorithms, Iterators, Ranges and Views]()
   - [Iterators]()
   - [Algorithms]()
   - [Ranges]()
     - [Range Algorithms]()
     - [Range Composition]()
     - [Constrained Algorithms]()
+  - [Views]()
 
 ## Concurrency
 
@@ -225,7 +228,7 @@
 
 ## Object Orientated Programming in C++
 
-- [OOP in C++]()
+- [Object Orientated Programming in C++]()
   - [Inheritance]()
   - [Abstract Classes]()
 
@@ -266,3 +269,4 @@
   - [B - Operators]()
   - [C - Standard Versions]()
   - [D - Compiler Vendors]()
+  - [E - Challenge Answers]()
