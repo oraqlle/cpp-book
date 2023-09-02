@@ -7,9 +7,9 @@
 
 - [Getting Started](getting-started/getting-started.md)
   - [Installation](getting-started/installation.md)
-    - [Windows]()
-    - [Linux]()
-    - [MacOS]()
+    - [Linux](getting-started/linux.md)
+    - [Windows](getting-started/windows.md)
+    - [MacOS](getting-started/macos.md)
   - [`Hello, World!`](getting-started/hello-world.md)
   - [`Hello, CMake!`]()
 
