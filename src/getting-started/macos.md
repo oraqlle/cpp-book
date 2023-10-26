@@ -20,7 +20,7 @@ xcode-select --install
 brew install gcc
 ```
 
-## Verify
+## Verifying Installation
 
 To verify the install worked for either GCC or Clang we can run the compiler programs with the version flag and ensure the install has been successful.
 
