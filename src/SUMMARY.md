@@ -11,262 +11,183 @@
     - [Windows](getting-started/windows.md)
     - [MacOS](getting-started/macos.md)
   - [`Hello, World!`](getting-started/hello-world.md)
-  - [`Hello, CMake!`]()
+  - [`Hello, CMake!`](getting-started/hello-cmake.md)
 
 ## Sample Project
 
 - [Project: Guessing Game](getting-started/guessing-game.md)
 
-<!-- ## A Tour of C++
+## Common Programming Concepts
 
-- [A Tour of C++]()
-  - [GCC and CMake]()
-  - [Functions and Variables]() -->
+- [Common Programming Concepts](common-concepts/common-concepts.md)
+  - [Variables and Mutability](common-concepts/vars-mut.md)
+  - [Data Types](common-concepts/data-types.md)
+  - [Functions](common-concepts/functions.md)
+  - [Comments](common-concepts/comments.md)
+  - [Control Flow](common-concepts/control-flow.md)
 
-## Data and Types
+## Ownership
 
-- [Data and Types]()
-  - [Data Types]()
-  - [Variables]()
-  - [Mutability]()
-  - [The Type System]()
-    - [Value Categories]()
-    - [Copies, Moves and Ownership]()
-    - [Type Deduction]()  <!-- `auto` -->
-    - [Storage Types and Durations]()  <!-- `static` etc. & static vs. thread vs. automatic vs. dynamic -->
-    - [Type Aliasing]()
-  - [C++ vs C]()  <!-- Talk about mangling and linkage -->
+- [Ownership](ownership/ownership.md)
+  - [What is ownership?](ownership/what-is-it.md)
+  - [References and Moves](ownership/refs-moves.md)
+  - [Spans](ownership/spans.md) <!-- and std::string_view -->
 
-## Expressions and Statements
+## Containers
 
-- [Expressions and Statements]()
-  - [Precedence and Associativity]()
-  - [Blocks]()
-  - [Operators]()
-  - [Equality, Ordering and Logical Operators]()
-    - [Equality and Ordering]()
-    - [Three Way Comparisons]()
-    - [Logical Operators]()
-  - [Functions]()  <!-- overloading, qualifiers -->
-  - [Control Flow]()
-    - [Conditional Statements]()
-    - [Loops]()
-      - [While Loop]()
-      - [Do-While Loop]()
-      - [Range-For Loop]()
-      - [Index-For Loop]()
-  - [Lambdas]()
-  - [Compile Time Expressions]()
+- [Containers](containers/containers.md)
+  - [Storing a Sequence of Items with Vectors](containers/vector.md)
+  - [Encoding Text with Strings](containers/string.md)
+  - [Storing Ordered Keys with Associated Values with Maps](containers/map.md)
+  - [Storing Keys with Associated Values with Unordered Maps](containers/unordered_map.md)
+  - [Adapting the Interface of Containers](containers/adaptors.md)
+  - [Storing and Manipulating Individual Bits](containers/bitset.md)
+  - [Representing Multidimensional Space](containers/mdspan.md)
 
-## Memory
+## Custom Types
 
-- [Memory]()
-  - [Pointer Types]()
-    - [Unique Pointers]()
-    - [Shared Pointers]()
-    - [Raw Pointers]()
-  - [References]()
-  - [Slices]()
-  - [Strings]()
-    - [String Literals]()
-    - [Character Slices]()
-    - [String Views]()
-    - [Strings]()
-    - [Character Types for Strings and UTF-8]()
-  - [Arrays, Vectors and Spans]()
-    - [Arrays]()
-    - [Vectors]()
-    - [Spans]()
-  - [Manual Dynamic Memory Allocations]()
-    - [New and Delete]()
-    - [Allocators]()
-    - [C Based Memory Allocations]()
+- [Custom Types](custom-types/custom-types.md)
+  - [Structuring Related Data](custom-types/structs.md)
+  - [Member Access](custom-types/member-access.md)
+  - [Classes](custom-types/classes.md)
+  - [Access Modifiers](custom-types/access-modifiers.md)
+  - [Constructors, Destructors and RAII](custom-types/raii.md)
+
+## Managing Growing Projects with Namespaces, Headers and CMake
+
+- [Managing Growing Projects with Namespaces, Headers and CMake](managing-projects/.md)
+  - [Namespaces](managing-projects/namespaces.md)
+  - [Headers](managing-projects/headers.md)
+  - [Modules (C++20)](managing-projects/modules.md)
+  - [CMake](managing-projects/cmake.md)
 
 ## Error Handling
 
-- [Error Handling]()
-  - [Exceptions]()
-  - [Optional and Expected]()
-  - [Stacktraces]()
-  - [Early Termination]()  <!-- `std::exit` etc. -->
-
-## Headers, Namespaces, Modules and Projects
-
-- [Headers, Namespaces, Modules and Projects]()
-  - [Headers]()
-  - [Namespaces]()
-  - [Modules]()
-  - [CMake]()
-
-## Utility Types and Functions
-
-- [Utility Types and Functions]()
-  - [Utility Types]()
-    - [Fixed Width Integers]()
-    - [Pair]()
-    - [Tuple]()
-    - [Variant]()
-    - [Any]()
-    - [Integer Sequences]()
-    - [Function Objects]()
-    - [Function Binding]()
-  - [Swaps and Exchanges]()
-  - [Type Functions]()
-    - [Perfect Forwarding]()
-    - [Type and Value Declarations]()  <!-- `decltype()` and `std::declval<T>()` -->
-    - [Misc.]()  <!-- `as_const()`, `to_underlying()` and `move_if_noexcept` -->
-  - [Apply and Invoke]()
-  - [Source Location]()
-  - [Hashing]()
-  - [Character and String Conversions]()
-  - [Formatting Strings]()
-  - [Bit Manipulation]()
-
-## IO
-
-- [IO]()
-  - [Streams]()
-    - [Standard IO Streams]()
-    - [Format Specifiers]()
-    - [String Streams]()
-    - [File Streams]()
-  - [Synchronized IO]()
-  - [C++23 Formatted Output]()
-  - [C Formatted Output Function Family]()
-    - [Printf]()
-    - [Scanf]()
-
-## Structures, Classes and Enumerations
-
-- [Enumerations, Structures, Classes]()
-  - [Enumerations]()
-  - [Structures]()
-  - [Classes]()
-    - [Member Access]()
-    - [Construstors and Destructors]()
-      - [Construstors]()
-      - [Destructors]()
-      - [Default and Deleted Implementations]()
-      - [RAII]()
-    - [Members]()
-      - [Member Access]()
-      - [Fields]()
-      - [Methods]()
-      - [Static Members]()
-      - [Operators Overloading]()
-      - [Method Qualifications]()
-      - [Friends]()
-
-## Collections
-
-- [Containers]()  <!-- - [Collections]() -->
-  - [Sequence Containers]()
-    - [Deque]()
-    - [List]()
-    - [Forward List]()
-    - [Initializer List]()
-  - [Ordered Containers]()
-    - [Set]()
-    - [Map]()
-    - [Multiset and Multimap]()
-  - [Unordered Containers]()
-    - [Unordered Set]()
-    - [Unordered Map]()
-    - [Unordered Multiset and Multimap]()
-  - [Flat Containers]()
-    - [Flat Set]()
-    - [Flat Map]()
-    - [Flat Multiset and Multimap]()
-  - [Container Adaptors]()
-    - [Stack]()
-    - [Queue]()
-    - [Priority Queue]()
-  - [Multidimensional Spans]()
-  - [Bitset]()
+- [Error Handling](errors/.md)
+  - [Compile Time Checks](errors/compile-time-checks.md)
+  - [Exceptions](errors/exceptions.md)
+  - [Stacktraces and Stack Unwinding](errors/stacktraces.md)
+  - [Errors as Values](errors/eav.md)
+  - [Abnormal Termination](errors/abnormal-termination.md)
 
 ## Generic Programming
 
-- [Generic Programming]()
-  - [Templates]()
-    - [Generic Functions]()
-    - [Generic Classes]()
-    - [Generic Values]()
-  - [Type Traits and Template Meta Programming]()
-  - [Concepts]()
-    - [Constrained Type Deduction]()  <!-- `std::integral auto a` where `std::integral` is a concept -->
+- [Generic Programming](generics/generics.md)
+  - [Templates](generics/templates.md)
+    - [Template Functions](generics/template-func.md)
+    - [Template Classes](generics/template-classes.md)
+    - [Other Templates](generics/other-templates.md)
+  - [Constraining Templates with Concepts](generics/concepts.md)
+  - [Parameter Packs](generics/param-packs.md)
+  - [Type Erasure](generics/type-erasure.md)
+  - [Sum Types](generics/sum-types.md)
 
-## Algorithms, Iterators, Ranges and Views
+## IO
 
-- [Algorithms, Iterators, Ranges and Views]()
-  - [Iterators]()
-  - [Algorithms]()
-  - [Ranges]()
-    - [Range Algorithms]()
-    - [Range Composition]()
-    - [Constrained Algorithms]()
-  - [Views]()
+- [IO](io/io.md)
+  - [Streams](io/streams.md)
+  - [Files](io/files.md)
+  - [Formatted String Output (C++20/23)](io/fromatted-strings.md)
+
+## IO Project
+
+- [Project: IO Project](io/io-project.md)
+
+## Algorithms
+
+- [Algorithms](algorithms/algorithms.md)
+  - [Iterators](algorithms/iterators.md)
+  - [Generic Algorithms](algorithms/generic-algos.md)
+  - [Ranges and Constrained Algorithms](algorithms/ranges.md)
+  - [Views](algorithms/views.md)
+
+## Improved IO Project
+
+- [Project: Improving Our IO Project with Algorithms](algorithms/improved-io-project.md)
+
+## Memory
+
+- [Memory](memory/memory.md)
+  - [C++ Memory Model](memory/memory-model.md)
+  - [Stack vs. Heap](memory/stack-vs-heap.md)
+  - [Storage Duration Types](memory/storage-duration-types.md)
+  - [Dynamic Resource Allocation](memory/resources.md)
+  - [Pointers](memory/pointers.md)
+    - [Obtaining an Objects Address](memory/addressof.md)
+    - [Smart Pointers](memory/smart-pointers.md)
+    - [Allocator](memory/allocators.md)
+    - [Manual Memory Management](memory/manual-memory.md)
 
 ## Concurrency
 
-- [Concurrency]()
-  - [Parallel Algorithms and Execution Policies]()
-  - [Atomics]()
-  - [Threads]()
-  - [Synchronization Techniques]()
-    - [Mutexes]()
-    - [Latches]()
-    - [Barriers]()
-    - [Semaphores]()
-    - [Conditional Variables]()
-  - [Coroutines]()
-  - [SIMD]()
-  - [Executors and Receivers]()
-  - [Async]()
-    - [Futures]()
-    - [Promises]()
-    - [Async Calls]()
+- [Concurrency](concurrency/concurrency.md)
+  - [Running Code Simultaneously](concurrency/basics.md)
+  - [Concurrency vs. Parallelism vs. Asynchronous](concurrency/terminology.md)
+  - [Parallel Algorithms and Execution Policies](concurrency/par-algos.md)
+  - [Threads](concurrency/threads.md)
+  - [Atomics](concurrency/atomics.md)
+  - [Synchronization Techniques](concurrency/sync-techniques.md)
+    - [Semaphores](concurrency/semaphores.md)
+    - [Mutexes](concurrency/mutexes.md)
+    - [Locks](concurrency/locks.md)
+    - [Latches](concurrency/latches.md)
+    - [Barriers](concurrency/barriers.md)
+    - [Conditional Variables](concurrency/cond-vars.md)
+  - [Coroutines](concurrency/coroutines.md)
+  - [Async](concurrency/async.md)
+  - [SIMD](concurrency/simd.md)
+  - [Executors, Senders and Receivers](concurrency/executors-senders-receivers.md)
 
-## Object Orientated Programming in C++
+## Metaprogramming
 
-- [Object Orientated Programming in C++]()
-  - [Inheritance]()
-  - [Abstract Classes]()
+- [Metaprogramming](meta/meta.md)
+  - [Type Traits and SFINAE](meta/type-traits.md)
+  - [Compile Time Computation](meta/comptime.md)
+  - [Index Sequences](meta/index-seqs.md)
 
 ## Numerics and Mathematical Calculations
 
-- [Numerics and Mathematical Calculations]()
-  - [Mathematical Functions]()
-  - [Mathematical Constants]()
-  - [Numerical Limits]()
-  - [Complex Number Type]()
-  - [Valarray Type]()
-  - [Pseudo Random Number Generation]()
-  - [Floating Point Environment Control]()
+- [Numerics and Mathematical Calculations](numerics/numerics.md)
+  - [Mathematical Functions](numerics/math-func.md)
+  - [Mathematical Constants](numerics/numbers.md)
+  - [Numerical Limits](numerics/numeric-limits.md)
+  - [Complex Number Type](numerics/complex-numbers.md)
+  <!-- - [Valarray Type](numerics/.md) -->
+  - [Pseudo Random Number Generation](numerics/rand.md)
+  - [Floating Point Environment Control](numerics/fp-env.md)
+
+## Object Orientated Programming in C++
+
+- [Object Orientated Programming in C++](oop/oop.md)
+  - [Inheritance](oop/inheritance.md)
+  - [Abstract Classes](oop/abstract-classes.md)
 
 ## Working with the Filesystem
 
-- [Working with the Filesystem]()
-  - [Paths]()
-  - [Directories]()
-  - [Utilities]()
+- [Working with the Filesystem](fs/fs.md)
+  - [Paths](fs/paths.md)
+  - [Directories](fs/directories.md)
+  - [Utilities](fs/utils.md)
 
 ## Date, Time and Localization
 
-- [Date, Time and Localization]()
-  - [Clocks and Time]()
-  - [Timezones]()
-  - [Calenders]()
-  - [Locales]()
+- [Date and Time](time/date-time.md)
+  - [Clocks and Time](time/clocks.md)
+  - [Timezones](time/timezones.md)
+  - [Calenders](time/calendars.md)
+  - [Locales](time/locales.md)
 
 ## Regex
 
-- [Regex]()
+- [Regex](regex/regex.md)
 
 ## Appendix
 
-- [Appendix]()
-  - [A - Keywords]()
-  - [B - Operators]()
-  - [C - Standard Versions]()
-  - [D - Compiler Vendors]()
-  - [E - Challenge Answers]()
+- [Appendix](appendix/appendicies.md)
+  - [A - Keywords](appendix/keywords.md)
+  - [B - Operators](appendix/operators.md)
+  - [C - Standard Versions](appendix/standard-versions.md)
+  - [D - Compilation Pipeline](appendix/compilation-pipeline.md)
+  - [E - Value Categories](appendix/value-categories.md)
+  - [F - Compiler Vendors](appendix/compiler-vendors.md)
+  - [G - Challenge Answers](appendix/callenge-answers.md)
