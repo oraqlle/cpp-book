@@ -42,20 +42,21 @@
   - [Storing Keys with Associated Values with Unordered Maps](containers/unordered_map.md)
   - [Adapting the Interface of Containers](containers/adaptors.md)
   - [Storing and Manipulating Individual Bits](containers/bitset.md)
-  - [Representing Multidimensional Space](containers/mdspan.md)
+  - [Multidimensional Representation of Linear Storage](containers/mdspan.md)
 
 ## Custom Types
 
 - [Custom Types](custom-types/custom-types.md)
   - [Structuring Related Data](custom-types/structs.md)
   - [Member Access](custom-types/member-access.md)
+  - [Creating and Using Methods on Structures](custom-types/methods.md)
   - [Classes](custom-types/classes.md)
   - [Access Modifiers](custom-types/access-modifiers.md)
   - [Constructors, Destructors and RAII](custom-types/raii.md)
 
-## Managing Growing Projects with Namespaces, Headers and CMake
+## Managing Growing Projects
 
-- [Managing Growing Projects with Namespaces, Headers and CMake](managing-projects/.md)
+- [Managing Growing Projects](managing-projects/managing-projects.md)
   - [Namespaces](managing-projects/namespaces.md)
   - [Headers](managing-projects/headers.md)
   - [Modules (C++20)](managing-projects/modules.md)
@@ -63,7 +64,7 @@
 
 ## Error Handling
 
-- [Error Handling](errors/.md)
+- [Error Handling](errors/errors.md)
   - [Compile Time Checks](errors/compile-time-checks.md)
   - [Exceptions](errors/exceptions.md)
   - [Stacktraces and Stack Unwinding](errors/stacktraces.md)
@@ -99,7 +100,7 @@
   - [Iterators](algorithms/iterators.md)
   - [Generic Algorithms](algorithms/generic-algos.md)
   - [Ranges and Constrained Algorithms](algorithms/ranges.md)
-  - [Views](algorithms/views.md)
+  - [Views and Composition](algorithms/views.md)
 
 ## Improved IO Project
 
@@ -112,10 +113,10 @@
   - [Stack vs. Heap](memory/stack-vs-heap.md)
   - [Storage Duration Types](memory/storage-duration-types.md)
   - [Dynamic Resource Allocation](memory/resources.md)
-  - [Pointers](memory/pointers.md)
-    - [Obtaining an Objects Address](memory/addressof.md)
     - [Smart Pointers](memory/smart-pointers.md)
-    - [Allocator](memory/allocators.md)
+  - [Addresses and Pointers](memory/pointers.md)
+    - [Obtaining an Objects Address](memory/addressof.md)
+    - [Allocators](memory/allocators.md)
     - [Manual Memory Management](memory/manual-memory.md)
 
 ## Concurrency
