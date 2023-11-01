@@ -40,11 +40,13 @@ You’ll find two kinds of chapters in this book: concept chapters and project c
 - Chapter 18 - Date, Time and Localization, introduces C++ support for working with time and dates how to change the locale currently being used to express said times and dates.
 - Chapter 19 - Regex, will explore how to use Regex in C++ to manipulate and parse strings.
 - Chapter 20 - Appendix, The appendices hold extra information may be of use to the reader but do not fit with the book.
-- Appendix A - Keywords
-- Appendix B - Operators
-- Appendix C - Standard Versions
-- Appendix D - Compiler Vendors
-- Appendix E - Challenge Answers
+  - A - Keywords
+  - B - Operators
+  - C - Standard Versions
+  - D - Compilation Pipeline
+  - E - Value Categories
+  - F - Compiler Vendors
+  - G - Challenge Answers
 
 There is no wrong way to read this book: if you want to skip ahead, go for it! You might have to jump back to earlier chapters if you experience any confusion. But do whatever works for you.
 
