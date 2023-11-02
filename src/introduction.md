@@ -12,41 +12,43 @@ This book is generally aimed at people who have programmed in at least one other
 
 ## How to Use This Book
 
-In general, this book assumes that you’re reading it in sequence from front to back. Later chapters build on concepts in earlier chapters, and earlier chapters might not delve into details on a particular topic but will revisit the topic in a later chapter.
+In general, this book assumes that you're reading it in sequence from front to back. Later chapters build on concepts in earlier chapters, and earlier chapters might not delve into details on a particular topic but will revisit the topic in a later chapter.
 
-You’ll find two kinds of chapters in this book: concept chapters and project chapters. In concept chapters, you’ll learn about an aspect or concept from C++. In project chapters, we’ll build small programs together, applying what you’ve learned so far. Chapters ... are project chapters; the rest are concept chapters. Add the end of a concept chapter there will be challenges that you can complete. These are simple quiz like questions that you can use to query your understanding of the concepts presented in the previous chapter.
+You'll find two kinds of chapters in this book: concept chapters and project chapters. In concept chapters, you'll learn about an aspect or concept from C++. In project chapters, we'll build small programs together, applying what you've learned so far. Chapters ... are project chapters; the rest are concept chapters. Add the end of a concept chapter there will be challenges that you can complete. These are simple quiz like questions that you can use to query your understanding of the concepts presented in the previous chapter.
 
 >Note: You can also search for specific content using the search button in the top left or by pressing the <kbd>S</kbd> key.
 
 ### Synopsis
 
-- Chapter 1 - Getting Started, explains how install the necessary tool for compiling C++ programs on the given platform. It also goes through writing a classical `"Hello, world!"` program and even gives a breakdown of the components of a program.
-- Chapter 2  - Project: Guessing Game, is the first project chapter where you will build a simple 'number guessing game'. This will introduce you to compiling and building a C++ program and utilising various pieces from C++ at a high level with later chapters offering more detail later.
-- Chapter 3 - Data and Types, will cover the C++ type system and how it is used to model data. It will also cover various semantics that arise in different context when using C++. You will also learn a bit about the difference between C++ and its predecessor language C.
-- Chapter 4 - Expressions and Statements, covers the most basic constructs you will encounter and use in your C++ programs. These are the expressions and statements used to build and control the execution of your program.
-- Chapter 5 - Memory, will discuss C++ memory model and 'abstract machine' that is used to model a system running C++. You will learn how to use C++'s pointer types and create and use blocks of memory. You'll be introduced into the stack and dynamic memory, difference between them and how to create data in each. You will look into reference types and there semantics with C++ and hwo the eliminate common misuses and bugs that pointers introduce. You will discover C++ slice types and how they can be used to store sequences of elements and their relationship to pointers. You will then look at the various string representations in C++ and how they are used to encode data and the consequences of using them. Next you will look into C++ library based sequence containers the the different use cases for each of them and the consequences of their use. Finally you will be introduced to manual memory management that is leveraged under the hood of many of the concepts mentioned earlier in the chapter.
-- Chapter 6 - Error Handling, will cover how to handle errors in C++ to mitigate the frequency of crashes and keep your programs running despite failures.
-- Chapter 7 - Headers, Namespaces and Modules, will discuss how to organise and utilise external code and how C++ ties everything together.
-- Chapter 8 - Utility Types and Functions, will introduce some useful utilities available to C++ programs that make writing code much easier and allow you to properly leverage the type system.
-- Chapter 9 - IO, is where you learn about IO features available in C++. This covers the concept of a stream and how it can be used to model files, devices and even strings. You will also learn about using the formatted print family of functions available to C++ and even the C family of formatted printing.
-- Chapter 10 - Enumerations, Structures and Classes, contains information for creating your own types and structures within C++. These include enumeration types, basic aggregate structures and classes. We'll discuss how to provide different functionality for your types and how to ensure safe resource management through RAII.
-- Chapter 11 - Containers, will discuss some of the available containers in the standard library and briefly discuss their capabilities, use cases and tradeoffs.
-- Chapter 12 - Generic Programming, will introduce the idea generic programming through the use of templates and how to allow design reusable code that is type agnostic.
-- Chapter 13 - Algorithms, Iterators, Ranges and Views, will showcase a few of the common algorithms available in the C++ standard library and they can be used to manipulate data structures and containers in an expressive manner. We will also cover the concept of a range and a view and how they allow use to write generic code.
-- Chapter 14 - Concurrency, will delve into the concurrency primitives possessed by C++ and how they can be used to leverage more compute resources and build realtime systems. We will also explore the components and principles for maintaining synchronization between concurrently executing code.
-- Chapter 15 - Object Orientated Programming In C++, covers C++ support for write object orientated code and how it contrasts to the rest of the languages features and object oriented principles you may be familiar with from other languages.
-- Chapter 16 - Numerics and Mathematical Calculations, will delve into the enormous support for numerical computation and performing mathematical calculations within your programs.
-- Chapter 17 - Working with the Filesystem, discusses how you can use C++ to manipulate a systems filesystem in a cross platform matter (no need to worry about incompatible file separators).
-- Chapter 18 - Date, Time and Localization, introduces C++ support for working with time and dates how to change the locale currently being used to express said times and dates.
-- Chapter 19 - Regex, will explore how to use Regex in C++ to manipulate and parse strings.
-- Chapter 20 - Appendix, The appendices hold extra information may be of use to the reader but do not fit with the book.
-  - A - Keywords
-  - B - Operators
-  - C - Standard Versions
-  - D - Compilation Pipeline
-  - E - Value Categories
-  - F - Compiler Vendors
-  - G - Challenge Answers
+1. Getting Started, explains how install the necessary tool for compiling C++ programs on the given platform. It also goes through writing a classical `"Hello, world!"` program and will discuss the anatomy of a C++ program.
+2. Project: Guessing Game, is the first project chapter where you will build a simple 'number guessing game'. This will introduce you to compiling and building a C++ program and utilising various pieces from C++ at a high level with later chapters offering more detail later.
+3. Common Programming Concepts, will cover the basics of the C++ language from variables and data types to creating functions and controlling the execution flow of a program.
+4. Ownership, will cover C++ ownership model and how you are able share data or even transfer data ownership.
+5. Containers, will discuss some of the containers available in the standard library and briefly discuss their capabilities, use cases and tradeoffs.
+6. Error Handling, will cover how to report and handle errors in C++ in order to mitigate the frequency of your programs crashing and keep them running despite failures occurring. It will also tackle how to perform checks at compile time.
+7. Custom Types, contains information for creating your own types and structures within C++ and how to define operations and methods on your types. We will also begin discussing how to manage resource lifetimes owned by custom types using RAII as well as explore the C++ "Zero Cost Abstraction" model.
+8. Managing Growing Projects, will discuss how to organise larger codebases using namespace, headers (modules in C++20) and how to build a project for multiple architectures.
+9. Generic Programming, will introduce the idea of generic programming through the use of templates and how to allow design reusable code that is type agnostic. We will also discuss how to constrain generic code to types with specified functionality.
+10. IO, is where you learn about IO features available in C++. This covers the concept of a stream and how it can be used to model files, devices and even strings. You will also learn about using the formatted strings and output functions available to C++.
+11. IO Project, will look at utilising ideas from previous chapters in order to build a tool that replicates a subset of the functionality of the command line tool `grep`.
+12. Algorithms, will showcase a few of the common algorithms available in the C++ standard library and they can be used to manipulate any of the standard containers in an expressive and generic manner. We will also cover the concept of a range and a view and how they allow use to write composable algorithms.
+13. Improved IO Project, will look at improving our IO project from Chapter 11 by utilising the standard algorithms.
+14. Memory, will discuss C++ memory model and 'abstract machine' that is used to model a system running C++. You'll be introduced to the concept of the stack and the heap, difference between them and how to create objects in each. You will learn how to use C++'s pointer types and how they differ from references. Finally you will be introduced to dynamic memory objects and how to construct them using both automatic and manual management techniques.
+15. Concurrency, will delve into the concurrency primitives possessed by C++ and how they can be used to leverage more compute resources and build parallel and concurrent systems. We will also explore the components and principles for maintaining synchronization between concurrently executing code.
+16. Metaprogramming, will cover metaprogramming techniques available in C++ and how to utilise them to write code that generate more code for you. We'll cover topics like type traits and SFINAE as well as various techniques for performing compile computation.
+17. Numerics and Mathematical Calculations, will delve into the enormous support for numerical computation and performing mathematical calculations within your programs.
+18. Object Orientated Programming In C++, covers C++ support for write object orientated code and how it contrasts to the rest of the languages features and object oriented principles you may be familiar with from other languages.
+19. Working with the Filesystem, discusses how you can use C++ to manipulate a systems filesystem in a cross platform matter.
+20. Date, Time and Localization, introduces C++ support for working with time and dates how to change the locale currently being used to express said times and dates.
+21. Regex, will explore how to use Regex in C++ to manipulate and parse strings.
+22. Appendices, The appendices hold extra information may be of use to the reader but do not fit with the book.
+    - A - Keywords
+    - B - Operators
+    - C - Standard Versions
+    - D - Compilation Pipeline
+    - E - Value Categories
+    - F - Compiler Vendors
+    - G - Challenge Answers
 
 There is no wrong way to read this book: if you want to skip ahead, go for it! You might have to jump back to earlier chapters if you experience any confusion. But do whatever works for you.
 
