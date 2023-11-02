@@ -16,7 +16,7 @@ after = ["links"]
 [output.html]
 mathjax-support = true
 git-repository-url = "https://github.com/oraqlle/cpp-book"
-additional-css = ["./mdbook-admonish.css"]
+additional-css = ["styles/mdbook-admonish.css", "styles/caption.css"]
 
 [output.html.code.hidelines]
 cpp = "$"
