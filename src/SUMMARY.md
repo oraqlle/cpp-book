@@ -44,6 +44,15 @@
   - [Storing and Manipulating Individual Bits](containers/bitset.md)
   - [Multidimensional Representation of Linear Storage](containers/mdspan.md)
 
+## Error Handling
+
+- [Error Handling](errors/errors.md)
+  - [Compile Time Checks](errors/compile-time-checks.md)
+  - [Exceptions](errors/exceptions.md)
+  - [Stacktraces and Stack Unwinding](errors/stacktraces.md)
+  - [Errors as Values](errors/eav.md)
+  - [Abnormal Termination](errors/abnormal-termination.md)
+
 ## Custom Types
 
 - [Custom Types](custom-types/custom-types.md)
@@ -61,15 +70,6 @@
   - [Headers](managing-projects/headers.md)
   - [Modules (C++20)](managing-projects/modules.md)
   - [CMake](managing-projects/cmake.md)
-
-## Error Handling
-
-- [Error Handling](errors/errors.md)
-  - [Compile Time Checks](errors/compile-time-checks.md)
-  - [Exceptions](errors/exceptions.md)
-  - [Stacktraces and Stack Unwinding](errors/stacktraces.md)
-  - [Errors as Values](errors/eav.md)
-  - [Abnormal Termination](errors/abnormal-termination.md)
 
 ## Generic Programming
 
@@ -188,7 +188,8 @@
   - [A - Keywords](appendix/keywords.md)
   - [B - Operators](appendix/operators.md)
   - [C - Standard Versions](appendix/standard-versions.md)
-  - [D - Compilation Pipeline](appendix/compilation-pipeline.md)
-  - [E - Value Categories](appendix/value-categories.md)
-  - [F - Compiler Vendors](appendix/compiler-vendors.md)
-  - [G - Challenge Answers](appendix/callenge-answers.md)
+  - [D - Value Categories](appendix/value-categories.md)
+  - [E - Compiler Vendors](appendix/compiler-vendors.md)
+  - [F - Compilation Pipeline](appendix/compilation-pipeline.md)
+  - [G - The C++ Runtime](appendix/runtime.md)
+  - [H - Challenge Answers](appendix/callenge-answers.md)
