@@ -8,7 +8,7 @@ To build almost anything on MacOS we need the Xcode developer suite. This is a s
 
 ```console
 # Install Xcode CLI tools
-xcode-select --install
+$ xcode-select --install
 
 # Install Homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -31,7 +31,23 @@ $ g++ --version
 
 # Verify Clang
 $ clang --version
-
 ```
 
 > Note: The name of GNU's compiler toolchain is 'GCC' while the C++ CLI program for running the C++ compiler/build runner is called `g++`. There exists a CLI program called `gcc` but this is the GNU C Compiler. It has very similar flags and options to `g++` but will fail to link the program due to different linkage rules between C and C++. Just remember when trying to use GCC's C++ compiler to use the `g++` program.
+
+## Installing `vcpkg`
+
+~
+
+<!-- markdownlint-disable MD014 -->
+
+```console
+$ cd ~
+$ mkdir bin
+$ cd bin
+$ git clone https://github.com/Microsoft/vcpkg.git
+$ ./vcpkg/bootstrap-vcpkg.sh
+$ echo '\n# >>> vcpkg >>>\nexport VCPKG_ROOT="$HOME/bin/vcpkg"\nexport PATH="$VCPKG_ROOT:$PATH"\n# >>> vcpkg >>>\n' >> ~/.bashrc
+```
+
+<!-- markdownlint-disable MD014 -->

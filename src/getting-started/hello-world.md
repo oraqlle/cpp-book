@@ -1,9 +1,5 @@
 # Hello World
 
-```admonish warning
-🚧 Page Under Construction! 🏗️
-```
-
 Now that you've installed a C++ compiler, its time to write your first C++ program. It is tradition when learning a new programming language to write a program that prints "Hello, world!" to the screen and we'll be doing the same.
 
 ```admonish info
@@ -28,8 +24,8 @@ $ cd hello_world
 CMD on Windows:
 
 ```cmd
-> mkdir "%USERPROFILE%\projects"
-> cd /d "%USERPROFILE%\projects"
+> mkdir "%userprofile%\projects"
+> cd "%userprofile%\projects"
 > mkdir hello_world
 > cd hello_world
 ```
