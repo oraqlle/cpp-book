@@ -6,7 +6,7 @@ Installing GCC and Clang on most Linux systems is relatively trivial. Most of th
 
 Depending on your platform you will use a different package manager and package upstream repository. These might have slightly different names for packages, especially bundle packages. Consult your platforms docs for the most seamless way to install a C++ compiler if the below commands fail.
 
-```sh
+```console
 # Debian, Ubuntu, ElementaryOS, Linux Mint, Pop!_OS (APT)
 sudo apt install build-essential gdb clang llvm
 
@@ -25,7 +25,7 @@ sudo zypper install gdb clang llvm
 
 To verify the install worked for either GCC or Clang we can run the compiler programs with the version flag and ensure the install has been successful.
 
-```sh
+```console
 # Verify GCC
 $ g++ --version
 g++ (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0

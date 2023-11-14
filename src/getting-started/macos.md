@@ -6,7 +6,7 @@ To install GCC and Clang on MacOS we will need Apple's developer toolchain calle
 
 To build almost anything on MacOS we need the Xcode developer suite. This is a set of libraries, environment configurations and binaries used at the core of all Apple software products. The full installation can be found on [Apple's developer](https://developer.apple.com/download/) page (requires a login) but this is an extremely large package requiring ~40Gb of disk space. Luckily there is a much smaller CLI package that just installs the necessary tooling for working with software from the terminal. One of these tools is the Clang compiler. To install GCC you will need the [Homebrew](https://brew.sh), a package manager which will by default install the latest stable version of the GCC formula. If you need a different version you can can check the [GCC formula page](https://formulae.brew.sh/formula/gcc#default) for available versions. To install these packages, open the 'Terminal' app and run:
 
-```sh
+```console
 # Install Xcode CLI tools
 xcode-select --install
 
@@ -24,7 +24,7 @@ brew install gcc
 
 To verify the install worked for either GCC or Clang we can run the compiler programs with the version flag and ensure the install has been successful.
 
-```sh
+```console
 # Verify GCC
 $ g++ --version
 
