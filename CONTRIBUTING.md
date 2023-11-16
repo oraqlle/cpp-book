@@ -19,7 +19,7 @@ Any and all contributions are always very much appreciated. However, to make sur
 3. Do your modifications on that branch.
 4. Make sure your modifications did not break anything by building and verifying the output using:
 
-   ```console
+   ```sh
    mdbook serve --open
    ```
 

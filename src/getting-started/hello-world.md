@@ -14,7 +14,7 @@ First, you'll create a new directory to store you C++ code. It is a good idea to
 
 Linux, MacOS or PowerShell on Windows:
 
-```console
+```sh
 $ mkdir ~/projects
 $ cd ~/projects
 $ mkdir hello_world
@@ -50,7 +50,7 @@ Save the file and return to your terminal open to the *~/projects/hello_world* d
 
 On Linux or MacOS
 
-```console
+```sh
 $ g++ -std=c++20 -o main main.cxx
 $ ./main
 Hello, world!
@@ -58,7 +58,7 @@ Hello, world!
 
 On Windows
 
-```bat
+```console
 :: Must be done in a 'Developer Command Prompt for VS ...' 
 > cl /std:c++20 /EHsc main.cxx
 > .\main.exe

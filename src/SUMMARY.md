@@ -10,9 +10,9 @@
     - [Linux](getting-started/linux.md)
     - [Windows](getting-started/windows.md)
     - [MacOS](getting-started/macos.md)
-  - [`Hello, World!`](getting-started/hello-world.md)
-  - [`Hello, CMake!`](getting-started/hello-cmake.md)
-  - [`Hello, vcpkg!`](getting-started/hello-vcpkg.md)
+  - ["Hello, World!"](getting-started/hello-world.md)
+  - ["Hello, CMake!"](getting-started/hello-cmake.md)
+  - ["Hello, vcpkg!"](getting-started/hello-vcpkg.md)
 
 ## Sample Project
 
