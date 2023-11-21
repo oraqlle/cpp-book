@@ -5,5 +5,5 @@ project(hello_cmake
     DESCRIPTION "Hello, CMake!"
     LANGUAGES CXX)
 
-add_executable(main main.cxx)
-target_compile_features(main PRIVATE cxx_std_20)
+add_executable(hello_cmake main.cxx)
+target_compile_features(hello_cmake PRIVATE cxx_std_20)

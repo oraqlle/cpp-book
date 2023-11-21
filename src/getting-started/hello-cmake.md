@@ -12,21 +12,18 @@ To start off, go back to your projects directory and create a new directory call
 
 <!-- markdownlint-disable MD014 -->
 
-Linux, MacOS or PowerShell on Windows:
-
 ```sh
 $ mkdir hello_cmake
 $ cd hello_cmake
 ```
 
-CMD on Windows:
+Within this directory we will need to create three new files `main.cxx`, `CMakeLists.txt` and `CMakePresets.json`. For the `main.cxx` file you can copy the below code which is identical to the one found on the previous page except printing slightly different content.
 
-```cmd
-> mkdir hello_cmake
-> cd hello_cmake
+```cpp
+{{#include examples/hello_cmake/main.cxx}}
 ```
 
-Within this directory we will need to create three new files `main.cxx`, `CMakeLists.txt` and `CMakePresets.json`. You can simply copy the contents of our original main program from the previous page into `main.cxx`. We will first look at the `CMakeLists.txt` file.
+We will first look at the `CMakeLists.txt` file.
 
 ### CMake Configuration Files
 
@@ -102,6 +99,53 @@ More information of CMake's presets can be found on CMake's official documentati
 
 ## Building and Running a CMake Project
 
-~
+When building a CMake project we have to perform two steps. The first step is to configure the project. What this does is generate the build recipe(s) for your project according to your 'CMakeLists.txt' files. A recipes are the instructions used to actually compile your project with a single recipe being used to build one or more targets. CMake then builds one or more of these targets according to a recipe.
+
+For our project we only have a single target which also happens to correspond to our single preset so we can simply run the following to build our recipe.
+
+```sh
+$ cmake --preset=default
+-- The CXX compiler identification is GNU 11.4.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/user/projects/hello_cmake/build
+```
+
+~~~admonish info
+If you do not want to use presets you can manually build the project with the following command.
+
+```sh
+$ cmake -S . -B build
+```
+~~~
+
+We can then build the target using the following command:
+
+```sh
+$ cmake --build build
+[ 50%] Building CXX object CMakeFiles/hello_cmake.dir/main.cxx.o
+[100%] Linking CXX executable hello_cmake
+[100%] Built target hello_cmake
+```
+
+This will produce a binary called `main` in the `build/` directory on Linux and MacOS and the `build/Debug/` directory on Windows. We can run our program like normal.
+
+```sh
+$ ./build/hello_cmake  # or .\build\Debug\hello_cmake.exe on Windows
+Hello, CMake!
+```
+
+~~~admonish tip
+The reason Windows builds will have the additional intermediate directory `Debug/` for the output is because the underlying builder(s) used on Windows can be configured to output both debug and release builds from the same recipe which is controlled with CMake's `--config=<config>` flag during the build step. You can test creating a 'Release' build by running the following command which should now produce and executable in the `build\Release\` directory.
+
+```console
+> cmake --build build --config=Release
+```
+~~~
 
 <!-- markdownlint-disable MD014 -->
