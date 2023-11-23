@@ -13,6 +13,7 @@
   - ["Hello, World!"](getting-started/hello-world.md)
   - ["Hello, CMake!"](getting-started/hello-cmake.md)
   - ["Hello, vcpkg!"](getting-started/hello-vcpkg.md)
+  - ["Hello, Godbolt!"](getting-started/hello-godbolt.md)
 
 ## Sample Project
 
