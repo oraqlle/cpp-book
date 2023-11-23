@@ -1,9 +1,5 @@
 # Hello, vcpkg
 
-```admonish warning
-🚧 Page Under Construction! 🏗️
-```
-
 While CMake can be used to build your project and help to customize its configuration for different platforms and uses, it is not very good at managing packages. For this reason we will be using another tool built for this purpose called vcpkg. It is an open-source project developed at Microsoft that interacts directly with CMake.
 
 ## Setting Up CMake Project with vcpkg
