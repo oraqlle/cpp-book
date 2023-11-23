@@ -8,7 +8,7 @@ CMake is a third-party tool used to configure and build C++ projects. While ther
 
 ## Creating a Project with CMake
 
-To start off, go back to your projects directory and create a new directory called 'hello_cmake'.
+To start off, go back to your `projects/` directory and create a new directory called 'hello_cmake'.
 
 <!-- markdownlint-disable MD014 -->
 
@@ -33,7 +33,7 @@ A CMake project is defined by a set of 'CMakeLists.txt' files located in the sou
 {{#include examples/hello_cmake/CMakeLists.txt}}
 ```
 
-<span id="listing1-2" class="caption">Listing 1-2: Basic CMake configuration file</span>
+<span id="listing1-2" class="caption">Listing 1-2: Basic CMake configuration file.</span>
 
 Let's break down our `CMakeLists.txt` file. First we specify the minimum required version of CMake this project uses. This helps to ensure that any CMake features used in the projects configuration are available to end users and collaborators.
 
@@ -71,7 +71,7 @@ We can also specify presets for CMake that define different configurations by a 
 {{#include examples/hello_cmake/CMakePresets.json}}
 ```
 
-<span id="listing1-3" class="caption">Listing 1-3: Minimalistic CMake presets file</span>
+<span id="listing1-3" class="caption">Listing 1-3: Minimalistic CMake presets file.</span>
 
 A `CMakePresets.json` file is starts with a key-value pair indicating the version of the preset engine to use from CMake. We also specify the minimum CMake version required for this project, similar to the first line [Listing 1-2](#listing1-2).
 
@@ -136,7 +136,7 @@ $ cmake --build build
 This will produce a binary called `main` in the `build/` directory on Linux and MacOS and the `build/Debug/` directory on Windows. We can run our program like normal.
 
 ```sh
-$ ./build/hello_cmake  # or .\build\Debug\hello_cmake.exe on Windows
+$ ./build/hello_cmake  # ... or .\build\Debug\hello_cmake.exe on Windows
 Hello, CMake!
 ```
 
