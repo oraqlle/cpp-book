@@ -51,8 +51,8 @@ Save the file and return to your terminal open to the *~/projects/hello_world* d
 On Linux or MacOS
 
 ```sh
-$ g++ -std=c++20 -o main main.cxx
-$ ./main
+$ g++ -std=c++20 -o hello_world main.cxx
+$ ./hello_world
 Hello, world!
 ```
 
@@ -60,8 +60,8 @@ On Windows
 
 ```console
 :: Must be done in a 'Developer Command Prompt for VS ...' 
-> cl /std:c++20 /EHsc main.cxx
-> .\main.exe
+> cl /std:c++20 /EHsc /Fe: hello_world.exe main.cxx
+> .\hello_world.exe
 Hello, world!
 ```
 
@@ -117,4 +117,4 @@ You may notice that it took two separate steps in order to run our program. This
 
 This is in contrast to interpreted languages; like Python, Ruby, JavaScript etc., which will perform the conversion while the program is running but this in turn requires another program; the interpreter, to run alongside yours, taking up extra resources but it usually means your programs are more portable as they can run on anywhere the interpreter can. These are some trade-offs made when designing or using a language.
 
-Just compiling with a C++ compiler (like `g++`) is fine for simple programs, but as your project grows, you'll want to manage all the options and make it easy to share your code. Next, we'll introduce you to the CMake tool, which will help you write manage much larger projects.
+For simple programs, directly using a C++ compiler (like `g++`) is fine, but as your project grows you'll want to manage all the options and make it easy to share your code. Next, we'll introduce you to the CMake tool, which will help you write manage much larger projects.
