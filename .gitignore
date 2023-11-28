@@ -45,3 +45,6 @@ book
 
 # MacOS Metadata Files
 .DS_Store
+
+# .vscode directory
+.vscode
