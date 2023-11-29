@@ -281,20 +281,146 @@ The `std::sto*` function family will 'successfully' parse inputs like "34abc" as
 
 ### Catching Exceptions
 
-~ <!-- try-catch syntax -->
+So how do we handle an exception that has been thrown? We can use a `try-catch` block. When there is a chance for something to fail we place the potentially failing code in a `try` block. After a try block we put one or more `catch` blocks. These are used to define the exception handling pathway for that particular exception. For our simple program we can define a `try-catch` block like in [Listing 2-6](#listing2-6).
+
+<span id="listing2-6" class="caption">Listing 2-6: Added exception error handling for `std::stoi` call.</span>
+
+```cpp
+$#include <compare>
+// --snip--
+#include <exception>
+#include <iomanip>
+$#include <iostream>
+$#include <random>
+$#include <string>
+// --snip--
+
+auto main() -> int
+{
+$    std::cout << "Guessing Game!\n";
+$
+$    auto rd = std::random_device {};
+$    auto gen = std::mt19937 { rd() };
+$    auto distrib = std::uniform_int_distribution { 1, 100 };
+$
+$    const auto secret_number = distrib(gen);
+$
+$    std::cout << "The secret number is: " << secret_number << '\n';
+$
+$    std::cout << "Please input your guess: ";
+$
+$    auto input = std::string {};
+$
+$    std::getline(std::cin, input);
+$
+    // --snip--
+
+    auto guess = int {};
+
+    try {
+        guess = std::stoi(input);
+    } catch (const std::invalid_argument&) {
+        std::cout << "Invalid input " << std::quoted(input) << "!\n";
+        std::exit(0);
+    } catch (const std::out_of_range&) {
+        std::cout << "Input " << std::quoted(input) << " is too large!" << '\n';
+        std::exit(0);
+    }
+$
+$    if (const auto cmp = guess <=> secret_number; std::is_eq(cmp)) {
+$        std::cout << "You guessed correctly!\n";
+$    } else if (std::is_lt(cmp)) {
+$        std::cout << "Too small!\n";
+$    } else if (std::is_gt(cmp)) {
+$        std::cout << "Too big!\n";
+$    }
+$
+$    return 0;
+
+    // --snip--
+}
+```
 
 ```admonish warning
-While try-catch block's do model a form of control flow they are very different to regular control flow mechanisms like `if` statements. You should not be used try-catch blocks to control the regular/expected execution pathway of a program as they are much slower nor should you throw exceptions in order to jump out to a particular scope. Exceptions should only be used to indicate that a recoverable error has occurred and try-catch blocks being used to handle recovering from this event eg. giving back any allocated resources to the OS.
+While `try-catch` block's do model a form of control flow they are very different to regular control flow mechanisms like `if` statements. You should not be used `try-catch` blocks to control the regular/expected execution pathway of a program as they are much slower nor should you throw exceptions in order to jump out to a particular scope. Exceptions should only be used to indicate that a recoverable error has occurred and `try-catch` blocks being used to handle recovering from this event eg. giving any allocated resources back to the OS, as such exceptions should be used only in *exceptional* (pun most definitely intended) cases and when appropriate for your domain (as they can be undesirable in many situations). The main purpose of showing exceptions now is to demonstrate how to ***handle*** them not throw your own.
 ```
 
 ## Allowing Multiple Guesses with a Loop
 
-~
+Now that we correctly handle the exceptional cases of parsing our player's input we can look at making the game more interactive. Only having one guess doesn't make our game very fun. Lets allow the player to make multiple guesses by introducing a loop! We will want this loop to run forever with explicit mechanisms for exiting the loop. We can use a `while` loop with its condition simply being `true`. This will create our infinite loop. But how and when do we exit the loop? We want the loop to be broken when the player guesses the correct number. We can do this by introducing a `break` statement in the first `if` branch when comparing the player's input to the secret number. `break` is used to break out of the enclosing loop block. We also need the program to run the next loop iteration if an exception occurs, skipping the comparisons. We can do this with a `continue` statement within each of the `catch` blocks to skip to the next iteration. Finally, be sure to move the prompt output and player input logic into the loop so they are called each iteration.
+
+<span id="listing2-7" class="caption">Listing 2-7: Placed game in a infinite loop to allow player multiple guesses.</span>
+
+```cpp
+$#include <compare>
+$#include <exception>
+$#include <iomanip>
+$#include <iostream>
+$#include <random>
+$#include <string>
+$
+// --snip--
+
+auto main() -> int
+{
+$    std::cout << "Guessing Game!\n";
+$
+$    auto rd = std::random_device {};
+$    auto gen = std::mt19937 { rd() };
+$    auto distrib = std::uniform_int_distribution { 1, 100 };
+$
+$    const auto secret_number = distrib(gen);
+$
+$    std::cout << "The secret number is: " << secret_number << '\n';
+$
+$    auto input = std::string {};
+$
+$    auto guess = int {};
+$
+    // --snip--
+
+    while (true) {
+$        std::cout << "Please input your guess: ";
+$        std::getline(std::cin, input);
+$
+        // --snip--
+
+        try {
+            guess = std::stoi(input);
+        } catch (const std::invalid_argument&) {
+            std::cout << "Invalid input " << std::quoted(input) << "!\n";
+            continue;
+        } catch (const std::out_of_range&) {
+            std::cout << "Input " << std::quoted(input) << " is too large!" << '\n';
+            continue;
+        }
+
+        if (const auto cmp = guess <=> secret_number; std::is_eq(cmp)) {
+            std::cout << "You guessed correctly!\n";
+            break;
+        } else if (std::is_lt(cmp)) {
+            std::cout << "Too small!\n";
+        } else if (std::is_gt(cmp)) {
+            std::cout << "Too big!\n";
+        }
+    }
+$
+$    return 0;
+}
+```
+
+Fantastic! With a final tweak we have finished the guessing game. Our game is still printing the secret number! We can fix this by deleting the line. The final code is available in [Listing 2-8](#listing2-8).
+
+<span id="listing2-8" class="caption">Listing 2-8: Final game.</span>
+
+```cpp
+{{#include examples/guessing_game/main.cxx}}
+```
 
 ## Summary
 
-~
+This project offered a hands on way to learn many of C++ features: `auto`, variables, functions, `if` statements, exception handling and loops! In the upcoming chapters you will delve deeper into these concepts as well as explore many new ones. See you there!
 
-## Additional Challenge
+<!-- ## Additional Challenge -->
 
 <!-- Add `{fmt}` (or other) library using vcpkg. -->
