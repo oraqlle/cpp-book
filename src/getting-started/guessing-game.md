@@ -257,7 +257,35 @@ We have also used a initialiser statement in the first `if` branch. This allows 
 
 ## Handling Parsing Errors with Exceptions
 
-~ <!-- Show exception handling for `std::stoi()` -->
+Our game is coming along quite nicely but it has one fundamental flaw. What happens if we give our game the input "abcd34" or "38574876546456476745"? We get the following two errors and our game crashes!
+
+```sh
+# input: "abcd34"
+terminate called after throwing an instance of 'std::invalid_argument'
+  what():  stoi
+[1]    27989 IOT instruction  ./build/.../guessing_game
+
+# input: "38574876546456476745"
+terminate called after throwing an instance of 'std::out_of_range'
+  what():  stoi
+[1]    1513 IOT instruction  ./build/.../guessing_game
+```
+
+This is not ideal as it gives no way for the system to recover from the error and let the user try again. How do we fix this? Well notice in the error message it states that an instance of (either) [`std::invalid_argument`](https://en.cppreference.com/w/cpp/error/invalid_argument) (or) [`std::out_of_range`](https://en.cppreference.com/w/cpp/error/out_of_range) was thrown. What are these objects? These are known as exceptions. They are a special object used to indicate that an *exceptional event* has occurred. These are pathways in our program that we do not expect to occur but might and exceptions allow us to recover the system without fully crashing. This is a useful mechanism for allowing systems to remain online and perform self recovery if an error does occur.
+
+Before we look at how to handle thrown exceptions we'll first discuss what each of these exceptions mean in the context of `std::stoi()`. `std::invalid_argument` is used to indicate that a general parsing error has occurred due to a bad input ie. prefixing the input with letters eg. "abcd34". The exception `std::out_of_range` is used to indicate that the input value cannot fit into the conversion type. For example if "38574876546456476745" is passed to `std::stoi()` we have this exception thrown because the max value that can be fit inside an `int` is `2147483647` which is much smaller than `38574876546456476745`.
+
+```admonish tip
+The `std::sto*` function family will 'successfully' parse inputs like "34abc" as they extract the number from the front and will discard the rest.
+```
+
+### Catching Exceptions
+
+~ <!-- try-catch syntax -->
+
+```admonish warning
+While try-catch block's do model a form of control flow they are very different to regular control flow mechanisms like `if` statements. You should not be used try-catch blocks to control the regular/expected execution pathway of a program as they are much slower nor should you throw exceptions in order to jump out to a particular scope. Exceptions should only be used to indicate that a recoverable error has occurred and try-catch blocks being used to handle recovering from this event eg. giving back any allocated resources to the OS.
+```
 
 ## Allowing Multiple Guesses with a Loop
 
