@@ -49,11 +49,11 @@ auto main() -> int
 
     std::cout << "Please input your guess (1..100): ";
 
-    auto input = std::string {};
+    auto guess = std::string {};
 
-    std::getline(std::cin, input);
+    std::getline(std::cin, guess);
 
-    std::cout << "You guessed: " << input << std::endl;
+    std::cout << "You guessed: " << guess << std::endl;
 
     return 0;
 }
@@ -78,7 +78,7 @@ We then prompt the user with the name of the game as well as request input from 
 Next, we construct a new *variable* to store the users input in.
 
 ```cpp
-    auto input = std::string {};
+    auto guess = std::string {};
 ```
 
 Now this is where things begin to get interesting. This line is an assignment expression which is used to bind a value to a variable. Here is another!
@@ -87,7 +87,7 @@ Now this is where things begin to get interesting. This line is an assignment ex
 auto boxes = int { 7 };
 ```
 
-In C++ variables are mutable by default which means we are allowed to change it's value. THis concept will be discussed more in [Chapter 3 | Variables and Mutability](../common-concepts/vars-mut.md). To make a variable constant ie. its value cannot change once it is set, we use the `const` keyword before `auto`.
+In C++ variables are mutable by default which means we are allowed to change it's value. This concept will be discussed more in [Chapter 3 | Variables and Mutability](../common-concepts/vars-mut.md). To make a variable constant ie. its value cannot change once it is set, we use the `const` keyword before `auto`.
 
 ```cpp
 const auto boxes = int { 7 };  // constant
