@@ -67,7 +67,7 @@ $ mkdir bin
 $ cd bin
 $ git clone https://github.com/Microsoft/vcpkg.git
 $ ./vcpkg/bootstrap-vcpkg.sh
-$ echo '\n# >>> vcpkg >>>\nexport VCPKG_ROOT="$HOME/bin/vcpkg"\nexport PATH="$VCPKG_ROOT:$PATH"\n# >>> vcpkg >>>\n' >> ~/.bashrc
+$ echo '\n# >>> vcpkg >>>\nexport VCPKG_ROOT="$HOME/bin/vcpkg"\nexport PATH="$VCPKG_ROOT:$PATH"\n# <<< vcpkg <<<\n' >> ~/.bashrc
 $ source ~/.zshrc
 $ vcpkg --version
 vcpkg package management program version 2023-10-18-27de5b69dac4b6fe8259d283cd4011e6d20a84ce
