@@ -1,10 +1,21 @@
 # MacOS
 
-To install GCC and Clang on MacOS we will need Apple's developer toolchain called Xcode and a package manager for MacOS called Homebrew.
+To install GCC and Clang on MacOS we will need Apple's developer toolchain called Xcode
+and a package manager for MacOS called Homebrew.
 
 ## Installation
 
-To build almost anything on MacOS we need the Xcode developer suite. This is a set of libraries, environment configurations and binaries used at the core of all Apple software products. The full installation can be found on [Apple's developer](https://developer.apple.com/download/) page (requires a login) but this is an extremely large package requiring ~40Gb of disk space. Luckily there is a much smaller CLI package that just installs the necessary tooling for working with software from the terminal. One of these tools is the Clang compiler. To install GCC you will need the [Homebrew](https://brew.sh), a package manager which will by default install the latest stable version of the GCC formula. If you need a different version you can can check the [GCC formula page](https://formulae.brew.sh/formula/gcc#default) for available versions. To install these packages, open the 'Terminal' app and run:
+To build almost anything on MacOS we need the Xcode developer suite. This is a set of
+libraries, environment configurations and binaries used at the core of all Apple software
+products. The full installation can be found on
+[Apple's developer](https://developer.apple.com/download/) page (requires a login) but
+this is an extremely large package requiring ~40Gb of disk space. Luckily there is a much
+smaller CLI package that just installs the necessary tooling for working with software
+from the terminal. One of these tools is the Clang compiler. To install GCC you will need
+the [Homebrew](https://brew.sh), a package manager which will by default install the
+latest stable version of the GCC formula. If you need a different version you can can
+check the [GCC formula page](https://formulae.brew.sh/formula/gcc#default) for available
+versions. To install these packages, open the 'Terminal' app and run:
 
 ```sh
 # Install Xcode CLI tools
@@ -22,7 +33,8 @@ $ brew install gcc cmake
 
 ## Verifying Installation
 
-To verify the install worked for either GCC or Clang we can run the compiler programs with the version flag and ensure the install has been successful.
+To verify the install worked for either GCC or Clang we can run the compiler programs
+with the version flag and ensure the install has been successful.
 
 ```sh
 # Verify GCC
@@ -41,9 +53,19 @@ InstalledDir: /Library/Developer/CommandLineTools/usr/bin
 ```
 
 ```admonish note
-- The name of GNU's compiler toolchain is 'GCC' aka GNU Compiler Collection. This is in contrast to the CLI tool called `gcc` which stands for GNU C Compiler.
-- The C++ compiler from GCC is called `g++`. Make sure to use this command when compile C++ code.
-- You must specify the versioned `g++` command in order to use the Homebrew version of the command. You can find the default version installed by running `brew info gcc`. We must do this because the regular `g++` command redirects back to Apple's Clang implementation.
+Any details displayed from verifying a given newly installed tool may differ to what is
+displayed in this book.
+```
+
+```admonish tip
+- The name of GNU's compiler toolchain is 'GCC' aka GNU Compiler Collection. This is in
+contrast to the CLI tool called `gcc` which stands for GNU C Compiler.
+- The C++ compiler from GCC is called `g++`. Make sure to use this command when compile
+C++ code.
+- You must specify the versioned `g++` command in order to use the Homebrew version of
+the command. You can find the default version installed by running `brew info gcc`. We
+must do this because the regular `g++` command redirects back to Apple's Clang
+implementation.
 ```
 
 ## Installing CMake
@@ -75,6 +97,3 @@ vcpkg package management program version 2023-10-18-27de5b69dac4b6fe8259d283cd40
 See LICENSE.txt for license information.
 ```
 
-```admonish note
-Any details displayed from verifying a given newly installed tool may differ to what is displayed in this book.
-```
