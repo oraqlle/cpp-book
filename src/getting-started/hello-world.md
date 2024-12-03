@@ -81,7 +81,7 @@ written your first C++ program!
 
 ```admonish note
 - You can swap the `g++` command with the `clang++` command if you want to use the Clang
-compiler instead of the GCC compiler on supported platforms.
+compiler instead of the GCC compiler.
 - The `-std=c++20` (GCC/Clang) and `/std:c++20` flag options specify the compiler to use
 the C++20 (2020) version of C++. The `-o <name>` is used to specify the name and/or
 directory for the compiled program.
