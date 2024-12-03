@@ -83,13 +83,18 @@ Microsoft used for downloading and managing C++ libraries with CMake. We can ins
 it to our `PATH` and validate the install using the following commands:
 
 ```sh
-$ cd ~
-$ mkdir bin
-$ cd bin
-$ git clone https://github.com/Microsoft/vcpkg.git
-$ ./vcpkg/bootstrap-vcpkg.sh
-$ echo '\n# >>> vcpkg >>>\nexport VCPKG_ROOT="$HOME/bin/vcpkg"\nexport PATH="$VCPKG_ROOT:$PATH"\n# <<< vcpkg <<<\n' >> ~/.bashrc
-$ source ~/.bashrc
+cd ~
+mkdir bin
+cd bin
+git clone https://github.com/Microsoft/vcpkg.git
+./vcpkg/bootstrap-vcpkg.sh
+printf '\n# >>> vcpkg >>>\nexport VCPKG_ROOT="$HOME/bin/vcpkg"\nexport PATH="$VCPKG_ROOT:$PATH"\n# <<< vcpkg <<<\n' >> ~/.bashrc
+source ~/.bashrc
+```
+
+### Verify vcpkg
+
+```sh
 $ vcpkg --version
 vcpkg package management program version 2023-10-18-27de5b69dac4b6fe8259d283cd4011e6d20a84ce
 
