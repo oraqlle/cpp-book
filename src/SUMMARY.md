@@ -177,7 +177,7 @@
 <!-- - [Date and Time](time/date-time.md) -->
 <!--   - [Clocks and Time](time/clocks.md) -->
 <!--   - [Timezones](time/timezones.md) -->
-<!--   - [Calenders](time/calendars.md) -->
+<!--   - [Calendars](time/calendars.md) -->
 <!--   - [Locales](time/locales.md) -->
 
 ## Regex

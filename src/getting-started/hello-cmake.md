@@ -199,17 +199,17 @@ build by running the following command which should now produce and executable i
 
 Often we want to have specific flags set for the compiler(s) we are using but because
 each compiler has different flags available it can become difficult to have parity across
-compilers. Luckily presets make this much easer. We can create hidden presets that define
-a set of compiler flags for each compiler, platform or even just custom configurations
-for the same compiler. We can then use the `"inherits"` array in any preset that we want
-the flags to apply to by giving it the name of the hidden flag preset. We can see this in
-action in [Listing1-4](#listing1-4) which defines a general setup for Linux, MacOS and
-Windows with some of the most common flags set which helps tp prevent some of the most
-common errors when programming. I would recommend using this `CMakePresets.json` file as
-a base starting point for all your projects. Each platform as a preset for a debug build 
-plus a release build as well as x64 and x86 builds for the Windows platform.
-[Listing 1-5](#listing1-5) demonstrates the commands needed to configure, build and run
-the executable target for ech preset.
+compilers. Luckily presets make this much easier. We can create hidden presets that
+define a set of compiler flags for each compiler, platform or even just custom
+configurations for the same compiler. We can then use the `"inherits"` array in any
+preset that we want the flags to apply to by giving it the name of the hidden flag
+preset. We can see this in action in [Listing1-4](#listing1-4) which defines a general
+setup for Linux, MacOS and Windows with some of the most common flags set which helps to
+prevent some of the most common errors when programming. I would recommend using this
+`CMakePresets.json` file as a base starting point for all your projects. Each platform as
+a preset for a debug build plus a release build as well as x64 and x86 builds for the
+Windows platform. [Listing 1-5](#listing1-5) demonstrates the commands needed to
+configure, build and run the executable target for ech preset.
 
 ```admonish note
 These presets are for tailored for a single executable target and may not be robust to

@@ -61,62 +61,26 @@ details.
 
 ### Planned
 
-### Possible Future Chapters
-
 3. Common Programming Concepts, will cover the basics of the C++ language from variables
 and data types to creating functions and controlling the execution flow of a program.
 4. Ownership, will cover C++ ownership model and how you are able share data or even
 transfer data ownership.
-5. Containers, will discuss some of the containers available in the standard library and
-briefly discuss their capabilities, use cases and tradeoffs.
-6. Error Handling, will cover how to report and handle errors in C++ in order to mitigate
-the frequency of your programs crashing and keep them running despite failures occurring.
-It will also tackle how to perform checks at compile time.
-7. Custom Types, contains information for creating your own types and structures within
-C++ and how to define operations and methods on your types. We will also begin discussing
-how to manage resource lifetimes owned by custom types using RAII as well as explore the
-C++ "Zero Cost Abstraction" model.
-8. Managing Growing Projects, will discuss how to organise larger codebases using
-namespace, headers (modules in C++20) and how to build a project for multiple
-architectures.
-9. Generic Programming, will introduce the idea of generic programming through the use of
-templates and how to allow design reusable code that is type agnostic. We will also
-discuss how to constrain generic code to types with specified functionality.
-10. IO, is where you learn about IO features available in C++. This covers the concept of
-a stream and how it can be used to model files, devices and even strings. You will also
-learn about using the formatted strings and output functions available to C++.
-11. IO Project, will look at utilising ideas from previous chapters in order to build a
-tool that replicates a subset of the functionality of the command line tool `grep`.
-12. Algorithms, will showcase a few of the common algorithms available in the C++
-standard library and they can be used to manipulate any of the standard containers in an
-expressive and generic manner. We will also cover the concept of a range and a view and
-how they allow use to write composable algorithms.
-13. Improved IO Project, will look at improving our IO project from Chapter 11 by
-utilising the standard algorithms.
-14. Memory, will discuss C++ memory model and 'abstract machine' that is used to model a
-system running C++. You'll be introduced to the concept of the stack and the heap,
-difference between them and how to create objects in each. You will learn how to use
-C++'s pointer types and how they differ from references. Finally you will be introduced
-to dynamic memory objects and how to construct them using both automatic and manual
-management techniques.
-15. Concurrency, will delve into the concurrency primitives possessed by C++ and how they
-can be used to leverage more compute resources and build parallel and concurrent systems.
-We will also explore the components and principles for maintaining synchronization
-between concurrently executing code.
-16. Metaprogramming, will cover metaprogramming techniques available in C++ and how to
-utilise them to write code that generate more code for you. We'll cover topics like type
-traits and SFINAE as well as various techniques for performing compile computation.
-17. Numerics and Mathematical Calculations, will delve into the enormous support for
-numerical computation and performing mathematical calculations within your programs.
-18. Object Orientated Programming In C++, covers C++ support for write object orientated
-code and how it contrasts to the rest of the languages features and object oriented
-principles you may be familiar with from other languages.
-19. Working with the Filesystem, discusses how you can use C++ to manipulate a systems
-filesystem in a cross platform matter.
-20. Date, Time and Localization, introduces C++ support for working with time and dates
-how to change the locale currently being used to express said times and dates.
-21. Regex, will explore how to use Regex in C++ to manipulate and parse strings.
-22. Appendices, The appendices hold extra information may be of use to the reader but do
+5. Structured Data will look at how to create custom types using structs.
+6. In Managing Projects we'll discuss how to compile multiple files together and how
+CMake makes this process easier.
+7. Custom Types explores how to create more powerful custom types and how to manage the
+lifetime of data.
+8. Error Handling will look at the various ways to verify the correctness of your
+programs at compile time. We will also look at recovering from errors to prevent crashes.
+9. Templates covers C++'s metaprogramming capabilities that allow you to build generic
+code that applies multiple types.
+10. In Functional Language Features we will look
+11. The IO chapter will briefly look deeper at C++ IO capabilities using streams. We also
+explore C++ filesystem library.
+12. Memory will showcase how to safey (and unsafely ... for science) control memory.
+13. In Concurrency we will look at how to parallelize our programs using a miriade of
+concurrency concepts while ensure safe access and manipulation of shared data.
+14. Appendices, The appendices hold extra information may be of use to the reader but do
 not fit in elsewhere in the book.
     - A - Keywords
     - B - Operators
@@ -125,6 +89,22 @@ not fit in elsewhere in the book.
     - E - Value Categories
     - F - Compiler Vendors
     - G - Challenge Answers
+
+### Possible Future Chapters
+
+- IO Project, will look at utilising ideas from previous chapters in order to build a
+tool that replicates a subset of the functionality of the command line tool `grep`.
+- Algorithms, will showcase a few of the common algorithms available in the C++
+standard library and they can be used to manipulate any of the standard containers in an
+expressive and generic manner. We will also cover the concept of a range and a view and
+how they allow use to write composable algorithms.
+- Improved IO Project, will look at improving our IO project from Chapter 11 by
+utilising the standard algorithms.
+- Object Orientated Programming In C++, covers C++ support for write object orientated
+code and how it contrasts to the rest of the languages features and object oriented
+principles you may be familiar with from other languages.
+- Date, Time and Localization, introduces C++ support for working with time and dates
+how to change the locale currently being used to express said times and dates.
 
 There is no wrong way to read this book: if you want to skip ahead, go for it! You might
 have to jump back to earlier chapters if you experience any confusion. But do whatever
