@@ -31,8 +31,3 @@ $ mdbook serve --open
 
 Refer to the [Code of Conduct](/CODE_OF_CONDUCT.md) and the [License](/LICENSE) for this repository for the expected behavior of contributors and users of the repository. If you have any concerns reach out to me (Tyler Swann) on Teams or follow standard M procedures for issues you are having within the team, branch or MDN. If you wish to contribute, follow the [contributing guide](/CONTRIBUTING.md).
 
-## TODO
-
-- [ ] Only cover basic structs (no constructors) in chapter 5.
-- [ ] Move old chapter 5 topics to after chapter 6
-
