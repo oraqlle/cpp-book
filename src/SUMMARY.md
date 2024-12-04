@@ -22,7 +22,7 @@
 ## Common Programming Concepts
 
 - [Common Programming Concepts](ch03-common-concepts/common-concepts.md)
-<!--   - [Variables and Mutability](common-concepts/vars-mut.md) -->
+  - [Variables and Mutability](ch03-common-concepts/vars-mut.md)
 <!--   - [Data Types](common-concepts/data-types.md) -->
 <!--   - [Functions](common-concepts/functions.md) -->
 <!--   - [Comments](common-concepts/comments.md) -->
