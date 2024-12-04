@@ -13,7 +13,7 @@ auto main() -> int
     auto gen = std::mt19937 { rd() };
     auto distrib = std::uniform_int_distribution { 1, 100 };
 
-    const auto secret_number = distrib(gen);
+    auto const secret_number = distrib(gen);
     auto input = std::string {};
     auto guess = int {};
 
@@ -23,15 +23,15 @@ auto main() -> int
 
         try {
             guess = std::stoi(input);
-        } catch (const std::invalid_argument&) {
+        } catch (std::invalid_argument const&) {
             std::cout << "Invalid input " << std::quoted(input) << "!\n";
             continue;
-        } catch (const std::out_of_range&) {
+        } catch (std::out_of_range const&) {
             std::cout << "Input " << std::quoted(input) << " is too large!" << '\n';
             continue;
         }
 
-        if (const auto cmp = guess <=> secret_number; std::is_eq(cmp)) {
+        if (auto const cmp = guess <=> secret_number; std::is_eq(cmp)) {
             std::cout << "You guessed correctly!\n";
             break;
         } else if (std::is_lt(cmp)) {

@@ -110,10 +110,10 @@ auto boxes = int { 7 };
 In C++ variables are mutable by default which means we are allowed to change it's value.
 This concept will be discussed more in [Chapter 3 | Variables and Mutability](../common-concepts/vars-mut.md).
 To make a variable constant ie. its value cannot change once it is set, we use the
-`const` keyword before `auto`.
+`const` keyword after/before `auto` (I choose after).
 
 ```cpp
-const auto boxes = int { 7 };  // constant
+auto const boxes = int { 7 };  // constant
 auto crates = int { 4 };  // mutable
 ```
 
@@ -252,7 +252,7 @@ auto main() -> int
     auto gen = std::mt19937 { rd() };
     auto distrib = std::uniform_int_distribution<unsigned> { 1u, 100u };
 
-    const auto secret_number = distrib(gen);
+    auto const secret_number = distrib(gen);
 
     std::cout << "The secret number is: " << secret_number << '\n';
 
@@ -292,7 +292,7 @@ This sets up our random number generator. To obtain a random number we can call 
 distribution object, passing in the generator and returning a new random value.
 
 ```cpp
-    const auto secret_number = distrib(gen);
+    auto const secret_number = distrib(gen);
 ```
 
 ## Comparing the Guess to the Secret Number
@@ -316,7 +316,7 @@ auto main() -> int
     auto gen = std::mt19937 { rd() };
     auto distrib = std::uniform_int_distribution { 1, 100 };
 
-    const auto secret_number = distrib(gen);
+    auto const secret_number = distrib(gen);
 
     std::cout << "The secret number is: " << secret_number << '\n';
 
@@ -328,7 +328,7 @@ auto main() -> int
 
     auto guess = std::stoi(input);
 
-    if (const auto cmp = guess <=> secret_number; std::is_eq(cmp)) {
+    if (auto const cmp = guess <=> secret_number; std::is_eq(cmp)) {
         std::cout << "You guessed correctly!\n";
     } else if (std::is_lt(cmp)) {
         std::cout << "Too small!\n";
@@ -362,7 +362,7 @@ to check the result. We use
 comparisons result and run a separate piece of code if that branch succeeds.
 
 ```cpp
-    if (const auto cmp = guess <=> secret_number; std::is_eq(cmp)) {
+    if (auto const cmp = guess <=> secret_number; std::is_eq(cmp)) {
         std::cout << "You guessed correctly!\n";
     } else if (std::is_lt(cmp)) {
         std::cout << "Too small!\n";
@@ -447,7 +447,7 @@ $    auto rd = std::random_device {};
 $    auto gen = std::mt19937 { rd() };
 $    auto distrib = std::uniform_int_distribution { 1, 100 };
 $
-$    const auto secret_number = distrib(gen);
+$    auto const secret_number = distrib(gen);
 $
 $    std::cout << "The secret number is: " << secret_number << '\n';
 $
@@ -463,15 +463,15 @@ $
 
     try {
         guess = std::stoi(input);
-    } catch (const std::invalid_argument&) {
+    } catch (std::invalid_argument const&) {
         std::cout << "Invalid input " << std::quoted(input) << "!\n";
         std::exit(0);
-    } catch (const std::out_of_range&) {
+    } catch (std::out_of_range const&) {
         std::cout << "Input " << std::quoted(input) << " is too large!" << '\n';
         std::exit(0);
     }
 $
-$    if (const auto cmp = guess <=> secret_number; std::is_eq(cmp)) {
+$    if (auto const cmp = guess <=> secret_number; std::is_eq(cmp)) {
 $        std::cout << "You guessed correctly!\n";
 $    } else if (std::is_lt(cmp)) {
 $        std::cout << "Too small!\n";
@@ -534,7 +534,7 @@ $    auto rd = std::random_device {};
 $    auto gen = std::mt19937 { rd() };
 $    auto distrib = std::uniform_int_distribution { 1, 100 };
 $
-$    const auto secret_number = distrib(gen);
+$    auto const secret_number = distrib(gen);
 $
 $    std::cout << "The secret number is: " << secret_number << '\n';
 $
@@ -552,15 +552,15 @@ $
 
         try {
             guess = std::stoi(input);
-        } catch (const std::invalid_argument&) {
+        } catch (std::invalid_argument const&) {
             std::cout << "Invalid input " << std::quoted(input) << "!\n";
             continue;
-        } catch (const std::out_of_range&) {
+        } catch (std::out_of_range const&) {
             std::cout << "Input " << std::quoted(input) << " is too large!" << '\n';
             continue;
         }
 
-        if (const auto cmp = guess <=> secret_number; std::is_eq(cmp)) {
+        if (auto const cmp = guess <=> secret_number; std::is_eq(cmp)) {
             std::cout << "You guessed correctly!\n";
             break;
         } else if (std::is_lt(cmp)) {

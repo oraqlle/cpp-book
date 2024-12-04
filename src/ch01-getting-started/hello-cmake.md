@@ -207,7 +207,8 @@ presets into the projects. There are also some hidden presets that are used to d
 settings across presets; for example, I have set the C++ standard to 20 for all presets
 by inheriting the `"std-cxx"` preset in the non-hidden platform presets. 
 [Listing 1-5](#listing1-5) demonstrates the commands needed to configure, build and run
-the executable target for each preset.
+the executable target for each preset. From now on in the book, I will assuming the use
+of presets for building C++.
 
 ```admonish note
 - You'll have to specify the build directory using the `-B` flag like it is shown in
