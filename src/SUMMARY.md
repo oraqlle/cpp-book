@@ -21,7 +21,7 @@
 
 ## Common Programming Concepts
 
-<!-- - [Common Programming Concepts](common-concepts/common-concepts.md) -->
+- [Common Programming Concepts](ch03-common-concepts/common-concepts.md)
 <!--   - [Variables and Mutability](common-concepts/vars-mut.md) -->
 <!--   - [Data Types](common-concepts/data-types.md) -->
 <!--   - [Functions](common-concepts/functions.md) -->
@@ -186,8 +186,8 @@
 
 ## Appendix
 
-<!-- - [Appendix](appendix/appendicies.md) -->
-<!--   - [A - Keywords](appendix/keywords.md) -->
+- [Appendix](appendix/appendix.md)
+  - [A - Keywords](appendix/A-keywords.md)
 <!--   - [B - Operators](appendix/operators.md) -->
 <!--   - [C - Developer Tools](appendix/devtools.md) -->
 <!--   - [D - Standard Versions](appendix/standard-versions.md) -->
