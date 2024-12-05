@@ -10,8 +10,8 @@ with no current or deprecated usecase.
 
 ## Currently in Use
 
-| Keyword               | Description |
-|-------------------------|-------------|
+| Keyword                 | Description |
+|-------------------------|:-----------:|
 | `alignas` (C++11)       |             |
 | `alignof` (C++11)       |             |
 | `and`                   |             |
@@ -20,14 +20,9 @@ with no current or deprecated usecase.
 | `auto`                  |             |
 | `bitand`                |             |
 | `bitor`                 |             |
-| `bool`                  |             |
 | `break`                 |             |
 | `case`                  |             |
 | `catch`                 |             |
-| `char`                  |             |
-| `char8_t` (C++20)       |             |
-| `char16_t` (C++11)      |             |
-| `char32_t` (C++11)      |             |
 | `class`                 |             |
 | `compl`                 |             |
 | `concept` (C++20)       |             |
@@ -58,8 +53,6 @@ with no current or deprecated usecase.
 | `goto`                  |             |
 | `if`                    |             |
 | `inline`                |             |
-| `int`                   |             |
-| `long`                  |             |
 | `mutable`               |             |
 | `namespace`             |             |
 | `new`                   |             |
@@ -77,7 +70,6 @@ with no current or deprecated usecase.
 | `reinterpret_cast`      |             |
 | `requires` (C++20)      |             |
 | `return`                |             |
-| `short`                 |             |
 | `signed`                |             |
 | `sizeof`                |             |
 | `static`                |             |
@@ -100,7 +92,6 @@ with no current or deprecated usecase.
 | `virtual`               |             |
 | `void`                  |             |
 | `volatile`              |             |
-| `wchar_t`               |             |
 | `while`                 |             |
 | `xor`                   |             |
 | `xor_eq`                |             |
@@ -109,17 +100,17 @@ with no current or deprecated usecase.
 
 These keywords are reserved in specific circumstances like in a class declaration etc..
 
-| Keyword          | Description                                                               |
-|------------------|---------------------------------------------------------------------------|
-| final (C++11)    | Specifies virtual member function cannot be overridden in child class.    |
-| override (C++11) | Specifies virtual member function definition overrides parent definition. |
-| import (C++20)   | Module import declaration.                                                |
-| module (C++20)   | Module and module fragment declaration.                                   |
+| Keyword            | Description                                                               |
+|--------------------|---------------------------------------------------------------------------|
+| `final` (C++11)    | Specifies virtual member function cannot be overridden in child class.    |
+| `override` (C++11) | Specifies virtual member function definition overrides parent definition. |
+| `import` (C++20)   | Module import declaration.                                                |
+| `module` (C++20)   | Module and module fragment declaration.                                   |
 
 ## Reserved for Future Use
 
 These keywords are reserved for experimental features being tested in a
-[Techincal Specification](https://en.cppreference.com/w/cpp/experimental).
+[Technical Specification](https://en.cppreference.com/w/cpp/experimental).
 
 | Keyword                    | Technical Specification      | Description                                                                                                                                          |
 |----------------------------|------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
