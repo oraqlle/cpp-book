@@ -104,7 +104,12 @@ Now this is where things begin to get interesting. This line is an assignment ex
 which is used to bind a value to a variable. Here is another!
 
 ```cpp
-auto boxes = int { 7 };
+auto boxes = 7;
+```
+
+```admonish note
+Note the lack of a type after the `=`. This is because we can initialize `boxes` with a
+integer literal and thus a type is not needed.
 ```
 
 In C++ variables are mutable by default which means we are allowed to change it's value.
@@ -113,8 +118,8 @@ To make a variable constant ie. its value cannot change once it is set, we use t
 `const` keyword after/before `auto` (I choose after).
 
 ```cpp
-auto const boxes = int { 7 };  // constant
-auto crates = int { 4 };  // mutable
+auto const boxes = 7;  // constant
+auto crates = 4;  // mutable
 ```
 
 ```admonish tip

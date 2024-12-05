@@ -104,7 +104,7 @@ $ ./build/main
 
 C++ allows for us to define constants whose value is computed at compile time using the
 `constexpr` keyword. This allows you to define variables that are the result of some
-computation but have the value ready at runtime instead of peforming the computation
+computation but have the value ready at runtime instead of performing the computation
 perform during runtime. `constexpr` are naturally immutable.
 
 To actually see this feature in action, we need to look at the assembly generated for
@@ -117,8 +117,8 @@ value.
 #include <iostream>
 
 auto constexpr sum(auto const n) {
-    auto acc {0};
-    for (auto i {0}; i < n; ++i) {
+    auto acc = 0;
+    for (auto i = 0; i < n; ++i) {
         acc += 1;
     }
 
@@ -161,21 +161,21 @@ the variables `x` and `y` being initialized. Line 6 makes sense because we initi
 the value with a literal `6`, but line 5 shows `2`. Compare this to the lines 8-14 which
 show the process of calling the `sum()` function, calculating and moving the result into
 registers, a division call (`idiv`) and finally pushing the result onto the variable on
-stack frame. Thats not even to mention the instructions needed to run `sum()` (take a
+stack frame. That's not even to mention the instructions needed to run `sum()` (take a
 look at the link below for the full assembly). The difference is quite distinguishable.
 
-[`constexpr` example](https://www.godbolt.org/z/sPq9Khzba)
+[`constexpr` example](https://www.godbolt.org/z/61hsYb14P)
 
 While the example above is simple (and a little contrived\*), `constexpr` has become
 a very powerful feature of C++ and is capable of computing super complex expressions
 at compile time, even expression involving objects that typically interact with runtime
-only enities like the heap however, we'll learn more about this in future chapters.
+only entities like the heap however, we'll learn more about this in future chapters.
 
 ```admonish abstract
 \*This initialization and immediate change is necessary to force the compiler to generate
 the unoptimized assembly I wanted to show off. Compilers have gotten so good that
 regardless of `constexpr` or no `constexpr`, a variable directly initialized to this
-expression will casue the compiler to optimize the whole thing away into the result
+expression will cause the compiler to optimize the whole thing away into the result
 of the expression and directly initialize the variable with that value.
 
 In fact, it completely removes the definition of `sum()` as it is only used in these
@@ -188,11 +188,40 @@ It's amazing how much heavy lifting compilers are able to do for us.
 
 ```admonish note
 It should be noted that `constexpr` only indicates to the compiler that this expression
-could be computable at compile time but makes no guaruntee that it will. For that,
+could be computable at compile time but makes no guarantee that it will. For that,
 `consteval` was introduced.
 ```
 
-## Static Variables
+## Type Deduction
 
-~
+You may be wondering why we I am using `auto` to declare variables instead of writing the
+type like below. C++ is a statically typed language after all... right?
+
+```cpp
+int x = 5;
+auto y = 6;
+```
+
+`auto` is a keyword that allows the compiler to perform *type deduction*, which means we
+tell the compiler to figure out the type of the variable or function return signature
+from the context it is given.
+
+<!--
+## Storage Duration
+
+Data in C++ falls into different storage duration categories which dictates the lifetime
+of the data. So far we have seen data with automatic storage duration, this is data
+that is automatically freed when it goes out of scope. These are variables that do not
+allocate heap memory and instead live entirely on the stack and thus are freed when stack
+frames are popped.
+
+Data with dynamic storage duration is data that is created at runtime and must be
+deallocated manually before the program finishes. This is data that is usually stored on
+the heap.
+
+One we haven't lloked at yet is static storage duration. This is data that is encoded
+directly in the binary of a program and thus lives for the entire duration of the
+program. To give data this storage duration we declare it with the `static` keyword.
+Global variables declared outside of a functions are implicitly static.
+->>
 
