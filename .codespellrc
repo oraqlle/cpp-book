@@ -5,4 +5,5 @@ check-hidden =
 skip = */.git,*/build, */book,*/prefix,*/.codespellrc
 quiet-level = 2
 ignore-regex = ^#include <(?:stdio)\.h>$
+ignore-words-list = thead,uint
 

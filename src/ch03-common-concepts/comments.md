@@ -4,7 +4,7 @@
 🚧 Page Under Construction! 🏗️
 ```
 
-Comments are a way to document code for other people, and youself. In C++ there are two
+Comments are a way to document code for other people, and yourself. In C++ there are two
 types of comments, single line and multi-line. We've seen single line comments in many of
 the previous examples but to reiterate, a single line comment is started with `//` and
 any text written after it until a newline is ignored by the compiler.

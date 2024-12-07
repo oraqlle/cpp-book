@@ -26,7 +26,7 @@
   - [Data Types](ch03-common-concepts/data-types.md)
   - [Functions](ch03-common-concepts/functions.md)
   - [Comments](ch03-common-concepts/comments.md)
-<!--   - [Control Flow](ch03-common-concepts/control-flow.md) -->
+  - [Control Flow](ch03-common-concepts/control-flow.md)
 
 ## Ownership
 
@@ -188,7 +188,7 @@
 
 - [Appendix](appendix/appendix.md)
   - [A - Keywords](appendix/A-keywords.md)
-<!--   - [B - Operators](appendix/operators.md) -->
+  - [B - Operators](appendix/B-operators.md)
 <!--   - [C - Developer Tools](appendix/devtools.md) -->
 <!--   - [D - Standard Versions](appendix/standard-versions.md) -->
 <!--   - [E - Value Categories](appendix/value-categories.md) -->

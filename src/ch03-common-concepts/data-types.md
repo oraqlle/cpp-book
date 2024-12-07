@@ -93,7 +93,7 @@ In addition to these integer types there are `std::size_t` and `std::ptrdiff_t` 
 are the unsigned and signed types respectively that have the max bit width available on a
 given architecture, eg. 64 bits on 64-bit architecture. `std::size_t` is the type used
 when index arrays or getting the size of objects. The odd name for `std::ptrdiff_t` is
-because this is the type returned after pointer arithmetics however, it is really the
+because this is the type returned after pointer arithmetic however, it is really the
 largest signed integer type.
 
 #### Literals
@@ -118,7 +118,7 @@ auto const Hex = 0X2A; // capital hex digits
 auto const binary 0b101010;
 ```
 
-Integers can also be seperated using a `'` to make large numbers easier to read.
+Integers can also be separated using a `'` to make large numbers easier to read.
 
 ```cpp
 auto const x = 1'234'567'890;
