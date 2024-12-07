@@ -122,5 +122,74 @@ $    return 0;
 
 ## Overloading
 
-~
+In C++ you can overload functions of the same name to have different implementations
+as long as the type signature of the function is different. This is because the type
+signature is part of the functions symbol and thus functions with the same name but
+different parameters (and possibly return type) is an entirely different function.
+
+```cpp
+$#include <iomanip>
+$#include <iostream>
+$#include <sstream>
+$#include <string>
+// --snip--
+
+auto another_one(int const x, int const y) -> std::string {
+$    auto ss = std::stringstream {};
+$    ss << "x: " << x << ", y: " << y << "\n";
+$    return ss.str();
+// --snip--
+}
+
+auto another_one(float const x, float const y) -> std::string {
+    auto ss = std::stringstream {};
+    ss << std::setprecision(4) 
+       << "x: "
+       << x
+       << ", y: "
+       << y
+       << "\n";
+
+    return ss.str();
+}
+
+auto main() -> int {
+    std::cout << "Main function!\n";
+
+    std::cout << another_one(7, 6);
+    std::cout << another_one(7.456575654f, 6.0f);
+$    return 0;
+// --snip--
+```
+
+This concept also extends to C++ operators, which can also be overloaded to have custom
+functionality between custom types. Operators are overloaded using the `operator` keyword
+as the function name, suffixed with the operator we wish to overload. Operator overload
+functions can only take two parameters except unary operators, which can only take one.
+
+```cpp
+#include <iostream>
+#include <ostream>
+#include <utility>
+// --snip--
+
+auto operator<<(std::ostream& os, std::pair<int, int> p) -> std::ostream& {
+    auto const [x, y] = p;
+    os << "x: " << x << ", y: " << y << "\n";
+    return os;
+}
+
+auto main() -> int {
+    auto const p = std::pair {7, 6};
+
+    std::cout << p << "\n";
+    return 0;
+// --snip--
+}
+```
+
+```admonish warning
+There are a few operators that cannot be overloaded such as scope lookup (`::`), and
+member access operators (`.`, `->`, `.*` and `->*`).
+```
 
