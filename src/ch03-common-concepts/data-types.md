@@ -96,16 +96,32 @@ when index arrays or getting the size of objects. The odd name for `std::ptrdiff
 because this is the type returned after pointer arithmetics however, it is really the
 largest signed integer type.
 
-#### Arithmetics
-
-```admonish warning
-🚧 Section Under Construction! 🏗️
-```
-
 #### Literals
 
-```admonish warning
-🚧 Section Under Construction! 🏗️
+You can specify the type/width of an integer using a literal suffix from the table below
+with the `u` suffix being able to be used in combination with the other two.
+
+| Keyword      | Description |
+|--------------|:-----------:|
+| `u` or `U`   |  `unsigned` |
+| `l` or `L`   |    `long`   |
+| `ll` or `LL` | `long long` |
+
+Additionally you can write integer literals in a different base form by changing the
+prefix of the literal.
+
+```cpp
+auto const decimal = 42;
+auto const octal = 052;
+auto const hex = 0x2a;
+auto const Hex = 0X2A; // capital hex digits
+auto const binary 0b101010;
+```
+
+Integers can also be seperated using a `'` to make large numbers easier to read.
+
+```cpp
+auto const x = 1'234'567'890;
 ```
 
 ### Character Types
@@ -160,6 +176,39 @@ We can also initialize floating points using exponential form:
 auto const f = -6e-2f;
 auto const d = 475768e4;
 auto const l = -655456457567le7l;
+```
+
+#### Arithmetic Operations
+
+Integral and floating point types are categorized as *arithmetic* types which mean they
+support the common arithmatic operations like addition, subtraction etc.
+```cpp
+auto main() -> int {
+    // addition
+    auto const sum = 4 + 6;
+
+    // subtraction
+    auto const diff = 10 - 5.5;
+
+    // multiplication
+    auto const mul = 5 * 3.2;
+
+    // division
+    auto const idiv = 10 / 3;
+    auto const fdif = 13.5 / 2.4;
+
+    // remainder
+    auto const = 23 % 4;
+
+    return 0;
+}
+```
+
+```admonish tip
+- Division betweem two integrals performs *integer division* and truncates towards 0 while
+if one argument is a floating point then floating point division is performed.
+- Remainder is only valid between integral types.
+
 ```
 
 ## Compound Data Types
