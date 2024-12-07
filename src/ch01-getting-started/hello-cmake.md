@@ -221,7 +221,7 @@ handle exporting libraries.
 <span id="listing1-4" class="caption">Listing 1-4: Base `CMakePresets.json` for a single cross-platform executable target with compiler flags set.</span>
 
 ```json
-{{#include examples/guessing_game/CMakePresets.json}}
+{{#include ../ch02-guessing-game/CMakePresets.json}}
 ```
 
 <span id="listing1-5" class="caption">Listing 1-5: Commands for building with [Listing 1-4's](#listing1-4) presets.</span>
