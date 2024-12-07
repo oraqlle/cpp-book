@@ -84,7 +84,7 @@ $    return 0;
 
 `switch` statements are a way to mix control flow with enums. `switch` statements are
 given a enum object which are then matched against different cases ie. enum variants.
-There is a `default` case that is used if no case is match, the equivelent of `else`
+There is a `default` case that is used if no case is match, the equivalent of `else`
 from `if` statements.
 
 The cases of a `switch` statements automatically fallthrough to the next case if you do
