@@ -147,7 +147,7 @@ auto y = true;
 ```
 
 ```admonish tip
-The C language; C++'s mother language, orginally did not have a native Boolean type with
+The C language; C++'s mother language, originally did not have a native Boolean type with
 Boolean expressions return 1 for `true` and 0 for `false`. Later in the 1999 standard of
 C (C99), the `_Bool` type was introduced to support Booleans.
 ```
@@ -181,7 +181,7 @@ auto const l = -655456457567le7l;
 #### Arithmetic Operations
 
 Integral and floating point types are categorized as *arithmetic* types which mean they
-support the common arithmatic operations like addition, subtraction etc.
+support the common arithmetic operations like addition, subtraction etc.
 ```cpp
 auto main() -> int {
     // addition
@@ -205,7 +205,7 @@ auto main() -> int {
 ```
 
 ```admonish tip
-- Division betweem two integrals performs *integer division* and truncates towards 0 while
+- Division between two integrals performs *integer division* and truncates towards 0 while
 if one argument is a floating point then floating point division is performed.
 - Remainder is only valid between integral types.
 
@@ -260,9 +260,20 @@ You can also destructure tuples into its constituent values like so.
 auto const [v, w, x, y, z] = t;
 ```
 
+There is a specialization of *tuples* called `std::pair` which holds just two values. The
+values of a pair can be extracted using the same methods as tuples but they also have
+public members `std::pair::first` and `std::pair::second` which allows you to access the
+data.
+
+```cpp
+auto const p = std::pair {5, 'a'};
+auto const [x, y] = p;
+auto const z = p.second;
+```
+
 ## Special Types
 
-C++ has a handful of special types that you wont use as directly as types but are
+C++ has a handful of special types that you won't use as directly as types but are
 fundamental to the language.
 
 The first is the `void` type is an incomplete type that is used to indicate that a
