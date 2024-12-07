@@ -24,8 +24,8 @@
 - [Common Programming Concepts](ch03-common-concepts/common-concepts.md)
   - [Variables and Mutability](ch03-common-concepts/vars-mut.md)
   - [Data Types](ch03-common-concepts/data-types.md)
-<!--   - [Functions](ch03-common-concepts/functions.md) -->
-<!--   - [Comments](ch03-common-concepts/comments.md) -->
+  - [Functions](ch03-common-concepts/functions.md)
+  - [Comments](ch03-common-concepts/comments.md)
 <!--   - [Control Flow](ch03-common-concepts/control-flow.md) -->
 
 ## Ownership
