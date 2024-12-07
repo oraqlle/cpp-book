@@ -26,6 +26,8 @@ auto main() -> int {
     std::cout << "Main function!\n";
 
     another_one();
+$    return 0;
+// --snip--
 }
 ```
 
@@ -46,6 +48,8 @@ auto main() -> int {
     std::cout << "Main function!\n";
 
     another_one();
+$    return 0;
+// --snip--
 }
 
 // definition
@@ -77,6 +81,8 @@ auto main() -> int {
     std::cout << "Main function!\n";
 
     another_one(7, 6);
+$    return 0;
+// --snip--
 }
 ```
 
@@ -109,6 +115,12 @@ auto main() -> int {
     std::cout << "Main function!\n";
 
     std::cout << another_one(7, 6);
+$    return 0;
+// --snip--
 }
 ```
+
+## Overloading
+
+~
 
