@@ -30,10 +30,10 @@
 
 ## Ownership
 
-<!-- - [Ownership](ownership/ownership.md) -->
-<!--   - [What is ownership?](ownership/what-is-it.md) -->
-<!--   - [References and Moves](ownership/refs-moves.md) -->
-<!--   - [Spans](ownership/spans.md) and std::string_view -->
+- [Ownership](ch04-ownership/ownership.md)
+  - [What is ownership?](ch04-ownership/what-is-it.md)
+  - [References and Moves](ch04-ownership/refs-moves.md)
+<!--   - [Spans](ch04-ownership/spans.md) and std::string_view -->
 
 ## Containers
 

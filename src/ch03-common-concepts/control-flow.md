@@ -209,7 +209,7 @@ $    return 0;
 ### range-for loop
 
 In C++11, we got another `for` loop called a `range-for` loop. This loop is able to
-automatically traverse C++ standard container types like `std::array`. This is beneficial
+automatically traverse C++ standard container types like `array`. This is beneficial
 as it prevents us from incorrectly accessing/traversing the container ie. indexing out of
 the array/containers bounds.
 
