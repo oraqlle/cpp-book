@@ -56,8 +56,8 @@ When we try to compile this we should get an error like so:
 $ cmake -S . -B build --preset=<platform>
 $ cmake --build build
 [ 50%] Building CXX object CMakeFiles/main.dir/main.cxx.o
-/home/tyler/dev/cpp-book_hello_cmake/main.cxx: In function ‘int main()’:
-/home/tyler/dev/cpp-book_hello_cmake/main.cxx:7:7: error: assignment of read-only variable ‘x’
+/home/user/projects/common/main.cxx: In function ‘int main()’:
+/home/user/projects/common/main.cxx:7:7: error: assignment of read-only variable ‘x’
     7 |     x = 43;
       |     ~~^~~~
 gmake[2]: *** [CMakeFiles/main.dir/build.make:76: CMakeFiles/main.dir/main.cxx.o] Error 1
@@ -206,22 +206,20 @@ auto y = 6;
 tell the compiler to figure out the type of the variable or function return signature
 from the context it is given.
 
-<!--
 ## Storage Duration
 
 Data in C++ falls into different storage duration categories which dictates the lifetime
 of the data. So far we have seen data with automatic storage duration, this is data
 that is automatically freed when it goes out of scope. These are variables that do not
 allocate heap memory and instead live entirely on the stack and thus are freed when stack
-frames are popped.
+frames are popped, which occurs naturally as functions return.
 
 Data with dynamic storage duration is data that is created at runtime and must be
 deallocated manually before the program finishes. This is data that is usually stored on
-the heap.
+the heap or what C++ formally calls the *free store*.
 
-One we haven't lloked at yet is static storage duration. This is data that is encoded
+One we haven't looked at yet is static storage duration. This is data that is encoded
 directly in the binary of a program and thus lives for the entire duration of the
 program. To give data this storage duration we declare it with the `static` keyword.
-Global variables declared outside of a functions are implicitly static.
-->>
+Global variables declared outside of a functions are implicitly `static`.
 
