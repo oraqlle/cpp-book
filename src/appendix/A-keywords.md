@@ -30,7 +30,6 @@ with no current or deprecated usecase.
 | `consteval` (C++20)     |             |
 | `constexpr` (C++11)     |             |
 | `constinit` (C++20)     |             |
-| `const_cast`            |             |
 | `continue`              |             |
 | `co_await` (C++20)      |             |
 | `co_return` (C++20)     |             |
@@ -40,7 +39,6 @@ with no current or deprecated usecase.
 | `delete`                |             |
 | `do`                    |             |
 | `double`                |             |
-| `dynamic_cast`          |             |
 | `else`                  |             |
 | `enum`                  |             |
 | `explicit`              |             |
@@ -67,14 +65,12 @@ with no current or deprecated usecase.
 | `protected`             |             |
 | `public`                |             |
 | `register`              |             |
-| `reinterpret_cast`      |             |
 | `requires` (C++20)      |             |
 | `return`                |             |
 | `signed`                |             |
 | `sizeof`                |             |
 | `static`                |             |
 | `static_assert` (C++11) |             |
-| `static_cast`           |             |
 | `struct`                |             |
 | `switch`                |             |
 | `template`              |             |
