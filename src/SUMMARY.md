@@ -5,35 +5,35 @@
 
 ## Getting Started
 
-- [Getting Started](getting-started/getting-started.md)
-  - [Installation](getting-started/installation.md)
-    - [Linux](getting-started/linux.md)
-    - [Windows](getting-started/windows.md)
-    - [MacOS](getting-started/macos.md)
-  - ["Hello, World!"](getting-started/hello-world.md)
-  - ["Hello, CMake!"](getting-started/hello-cmake.md)
-  - ["Hello, vcpkg!"](getting-started/hello-vcpkg.md)
-  - ["Hello, Godbolt!"](getting-started/hello-godbolt.md)
+- [Getting Started](ch01-getting-started/getting-started.md)
+  - [Installation](ch01-getting-started/installation.md)
+    - [Linux](ch01-getting-started/linux.md)
+    - [Windows](ch01-getting-started/windows.md)
+    - [MacOS](ch01-getting-started/macos.md)
+  - ["Hello, World!"](ch01-getting-started/hello-world.md)
+  - ["Hello, CMake!"](ch01-getting-started/hello-cmake.md)
+  - ["Hello, vcpkg!"](ch01-getting-started/hello-vcpkg.md)
+  - ["Hello, Godbolt!"](ch01-getting-started/hello-godbolt.md)
 
 ## Sample Project
 
-- [Project: Guessing Game](getting-started/guessing-game.md)
+- [Project: Guessing Game](ch02-guessing-game/guessing-game.md)
 
 ## Common Programming Concepts
 
-<!-- - [Common Programming Concepts](common-concepts/common-concepts.md) -->
-<!--   - [Variables and Mutability](common-concepts/vars-mut.md) -->
-<!--   - [Data Types](common-concepts/data-types.md) -->
-<!--   - [Functions](common-concepts/functions.md) -->
-<!--   - [Comments](common-concepts/comments.md) -->
-<!--   - [Control Flow](common-concepts/control-flow.md) -->
+- [Common Programming Concepts](ch03-common-concepts/common-concepts.md)
+  - [Variables and Mutability](ch03-common-concepts/vars-mut.md)
+  - [Data Types](ch03-common-concepts/data-types.md)
+  - [Functions](ch03-common-concepts/functions.md)
+  - [Comments](ch03-common-concepts/comments.md)
+  - [Control Flow](ch03-common-concepts/control-flow.md)
 
 ## Ownership
 
 <!-- - [Ownership](ownership/ownership.md) -->
 <!--   - [What is ownership?](ownership/what-is-it.md) -->
 <!--   - [References and Moves](ownership/refs-moves.md) -->
-<!--   - [Spans](ownership/spans.md) <!-- and std::string_view --> -->
+<!--   - [Spans](ownership/spans.md) and std::string_view -->
 
 ## Containers
 
@@ -177,7 +177,7 @@
 <!-- - [Date and Time](time/date-time.md) -->
 <!--   - [Clocks and Time](time/clocks.md) -->
 <!--   - [Timezones](time/timezones.md) -->
-<!--   - [Calenders](time/calendars.md) -->
+<!--   - [Calendars](time/calendars.md) -->
 <!--   - [Locales](time/locales.md) -->
 
 ## Regex
@@ -186,9 +186,9 @@
 
 ## Appendix
 
-<!-- - [Appendix](appendix/appendicies.md) -->
-<!--   - [A - Keywords](appendix/keywords.md) -->
-<!--   - [B - Operators](appendix/operators.md) -->
+- [Appendix](appendix/appendix.md)
+  - [A - Keywords](appendix/A-keywords.md)
+  - [B - Operators](appendix/B-operators.md)
 <!--   - [C - Developer Tools](appendix/devtools.md) -->
 <!--   - [D - Standard Versions](appendix/standard-versions.md) -->
 <!--   - [E - Value Categories](appendix/value-categories.md) -->
