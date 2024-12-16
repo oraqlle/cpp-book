@@ -33,7 +33,7 @@
 - [Ownership](ch04-ownership/ownership.md)
   - [What is ownership?](ch04-ownership/what-is-it.md)
   - [References and Moves](ch04-ownership/refs-moves.md)
-<!--   - [Spans](ch04-ownership/spans.md) and std::string_view -->
+  - [The span and string_view types](ch04-ownership/span.md)
 
 ## Containers
 
