@@ -80,7 +80,7 @@ $    return 0;
 ```
 
 ```admonish tip
-You can mark individual member variables as `const` so only certain data can be modifed.
+You can mark individual member variables as `const` so only certain data can be modified.
 ```
 
 Functions can return structs just like builtin types. Here we have a function that
@@ -158,7 +158,7 @@ $    return 0;
 ```
 
 ```admonish example title="Constructors"
-We will explore constuctors *Chapter 8 - Custom Types* and how we can use them to control
+We will explore constructors *Chapter 8 - Custom Types* and how we can use them to control
 the initialization of our own types. We will also explore how to disable certain
 constructors to disallow certain behaviours from our types.
 ```

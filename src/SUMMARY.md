@@ -37,7 +37,7 @@
 
 ## Structures
 
-- [Structures](ch05-structures/strutures.md)
+- [Structures](ch05-structures/structures.md)
   - [Creating Structures](ch05-structures/create.md)
   - [Using Structures](ch05-structures/example.md)
   - [Methods](ch05-structures/methods.md)
