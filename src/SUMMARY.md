@@ -35,6 +35,13 @@
   - [References and Moves](ch04-ownership/refs-moves.md)
   - [The span and string_view types](ch04-ownership/span.md)
 
+## Structures
+
+- [Structures](ch05-structures/strutures.md)
+  - [Creating Structures](ch05-structures/create.md)
+  - [Using Structures](ch05-structures/example.md)
+  - [Methods](ch05-structures/methods.md)
+
 ## Containers
 
 <!-- - [Containers](containers/containers.md) -->
