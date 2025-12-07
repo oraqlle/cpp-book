@@ -2,48 +2,38 @@
 
 Welcome to _The C++ Programming Language_, an introductory book aimed at teaching C++.
 C++ is a high-level, general purpose, multi-paradigm programming language aimed at giving
-developers absolute control over their programs but also the means to design, build and
-use any kind of abstraction to make the language more ergonomic and expressible with zero
-penalties for what you don't use. This allows for C++ programs to be performant as well
-as expressive.
+developers precise control over their programs while also being able express many kinds
+of abstractions, making the C++ a very powerful language.
 
 ## Who/What is C++ for?
 
 C++ was designed for building systems and embedded software in resources constrained
 contexts. These are systems that prioritize performance, efficiency and flexibility of
-use allow the developer to write performant code that can run or make any kind of system.
+use. C++ allows developers to write fast code that can run or make any kind of system.
 If you want the ability to build helpful abstractions but needs to run in a constrained
-environment and make use of every resource as effectively as possible C++ will get you
-there.
+environment and use resource as effectively as possible C++ will get you there.
 
 ## Who is this book for?
 
-This book is generally aimed at people who have programmed in at least one other language
-but regardless of which (ones). This is to say you should have an idea about what a
-program is, common programming concepts, and a rough idea how a computer works but does
-not restrict the background in which you learnt these concepts. I aim to make the material
-as approachable as possible to anyone from any background. It is possible to read this
-book without any prior experience to programming but it is _highly_ recommended you start
-at an introduction to programming book or course if you have never programmed before. The
-purpose of _this_ book is to showcase how the C++ language works and the various concepts
-and capabilities present within the language, as apposed to teaching you about the basics
-of programming using C++ as the content medium. C++ is a very **dense** language in its
-entirety and and it can be much more difficult to become comfortable programming and
-utilising the concepts from this particular book effectively if you do not have a
-foundation for programming in general.
+This book is generally aimed at people who have programmed before but can be read by
+those still early in their learning journey. This is to say you should have an idea about
+what a program is and understand common programming concepts. The aim is to make this
+book as approachable to as many people as possible. It is possible to read this
+book without any prior experience to programming but some concepts may not click as
+quickly if you have never programmed before. The purpose of _this_ book is to showcase
+how to program using C++ and explore the capabilities the language possesses.
+
+```admonish note
+Not every topic or capability of C++ will be explored in this book. For a comprehensive
+reference on the language explore [cppreference.com](https://en.cppreference.com/w/).
+```
 
 ## How to Use This Book
 
 In general, this book assumes that you're reading it in sequence from front to back.
-Later chapters build on concepts in earlier chapters, and earlier chapters might not delve
-into details on a particular topic but will revisit the topic in a later chapter.
-
-You'll find two kinds of chapters in this book: concept chapters and project chapters. In
-concept chapters, you'll learn about an aspect or concept from C++. In project chapters,
-we'll build small programs together, applying what you've learned so far. Chapters ...
-are project chapters; the rest are concept chapters. Add the end of a concept chapter
-there will be challenges that you can complete. These are simple quiz like questions that
-you can use to query your understanding of the concepts presented in the previous chapter.
+Later chapters build on concepts in earlier chapters. Some chapters will explore creating
+mini projects that combine concepts from recent chapters to allow you to get some
+experience writing complete C++ programs.
 
 > Note: You can also search for specific content using the search button in the top left
 > or by pressing the <kbd>S</kbd> key.
@@ -58,37 +48,39 @@ and using the CMake build system.
 'number guessing game'. This will introduce you to compiling and building a C++ program
 and utilising various pieces from C++ at a high level, with later chapters offering more
 details.
+3. Common Programming Concepts, will cover the basics of the C++ language from variables
+and data types to creating functions and controlling the execution flow of a program.
+4. Ownership, will cover C++'s ownership model and how you are able share data or even
+transfer data ownership.
+5. Structured Data will look at how to create custom types using structs.
 
 ### Planned
 
-3. Common Programming Concepts, will cover the basics of the C++ language from variables
-and data types to creating functions and controlling the execution flow of a program.
-4. Ownership, will cover C++ ownership model and how you are able share data or even
-transfer data ownership.
-5. Structured Data will look at how to create custom types using structs.
-6. In Managing Projects we'll discuss how to compile multiple files together and how
-CMake makes this process easier.
+6. In Managing Projects we'll use CMake to compile multiple files, manage dependencies
+   and create libraries.
 7. Custom Types explores how to create more powerful custom types and how to manage the
-lifetime of data.
+   lifetime of data.
 8. Error Handling will look at the various ways to verify the correctness of your
-programs at compile time. We will also look at recovering from errors to prevent crashes.
-9. Templates covers C++'s metaprogramming capabilities that allow you to build generic
-code that applies multiple types.
+   programs at compile time. We will also look at recovering from errors to prevent
+   crashes.
+9. Templates covers C++'s meta-programming capabilities that allow you to write code once
+   and have the compiler generate the implementation for you.
 10. In Functional Language Features we will look
-11. The IO chapter will briefly look deeper at C++ IO capabilities using streams. We also
-explore C++ filesystem library.
-12. Memory will showcase how to safey (and unsafely ... for science) control memory.
-13. In Concurrency we will look at how to parallelize our programs using a miriade of
-concurrency concepts while ensure safe access and manipulation of shared data.
-14. Appendices, The appendices hold extra information may be of use to the reader but do
-not fit in elsewhere in the book.
-    - A - Keywords
-    - B - Operators
+11. The IO chapter will look deeper at C++ IO capabilities using streams and explore the
+    filesystem library.
+12. In the Memory chapter we will explore how to safely (and unsafely ... for science)
+    control memory.
+13. In Concurrency we will look at how to make our programs run in parallel using a
+    myriad of concurrency concepts while ensure safe access and manipulation of shared
+    data.
+14. The appendices hold extra information may be of use to the reader but do not fit in
+    elsewhere in the book.
+    - A - Operators
+    - B - Value Categories
     - C - Standard Versions
-    - D - Compilation Pipeline
-    - E - Value Categories
-    - F - Compiler Vendors
-    - G - Challenge Answers
+    - ~~A - Keywords~~
+    - ~~D - Compilation Pipeline~~
+    - ~~F - Compiler Vendors~~
 
 ### Possible Future Chapters
 

@@ -18,5 +18,8 @@ mathjax-support = true
 git-repository-url = "https://github.com/oraqlle/cpp-book"
 additional-css = ["styles/mdbook-admonish.css", "styles/caption.css"]
 
+[output.html.playground]
+editable = true
+
 [output.html.code.hidelines]
 cpp = "$"

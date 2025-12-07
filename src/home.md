@@ -2,8 +2,8 @@
 
 _by Tyler Swann_
 
-This book assumes you are at least using a C++11 compliant compiler but concepts and
-practices from C++11 to C++20 will be covered. See the
+This book assumes you are using a C++17 compliant compiler but concepts and topics from
+later standards are also covered, notably C++20. See the
 ["Installation"](getting-started/installation.md) page of the _"Getting Started"_ Chapter
 for more details.
 
