@@ -94,9 +94,8 @@ component to cover is:
 
 ```cpp
 {{#include examples/hello_world/main.cxx:3}}
-{{#include examples/hello_world/main.cxx:4}}
 
-{{#include examples/hello_world/main.cxx:7}}
+{{#include examples/hello_world/main.cxx:6}}
 ```
 
 This declares a function called `main`. The `main` function is known as the program's
@@ -108,17 +107,17 @@ the function is wrapped in curly braces `{}`.
 The body of the function contains the following two lines:
 
 ```cpp
-{{#include examples/hello_world/main.cxx:5:6}}
+{{#include examples/hello_world/main.cxx:4:5}}
 ```
 
-The second line returns a status code from `main` to the operating system (OS) indicating
-whether the program run successfully or not. A status code of `0` indicates the program
-ran was successfully with any other value indicating the program failed.
+The second line returns a status code from `main` to the (OS) indicating whether the
+program run successfully or not. A status code of `0` indicates the program ran was
+successfully with any other value indicating the program failed.
 
 The first line is where the action occurs! We start by accessing the symbol `cout` from
 the namespace `std` "(usually pronounced *stood*) using the namespace resolution operator
 `::`. `cout` is a global character output stream that is linked to `stdout` ie. your
-terminal's output (you'll learn more about streams and IO in [Chapter 10](./../io/io.md))
+terminal's output (you'll learn more about streams and IO in later chapters).
 .
 
 We can push characters through the stream using the `<<` operator where the left argument
@@ -132,9 +131,8 @@ the end of an expression.
 
 ```admonish note
 The operator `<<` has been overloaded for use with `cout` (and other output streams), as
-such it is only defined to work with types that ship with C++. You would need to provide
-you own definition for custom types which will be described in more detail during
-[Chapter 7](./../custom-types/custom-types.md)
+such it is only defined to work with C++'s primitive and standard library types. You
+would need to provide you own definition for custom types. 
 ```
 
 You'll also notice at the top of the file the following line:

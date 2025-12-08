@@ -38,7 +38,7 @@ alongside our `main.cxx` source file. Copy the contents from [Listing 1-2](#list
 
 <span id="listing1-2" class="caption">Listing 1-2: Basic CMake configuration file.</span>
 
-```cmake
+```haskell
 {{#include examples/hello_cmake/CMakeLists.txt}}
 ```
 
@@ -46,14 +46,14 @@ Let's break down our `CMakeLists.txt` file. First we specify the minimum require
 of CMake this project uses. This helps to ensure that any CMake features used in the
 projects configuration are available to end users and collaborators.
 
-```cmake
+```haskell
 {{#include examples/hello_cmake/CMakeLists.txt:1}}
 ```
 
 We then define the basic information about our project such as its name, description,
 version and what languages it uses.
 
-```cmake
+```haskell
 {{#include examples/hello_cmake/CMakeLists.txt:3:6}}
 ```
 
@@ -61,7 +61,7 @@ In order to mark our `main.cxx` as an executable we use the `add_executable()` f
 where we specify the executable's name ie. the name of the target created from the
 executable as well as the source file used to make the executable.
 
-```cmake
+```haskell
 {{#include examples/hello_cmake/CMakeLists.txt:8}}
 ```
 
@@ -70,7 +70,7 @@ building the target, using the `target_compile_features()` function. Here we add
 builtin CMake feature `cxx_std_20` to our executable which ensures it is built using the
 2020 C++ Standard.
 
-```cmake
+```haskell
 {{#include examples/hello_cmake/CMakeLists.txt:9}}
 ```
 
@@ -199,20 +199,21 @@ build by running the following command which should now produce and executable i
 
 Often we want to have specific flags set for the compiler(s) we are using but because
 each compiler has different flags available it can become difficult to have parity across
-compilers. Luckily presets make this much easier. We can create hidden presets that
-define a set of compiler flags for each compiler, platform or even just custom
-configurations for the same compiler. We can then use the `"inherits"` array in any
-preset that we want the flags to apply to by giving it the name of the hidden flag
-preset. We can see this in action in [Listing1-4](#listing1-4) which defines a general
-setup for Linux, MacOS and Windows with some of the most common flags set which helps to
-prevent some of the most common errors when programming. I would recommend using this
-`CMakePresets.json` file as a base starting point for all your projects. Each platform as
-a preset for a debug build plus a release build as well as x64 and x86 builds for the
-Windows platform. [Listing 1-5](#listing1-5) demonstrates the commands needed to
-configure, build and run the executable target for ech preset.
+compilers. Luckily presets make this much easier. Below I have created a preset for each
+platform with the correct flags set for the compiler(s) of each platform, ensuring some
+of the most common errors and bugs are caught by the compiler and reported to us.
+[Listing 1-4](#listing1-4) showcases these presets which i'd recommend copying over these
+presets into the projects. There are also some hidden presets that are used to define
+settings across presets; for example, I have set the C++ standard to 20 for all presets
+by inheriting the `"std-cxx"` preset in the non-hidden platform presets. 
+[Listing 1-5](#listing1-5) demonstrates the commands needed to configure, build and run
+the executable target for each preset.
 
 ```admonish note
-These presets are for tailored for a single executable target and may not be robust to
+- You'll have to specify the build directory using the `-B` flag like it is shown in
+[Listing 1-5](#listing1-5) because the presets do not define this however, this allows
+you to customize the build location.
+- These presets are for tailored for a single executable target and may not be robust to
 handle exporting libraries.
 ```
 
@@ -225,50 +226,50 @@ handle exporting libraries.
 <span id="listing1-5" class="caption">Listing 1-5: Commands for building with [Listing 1-4's](#listing1-4) presets.</span>
 
 ```sh
-# Linux (release)
-$ cmake --preset=linux  # configure
-$ cmake --build --preset=linux  # build
-$ ./build/linux/release/main  # execute
-
 # Linux (debug)
-$ cmake --preset=debug-linux  # configure
-$ cmake --build --preset=debug-linux  # build
-$ ./build/linux/debug/main  # execute
+$ cmake -S . -B build/linux/debug --preset=linux  # configure
+$ cmake --build build/linux/debug                 # build
+$ ./build/linux/debug/<exe-name>                  # execute
+
+# Linux (release)
+$ cmake -S . -B build/linux/release --preset=linux -DCMAKE_BUILD_TYPE="Release"  # configure
+$ cmake --build build/linux/release                                              # build
+$ ./build/linux/release/<exe-name>                                               # execute
 
 # --------------------------------------------
 
-# MacOS (release)
-$ cmake --preset=macos  # configure
-$ cmake --build --preset=macos  # build
-$ ./build/macos/release/main  # execute
+# macOS (debug)
+$ cmake -S . -B build/macos/debug --preset=macos  # configure
+$ cmake --build build/macos/debug                 # build
+$ ./build/macos/debug/<exe-name>                  # execute
 
-# MacOS (debug)
-$ cmake --preset=debug-macos  # configure
-$ cmake --build --preset=debug-macos  # build
-$ ./build/macos/debug/main  # execute
-
-# --------------------------------------------
-
-# Windows [x64] (Release)
-> cmake --preset=windows  # configure
-> cmake --build --preset=windows --config=Release  # build
-> .\build\windows\x64\Release\main.exe  # execute
-
-# Windows [x64] (Debug)
-> cmake --preset=windows  # configure
-> cmake --build --preset=windows --config=Debug  # build
-> .\build\windows\x64\Debug\main.exe  # execute
+# macOS (release)
+$ cmake -S . -B build/macos/release --preset=macos -DCMAKE_BUILD_TYPE="Release"  # configure
+$ cmake --build build/macos/release                                              # build
+$ ./build/macos/release/<exe-name>                                               # execute
 
 # --------------------------------------------
 
-# Windows [x86] (Release)
-> cmake --preset=windows  # configure
-> cmake --build --preset=windows --config=Release  # build
-> .\build\windows\x86\Release\main.exe  # execute
+# Windows [x64] (debug)
+$ cmake -S . -B build/windows-x64 --preset=windows-x64  # configure
+$ cmake --build build/windows-x64 --config=Debug        # build
+$ ./build/windows-x64/Debug/<exe-name>.exe              # execute
 
-# Windows [x86] (Debug)
-> cmake --preset=windows  # configure
-> cmake --build --preset=windows --config=Debug  # build
-> .\build\windows\x86\Debug\main.exe  # execute
+# Windows [x64] (release)
+$ cmake -S . -B build/windows-x64 --preset=windows-x64   # configure
+$ cmake --build build/windows-x64 --config=Release       # build
+$ ./build/windows-x64/Release/<exe-name>.exe             # execute
+
+# --------------------------------------------
+
+# Windows [x86] (debug)
+$ cmake -S . -B build/windows-x86 --preset=windows-x86  # configure
+$ cmake --build build/windows-x86 --config=Debug        # build
+$ ./build/windows-x86/Debug/<exe-name>.exe              # execute
+
+# Windows [x86] (release)
+$ cmake -S . -B build/windows-x86 --preset=windows-x86   # configure
+$ cmake --build build/windows-x86 --config=Release       # build
+$ ./build/windows-x86/Release/<exe-name>.exe             # execute
 ```
 

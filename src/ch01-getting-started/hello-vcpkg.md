@@ -81,7 +81,7 @@ Next, we need to tell CMake that `{fmt}` exists and we'd like to use it. To do t
 must tell CMake to find the package using the `find_package()` in the projects
 `CMakeLists.txt` file.
 
-```cmake
+```haskell
 {{#include examples/hello_vcpkg/CMakeLists.txt:1:11}}
 ```
 
@@ -100,7 +100,7 @@ the internals of our projects resulting binary and will not be exposed.
 
 <span id="listing1-8" class="caption">Listing 1-8: Example executable using `{fmt}`.</span>
 
-```cmake
+```haskell
 # ... rest of CMakeLists.txt
 
 {{#include examples/hello_vcpkg/CMakeLists.txt:10:13}}
@@ -129,14 +129,15 @@ we need a literal `'{'` or `'}'` we use two.
 
 ## Building and Running with vcpkg
 
-To build our project we can use the same CMake commands from the previous page. CMake
-will automatically use the vcpkg toolchain to install our dependencies and then link it
-to our executable.
+If we copy over the presets file from the bottom of the previous page, we can build our
+smalle package using presets. This is because of the `"vcpkg"` preset which links CMake
+to vcpkg together such that CMake can find packages installed with vcpkg.
 
 ```sh
+$ cmake -S . -B build/<platform> --preset=linux
 $ cmake --preset=default
-$ cmake --build build
-$ ./build/hello_vcpkg  # ... or .\build\Debug\hello_cmake.exe on Windows
+$ cmake --build build/<platform>
+$ ./build/<platform>/hello_vcpkg  # ... or .\build\windows-x[86|64]\Debug\hello_vcpkg.exe on Windows
 Hello, vcpkg from {fmt}
 ```
 

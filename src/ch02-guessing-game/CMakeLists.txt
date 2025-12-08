@@ -7,3 +7,4 @@ project(guessing_game
 
 add_executable(guessing_game main.cxx)
 target_compile_features(guessing_game PRIVATE cxx_std_20)
+

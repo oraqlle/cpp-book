@@ -42,8 +42,8 @@ auto main() -> int {
 
 <span id="listing2-2" class="caption">Listing 2-2: Simple 'CMakeLists.txt' for guessing game executable.</span>
 
-```cmake
-{{#include examples/guessing_game/CMakeLists.txt}}
+```haskell
+{{#include CMakeLists.txt}}
 ```
 
 ## Processing a Guess
@@ -581,7 +581,7 @@ available in [Listing 2-8](#listing2-8).
 <span id="listing2-8" class="caption">Listing 2-8: Final game.</span>
 
 ```cpp
-{{#include examples/guessing_game/main.cxx}}
+{{#include main.cxx}}
 ```
 
 ## Summary
