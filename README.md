@@ -10,7 +10,7 @@ tool for creating books with Markdown. mdBook can be installed using Cargo - Rus
 package manager.
 
 ```sh
-cargo install mdbook --vers "0.4.40" --locked
+cargo install mdbook --vers "0.4.52" --locked
 ```
 
 You can build this book you must clone this repository using Git. You can then build it

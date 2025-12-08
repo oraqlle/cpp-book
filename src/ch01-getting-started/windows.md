@@ -1,9 +1,5 @@
 # Windows
 
-```admonish warning
-🚧 Page Is Incomplete! 🏗️
-```
-
 Windows has many different compilers at its disposal. Some offer native support to
 building against the Windows runtime while others will emulate a UNIX (the predecessor to
 Linux and BSD) environment to aid in porting software built for UNIX-like systems. As the
@@ -54,19 +50,11 @@ displayed in this book.
 
 ```admonish tip
 Alternatively you can follow [Microsoft's tutorial](https://learn.microsoft.com/en-us/cpp/build/vscpp-step-1-create?view=msvc-170)
-for creating a new C++ VS Project. This will be more convenient than opening a 'Developer
-Command Prompt' every time you want to compile a program and having to run the `cl`
-command manually but it takes more work setting compiler flags etc. for simple projects.
+for creating a new C++ VS Project. This will be more convenient than opening a
+'Developer Command Prompt' every time you want to compile a program and having to run
+the `cl` command manually but it takes more work setting compiler flags etc. for simple
+projects.
 ```
-
-## Installing Git
-
-We will also need to install Git in order to install a particular package later. Git can
-be installed by going to the ['Git for Windows' installation](https://git-scm.com/download/win)
-page and selecting the correct version (eg. x64 for 64-bit systems) and following the
-installation Wizard. Be sure to select the option for adding Git to the `PATH`.
-
-## Installing CMake
 
 CMake is a build tool for C++ projects. It is used to manage different configurations for
 a projects. You can download the latest release from [CMake's Release Page](https://cmake.org/download/#latest:~:text=Files-,Windows%20x64%20Installer%3A,-cmake%2D3.27.8%2Dwindows)
@@ -80,6 +68,16 @@ cmake version 3.25.1
 CMake suite maintained and supported by Kitware (kitware.com/cmake).
 ```
 
+## Installing Git
+
+We will also need to install Git in order to install a particular package later. Git can
+be installed by going to the ['Git for Windows' installation](https://git-scm.com/download/win)
+page and selecting the correct version (eg. x64 for 64-bit systems) and following the
+installation Wizard. Be sure to select the option for adding Git to the `PATH`.
+
+<!-- Add links to MinGW, Cygwin, Msys2, MinGW-x64 etc.? -->
+
+<!--
 ## Installing `vcpkg`
 
 We will also need some way to install external libraries. While many different tools
@@ -102,5 +100,4 @@ vcpkg package management program version 2023-10-18-27de5b69dac4b6fe8259d283cd40
 
 See LICENSE.txt for license information.
 ```
-
-<!-- Add links to MinGW, Cygwin, Msys2, MinGW-x64 etc.? -->
+-->
