@@ -174,8 +174,8 @@ $ cmake --build build
 [100%] Built target hello_cmake
 ```
 
-This will produce a binary called `main` in the `build/` directory on Linux and MacOS and
-the `build/Debug/` directory on Windows. We can run our program like normal.
+This will produce a binary called `hello_cmake` in the `build/` directory on Linux and
+MacOS and the `build/Debug/` directory on Windows. We can run our program like normal.
 
 ```sh
 $ ./build/hello_cmake  # ... or .\build\Debug\hello_cmake.exe on Windows
