@@ -22,7 +22,3 @@ $ mdbook build
 # ... or serve build and serve locally
 $ mdbook serve --open
 ```
-
-## Contributors and Authors
-
-- Tyler Swann

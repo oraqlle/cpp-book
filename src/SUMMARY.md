@@ -17,7 +17,7 @@
 
 ## Sample Project
 
-- [Project: Guessing Game](getting-started/guessing-game.md)
+- [Project: Guessing Game](ch02-guessing-game/guessing-game.md)
 
 ## Common Programming Concepts
 
