@@ -8,15 +8,9 @@ multilingual = false
 
 src = "src"
 
-[preprocessor.admonish]
-command = "mdbook-admonish"
-assets_version = "3.0.2" # do not edit: managed by `mdbook-admonish install`
-after = ["links"]
-
 [output.html]
 mathjax-support = true
 git-repository-url = "https://github.com/oraqlle/cpp-book"
-additional-css = ["styles/mdbook-admonish.css", "styles/caption.css"]
 
 [output.html.playground]
 editable = true
