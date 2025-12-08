@@ -10,8 +10,6 @@ Now that you've installed a C++ compiler, its time to write your first C++ progr
 
 First, you'll create a new directory to store you C++ code. It is a good idea to create a 'projects' or 'dev' directory within you home or user directory in order to store any project you might develop for this book an beyond. Open a terminal and run the following commands.
 
-<!-- markdownlint-disable MD014 -->
-
 Linux, MacOS or PowerShell on Windows:
 
 ```sh
@@ -30,17 +28,15 @@ CMD on Windows:
 > cd hello_world
 ```
 
-<!-- markdownlint-disable MD014 -->
-
 ## Writing and Running a C++ Program
 
 Within this new 'hello_world' directory we will create a new file called *main.cxx*. This is called a C++ source file. A C++ program is then built from one or more of these files. We use the file extension `*.cxx` to denote that this file contains C++ source code. If a filename contains multiple words the convention is to separate the words with an underscore eg. *hello_world.cxx* over *helloworld.cxx*. Now open the file you have just created and copy the code from [Listing 1-1](#listing1-1) into the file.
 
+<span id="listing1-1" class="caption">Listing 1-1: Program the prints `Hello, world!`</span>
+
 ```cpp
 {{#include examples/hello_world/main.cxx}}
 ```
-
-<span id="listing1-1" class="caption">Listing 1-1: Program the prints `Hello, world!`</span>
 
 ```admonish info
 C++ source files can have various different extensions such as `*.cpp`, or `*.c++` however, for this book the `*.cxx` style will be used. Is also good practice to use the same extension type across a project so no matter which one you use, just be consistent.

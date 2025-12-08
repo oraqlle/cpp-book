@@ -1,6 +1,6 @@
 # The C++ Programming Language
 
-This repository contains the source code for "The C++ Programming Language" mdBook. This book is available online or can be built locally and served in your browser. THe structure of this book is inspired by the ["Rust Programming Language" Book](https://doc.rust-lang.org/book/).
+This repository contains the source code for "The C++ Programming Language" mdBook. This book is available online or can be built locally and served in your browser. The structure of this book is inspired by the ["Rust Programming Language" Book](https://doc.rust-lang.org/book/).
 
 ## Building
 

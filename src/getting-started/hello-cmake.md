@@ -6,8 +6,6 @@ CMake is a third-party tool used to configure and build C++ projects. While ther
 
 To start off, go back to your `projects/` directory and create a new directory called 'hello_cmake'.
 
-<!-- markdownlint-disable MD014 -->
-
 ```sh
 $ mkdir hello_cmake
 $ cd hello_cmake
@@ -25,11 +23,11 @@ We will first look at the `CMakeLists.txt` file.
 
 A CMake project is defined by a set of 'CMakeLists.txt' files located in the source tree (directories containing your source code). These describe your projects targets, source files etc.. For a simple single file project we only need a single 'CMakeLists.txt' alongside our `main.cxx` source file. Copy the contents from [Listing 1-2](#listing1-2).
 
+<span id="listing1-2" class="caption">Listing 1-2: Basic CMake configuration file.</span>
+
 ```cmake
 {{#include examples/hello_cmake/CMakeLists.txt}}
 ```
-
-<span id="listing1-2" class="caption">Listing 1-2: Basic CMake configuration file.</span>
 
 Let's break down our `CMakeLists.txt` file. First we specify the minimum required version of CMake this project uses. This helps to ensure that any CMake features used in the projects configuration are available to end users and collaborators.
 
@@ -63,11 +61,11 @@ See [Appendix D](../appendix/standard-versions.md) for more information on C++ S
 
 We can also specify presets for CMake that define different configurations by a unique name. These presets can be used to configure your project to compile on multiple different platforms as well as set various flags and options depending on how your want the project to be built. This is better than writing large 'CMakeLists.txt' files with complicated conditional logic that makes just *writing* the configuration complicated. A minimalistic `CMakePresets.json` file would look similar to [Listing 1-3](#listing1-3).
 
+<span id="listing1-3" class="caption">Listing 1-3: Minimalistic CMake presets file.</span>
+
 ```json
 {{#include examples/hello_cmake/CMakePresets.json}}
 ```
-
-<span id="listing1-3" class="caption">Listing 1-3: Minimalistic CMake presets file.</span>
 
 A `CMakePresets.json` file is starts with a key-value pair indicating the version of the preset engine to use from CMake. We also specify the minimum CMake version required for this project, similar to the first line [Listing 1-2](#listing1-2).
 
@@ -137,11 +135,77 @@ Hello, CMake!
 ```
 
 ~~~admonish tip
-The reason Windows builds will have the additional intermediate directory `Debug/` for the output is because the underlying builder(s) used on Windows can be configured to output both debug and release builds from the same recipe which is controlled with CMake's `--config=<config>` flag during the build step. You can test creating a 'Release' build by running the following command which should now produce and executable in the `build\Release\` directory.
+The reason for Windows based builds having an additional intermediate directory `Debug/` for the output is because the underlying builder(s) used on Windows can be configured to output both debug and release builds from the same recipe which is controlled with CMake's `--config=<config>` flag during the build step. You can test creating a 'Release' build by running the following command which should now produce and executable in the `build\Release\` directory.
 
 ```console
 > cmake --build build --config=Release
 ```
 ~~~
 
-<!-- markdownlint-disable MD014 -->
+## Compiling with Flags (Optional)
+
+Often we want to have specific flags set for the compiler(s) we are using but because each compiler has different flags available it can become difficult to have parity across compilers. Luckily presets make this much easer. We can create hidden presets that define a set of compiler flags for each compiler, platform or even just custom configurations for the same compiler. We can then use the `"inherits"` array in any preset that we want the flags to apply to by giving it the name of the hidden flag preset. We can see this in action in [Listing1-4](#listing1-4) which defines a general setup for Linux, MacOS and Windows with some of the most common flags set which helps tp prevent some of the most common errors when programming. I would recommend using this `CMakePresets.json` file as a base starting point for all your projects. Each platform as a preset for a debug build plus a release build as well as x64 and x86 builds for the Windows platform. [Listing 1-5](#listing1-5) demonstrates the commands needed to configure, build and run the executable target for ech preset.
+
+```admonish note
+These presets are for tailored for a single executable target and may not be robust to handle exporting libraries.
+```
+
+<span id="listing1-4" class="caption">Listing 1-4: Base `CMakePresets.json` for a single cross-platform executable target with compiler flags set.</span>
+
+```json
+{{#include examples/guessing_game/CMakePresets.json}}
+```
+
+<span id="listing1-5" class="caption">Listing 1-5: Commands for building with [Listing 1-4's](#listing1-4) presets.</span>
+
+```sh
+# Linux (release)
+$ cmake --preset=linux  # configure
+$ cmake --build --preset=linux  # build
+$ ./build/linux/release/main  # execute
+
+# Linux (debug)
+$ cmake --preset=debug-linux  # configure
+$ cmake --build --preset=debug-linux  # build
+$ ./build/linux/debug/main  # execute
+
+# --------------------------------------------
+
+# MacOS (release)
+$ cmake --preset=macos  # configure
+$ cmake --build --preset=macos  # build
+$ ./build/macos/release/main  # execute
+
+# MacOS (debug)
+$ cmake --preset=debug-macos  # configure
+$ cmake --build --preset=debug-macos  # build
+$ ./build/macos/debug/main  # execute
+
+# --------------------------------------------
+
+# Windows [x64] (Release)
+> cmake --preset=windows  # configure
+> cmake --build --preset=windows --config=Release  # build
+> .\build\windows\x64\Release\main.exe  # execute
+
+# Windows [x64] (Debug)
+> cmake --preset=windows  # configure
+> cmake --build --preset=windows --config=Debug  # build
+> .\build\windows\x64\Debug\main.exe  # execute
+
+# --------------------------------------------
+
+# Windows [x86] (Release)
+> cmake --preset=windows  # configure
+> cmake --build --preset=windows --config=Release  # build
+> .\build\windows\x86\Release\main.exe  # execute
+
+# Windows [x86] (Debug)
+> cmake --preset=windows  # configure
+> cmake --build --preset=windows --config=Debug  # build
+> .\build\windows\x86\Debug\main.exe  # execute
+```
+
+<!-- ```admonish note
+Don't forget to omit lines starting with `#` when using CMD as it does not have the same meaning as in Bash etc.
+``` -->

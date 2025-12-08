@@ -61,8 +61,6 @@ CMake suite maintained and supported by Kitware (kitware.com/cmake).
 
 We will also need some way to install external libraries. While many different tools exist the tool `vcpkg` was chosen for this book. `vcpkg` is an open source tool developed by Microsoft used for downloading and managing C++ libraries with CMake. We can install, add it to our `PATH` and validate the install using the following commands:
 
-<!-- markdownlint-disable MD014 -->
-
 ```sh
 $ cd ~
 $ mkdir bin
@@ -76,8 +74,6 @@ vcpkg package management program version 2023-10-18-27de5b69dac4b6fe8259d283cd40
 
 See LICENSE.txt for license information.
 ```
-
-<!-- markdownlint-disable MD014 -->
 
 ```admonish note
 Any details displayed from verifying a given newly installed tool may differ to what is displayed in this book.

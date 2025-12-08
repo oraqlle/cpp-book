@@ -6,8 +6,6 @@ Installing GCC and Clang on most Linux systems is relatively trivial. Most of th
 
 Depending on your platform you will use a different package manager and package upstream repository. These might have slightly different names for packages, especially bundle packages. Consult your platforms docs for the most seamless way to install a C++ compiler if the below commands fail.
 
-<!-- markdownlint-disable MD014 -->
-
 ```sh
 # Debian, Ubuntu, ElementaryOS, Linux Mint, Pop!_OS (APT)
 $ sudo apt install build-essential gdb clang llvm cmake
@@ -76,8 +74,6 @@ vcpkg package management program version 2023-10-18-27de5b69dac4b6fe8259d283cd40
 
 See LICENSE.txt for license information.
 ```
-
-<!-- markdownlint-disable MD014 -->
 
 ```admonish note
 Any details displayed from verifying a given newly installed tool may differ to what is displayed in this book.
