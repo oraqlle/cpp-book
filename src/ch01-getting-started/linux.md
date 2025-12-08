@@ -55,18 +55,15 @@ displayed in this book.
 
 ```admonish tip
 - The name of GNU's compiler toolchain is 'GCC' aka GNU Compiler Collection. This is in
-contrast to the CLI tool called `gcc` which stands for GNU C Compiler.
-- The C++ compiler from GCC is called `g++`. Make sure to use this command when compiling
-C++ code.
+  contrast to the CLI tool called `gcc` which stands for GNU C Compiler.
+- The C++ compiler from GCC is called `g++`. Make sure to use this command when
+  compiling C++ code.
 ```
-
-## Installing CMake
 
 We will also want a tool to help manage larger projects and allow us to build on
 different machines from the same source. CMake is one such build tool for C++ projects.
-It is used to manage different configurations for a projects. You would have already
-installed CMake when you installed the C++ compilers earlier as we added CMake to the
-install list. You can verify by running:
+You would have already installed CMake when you installed the C++ compilers earlier as we
+added CMake to the install list. You can verify by running:
 
 ```sh
 $ cmake --version
@@ -75,7 +72,7 @@ cmake version 3.25.1
 CMake suite maintained and supported by Kitware (kitware.com/cmake).
 ```
 
-## Installing vcpkg
+<!-- ## Installing vcpkg
 
 We will also need some way to install external libraries. While many different tools
 exist the tool vcpkg was chosen for this book. vcpkg is an open source tool developed by
@@ -87,7 +84,7 @@ cd ~
 mkdir bin
 cd bin
 git clone https://github.com/Microsoft/vcpkg.git
-./vcpkg/bootstrap-vcpkg.sh
+./vcpkg/bootstrap-vcpkg.sh -disableMetrics
 printf '\n# >>> vcpkg >>>\nexport VCPKG_ROOT="$HOME/bin/vcpkg"\nexport PATH="$VCPKG_ROOT:$PATH"\n# <<< vcpkg <<<\n' >> ~/.bashrc
 source ~/.bashrc
 ```
@@ -100,4 +97,4 @@ vcpkg package management program version 2023-10-18-27de5b69dac4b6fe8259d283cd40
 
 See LICENSE.txt for license information.
 ```
-
+-->

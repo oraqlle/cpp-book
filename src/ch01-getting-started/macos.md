@@ -53,22 +53,20 @@ InstalledDir: /Library/Developer/CommandLineTools/usr/bin
 ```
 
 ```admonish note
-Any details displayed from verifying a given newly installed tool may differ to what is
-displayed in this book.
+> Any details displayed from verifying a given newly installed tool may differ to what is
+> displayed in this book.
 ```
 
 ```admonish tip
 - The name of GNU's compiler toolchain is 'GCC' aka GNU Compiler Collection. This is in
-contrast to the CLI tool called `gcc` which stands for GNU C Compiler.
-- The C++ compiler from GCC is called `g++`. Make sure to use this command when compile
-C++ code.
+  contrast to the CLI tool called `gcc` which stands for GNU C Compiler.
+- The C++ compiler from GCC is called `g++`. Make sure to use this command when
+  compiling C++ code.
 - You must specify the versioned `g++` command in order to use the Homebrew version of
-the command. You can find the default version installed by running `brew info gcc`. We
-must do this because the regular `g++` command redirects back to Apple's Clang
-implementation.
+  the command. You can find the default version installed by running `brew info gcc`.
+  We must do this because the regular `g++` command redirects back to Apple's Clang
+  implementation.
 ```
-
-## Installing CMake
 
 We will also want a tool to help manage larger projects and allow us to build on
 different machines from the same source. CMake is one such build tool for C++ projects.
@@ -83,6 +81,7 @@ cmake version 3.25.1
 CMake suite maintained and supported by Kitware (kitware.com/cmake).
 ```
 
+<!--
 ## Installing `vcpkg`
 
 We will also need some way to install external libraries. While many different tools
@@ -95,7 +94,7 @@ cd ~
 mkdir bin
 cd bin
 git clone https://github.com/Microsoft/vcpkg.git
-./vcpkg/bootstrap-vcpkg.sh
+./vcpkg/bootstrap-vcpkg.sh -disableMetrics
 printf '\n# >>> vcpkg >>>\nexport VCPKG_ROOT="$HOME/bin/vcpkg"\nexport PATH="$VCPKG_ROOT:$PATH"\n# <<< vcpkg <<<\n' >> ~/.bashrc
 source ~/.bashrc
 ```
@@ -108,4 +107,4 @@ vcpkg package management program version 2023-10-18-27de5b69dac4b6fe8259d283cd40
 
 See LICENSE.txt for license information.
 ```
-
+-->
