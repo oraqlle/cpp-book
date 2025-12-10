@@ -4,7 +4,7 @@
 🚧 Page Under Construction! 🏗️
 ```
 
-We first saw variables in our mini [guessing game project](../ch02-guessing-game/guessing-game.md#storing-data-with-variables)
+We first saw variables in our mini [guessing game project](/ch02-guessing-game/guessing-game.md#storing-data-with-variables)
 where we used them to store the guess of the user and create our PRNG etc.. Let's exlore
 what happens when we try to modify constant data and when we would want to allow
 mutations.

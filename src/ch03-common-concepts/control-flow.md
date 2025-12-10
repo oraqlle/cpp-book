@@ -8,7 +8,7 @@ Control flow is how we get our programs to do interesting things, it allows us t
 programs that do different things depending on conditions (branch) or easily repeat code
 (loops). C++ also has various relational and logical operators used to construct
 conditional expressions used by the control flow statements. You can read about them in
-[Appendix B](../appendix/B-operators.md).
+[Appendix B](/appendix/B-operators.md).
 
 ## Branches
 

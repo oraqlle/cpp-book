@@ -8,7 +8,7 @@
 and thus is responsible for ensuring that it's data lives long enough for all parts of
 the program that *reference* the data can correctly access the data.
 
-We first had a look at lifetimes in [Common Concepts - Variables and Mutability](../ch03-common-concepts/vars-mut.html#storage-duration)
+We first had a look at lifetimes in [Common Concepts - Variables and Mutability](/ch03-common-concepts/vars-mut.html#storage-duration)
 when discussing *storage duration* of data but we are now going to discuss how this comes
 into effect in our programs.
 
@@ -96,7 +96,7 @@ right next to each other on the stack as we discussed above.
 
 So what happens when data on the heap goes out of scope? To demonstrate what happens we
 need to introduce the `std::string` type. `string` is more complex than the type
-introduced in [Common Concepts - Data Types](../ch03-common-concepts/data-types.md)
+introduced in [Common Concepts - Data Types](/ch03-common-concepts/data-types.md)
 as it allocates its data on the heap and can change its size during runtime, as opposed
 to string literals which are encoded directly into the compiled binary. We even saw
 `string` in our guessing game!

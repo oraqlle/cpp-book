@@ -117,7 +117,7 @@ auto boxes = int{7};
 
 In C++ variables are mutable by default which means we are allowed to change it's value.
 This concept will be discussed more in
-[Chapter 3 | Variables and Mutability](../ch03-common-concepts/vars-mut.md). To make a
+[Chapter 3 | Variables and Mutability](/ch03-common-concepts/vars-mut.md). To make a
 variable constant ie. its value cannot change once it is set, we use the `const` keyword
 after/before `auto` (I choose after).
 
@@ -129,7 +129,7 @@ auto crates = 4;  // mutable
 ```admonish tip
 The `//` syntax indicates a comment that continues until the end of the line. Everything
 in a comment is ignored by C++. You will learn more about them in
-[Chapter 3 | Comments](../ch03-common-concepts/comments.md).
+[Chapter 3 | Comments](/ch03-common-concepts/comments.md).
 ```
 
 In this case of our variable `guess` in our guessing game program, we have (default)
@@ -168,7 +168,7 @@ defaults to `'\n'` (third argument), the extracted characters are then written t
 second argument which is a *reference* to a string of the same underlying character type.
 References allow functions to read and/or modify data passed to them and have the effects
 reflected on the callers side. We'll cover references and ownership in C++ during
-[Chapter 4](../ch04-ownership/ownership.md). In effect this function reads an entire line
+[Chapter 4](/ch04-ownership/ownership.md). In effect this function reads an entire line
 and copies the characters into a string.
 
 ## Printing with Output Streams
@@ -204,7 +204,7 @@ to a `std::basic_ostream<>`[^12] object as the left argument; ie. the type of
 `std::cout`, and various builtin C++ types and library types from the standard library as
 the right argument eg. `int` and `std::string`, which allows the `<<` syntax to be used
 with many different types already in C++. Overloading will be covered in more detail in
-[Chapter 3 | Functions](../ch03-common-concepts/functions.md).
+[Chapter 3 | Functions](/ch03-common-concepts/functions.md).
 
 In this program we have seen that we can chain the calls to `<<`.
 
