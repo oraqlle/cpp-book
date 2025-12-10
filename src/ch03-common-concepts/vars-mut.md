@@ -1,11 +1,7 @@
 # Variables and Mutability
 
-```admonish warning
-🚧 Page Under Construction! 🏗️
-```
-
 We first saw variables in our mini [guessing game project](/ch02-guessing-game/guessing-game.md#storing-data-with-variables)
-where we used them to store the guess of the user and create our PRNG etc.. Let's exlore
+where we used them to store the guess of the user and create our PRNG etc.. Let's explore
 what happens when we try to modify constant data and when we would want to allow
 mutations.
 
@@ -16,31 +12,37 @@ the `const` keyword which data that does not need to change, cannot change; opti
 remove the `const` keyword when data needs to be mutable.
 ```
 
-Create a new (or use an existing project) with a `main.cxx` and `CMakeLists.txt` etc.
-like we did for our previous programs; or use an existing one, and we'll explore
-mutability. Change the name of the target to `main` in the CMakeLists.txt, as I'll be
-using this as the target name from (near) all examples from now on in the book.
+Create a new project have done before, with a `main.cxx` and `CMakeLists.txt` and add the
+following contents. This will act as out scratchbook project for tinkering with examples.
+I won't always go into super detail about what changes will be made between various
+topics but most examples will have a full example with some being hidden behind snips
+which can be exposed using the 'eye' button in a codeblock.
 
-```haskell
+```haskell,icon=%cmake,fp=CMakeLists.txt
 cmake_minimum_required(VERSION 3.22)
 
 project(main
     VERSION 0.1.0
-    DESCRIPTION "C++ Book Example"
+    DESCRIPTION "C++ Book Examples"
     LANGUAGES CXX)
 
 add_executable(main main.cxx)
-target_compile_features(main PRIVATE cxx_std_20)
+target_compile_features(main PRIVATE cxx_std_17)
+
+if (MSVC)
+    # warning level 4
+    add_compile_options(/W4)
+else()
+    # additional warnings
+    add_compile_options(-Wall -Wextra -Wpedantic)
+endif()
 ```
 
-In your `main.cxx`, write the following program. When we try to compile this we should
-get an error like so.
-
-```cpp
+```cpp,icon=%cplusplus,fp=main.cxx
 #include <iostream>
 
 auto main() -> int {
-    auto const x = 42;
+    const auto x = 42;
 
     std::cout << x << std::endl;
     x = 43;
@@ -52,8 +54,8 @@ auto main() -> int {
 
 When we try to compile this we should get an error like so:
 
-```sh
-$ cmake -S . -B build --preset=<platform>
+```sh,icon=%gnubash,fp=Shell
+$ cmake -S . -B build
 $ cmake --build build
 [ 50%] Building CXX object CMakeFiles/main.dir/main.cxx.o
 /home/user/projects/common/main.cxx: In function ‘int main()’:
@@ -73,10 +75,10 @@ function boundaries where we expect the function to not mutate data passed to it
 though the surrounding scope might. More on this later.
 
 Even though immutable data is easier to reason about, mutating data is where the fun
-parts of computation occur. We can see that by dropping the `const` we can mutate the
+parts of computing occur. We can see that by dropping the `const` we can mutate the
 variable freely.
 
-```cpp
+```cpp,icon=%cplusplus,fp=main.cxx
 #include <iostream>
 
 auto main() -> int {
@@ -90,10 +92,8 @@ auto main() -> int {
 }
 ```
 
-With it compiling to...
-
-```sh
-$ cmake -S . -B build --preset=<platform>
+```sh,icon=%gnubash,fp=Shell
+$ cmake -S . -B build
 $ cmake --build build
 $ ./build/main
 42
@@ -113,7 +113,7 @@ is a `constexpr` and is initialized to some expression; even containing a functi
 and another initialized to a simple number but immediately changed to the same expression
 value.
 
-```cpp
+```cpp,icon=%cplusplus,fp=main.cxx
 #include <iostream>
 
 auto constexpr sum(auto const n) {
@@ -139,7 +139,7 @@ auto main() -> int {
 
 This generates the following assembly (at least for GCC-14):
 
-```asm
+```haskell,icon=,fp=x86_64
 main:
         push    rbp
         mov     rbp, rsp
@@ -203,7 +203,7 @@ auto y = 6;
 ```
 
 `auto` is a keyword that allows the compiler to perform *type deduction*, which means we
-tell the compiler to figure out the type of the variable or function return signature
+allow the compiler to infer the type of a variable or function return signature
 from the context it is given.
 
 ## Storage Duration

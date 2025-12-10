@@ -1,9 +1,5 @@
 # Data Types
 
-```admonish warning
-🚧 Page Under Construction! 🏗️
-```
-
 As we mentioned on the last page, C++ is a *statically typed* language which means the
 type of data must be known (or deducable) to the compiler. C++ has a large selection of
 types available to use, some are language primitives and others are defined in the
@@ -22,9 +18,9 @@ diffenent bit widths. The default `int` is 32-bits wide on most platforms. By de
 integer types are signed ie. they can represent both positive and negative numbers. If
 you need unsigned numbers we can use the `unsigned` qualifier.
 
-```cpp
-int const x = -5;
-unsigned int const y = 5;
+```cpp,icon=%cplusplus
+const int x = -5;
+const unsigned int y = 5;
 ```
 
 If you need integers of a different sizes you can either use size qualifiers with the
@@ -110,18 +106,18 @@ with the `u` suffix being able to be used in combination with the other two.
 Additionally you can write integer literals in a different base form by changing the
 prefix of the literal.
 
-```cpp
-auto const decimal = 42;
-auto const octal = 052;
-auto const hex = 0x2a;
-auto const Hex = 0X2A; // capital hex digits
-auto const binary 0b101010;
+```cpp,icon=%cplusplus
+const auto decimal = 42;
+const auto octal = 052;
+const auto hex = 0x2a;
+const auto Hex = 0X2A; // capital hex digits
+const auto binary 0b101010;
 ```
 
 Integers can also be separated using a `'` to make large numbers easier to read.
 
-```cpp
-auto const x = 1'234'567'890;
+```cpp,icon=%cplusplus
+const auto x = 1'234'567'890;
 ```
 
 ### Character Types
@@ -131,9 +127,9 @@ because character types in C++ are represented using numbers, specifically `char
 represents ASCII code points. Character literals are specified with single quotes like
 the example below. 
 
-```cpp
-char const x = 'a';
-auto const y = 'b';
+```cpp,icon=%cplusplus
+const char x = 'a';
+const auto y = 'b';
 ```
 
 ### Boolean Type
@@ -141,7 +137,7 @@ auto const y = 'b';
 C++'s Boolean type is called `bool` and can either hold the value `true` or `false`.
 Booleans are used mostly in conditional and loop statements eg. `if` and `while`.
 
-```cpp
+```cpp,icon=%cplusplus
 bool x = false;
 auto y = true;
 ```
@@ -164,41 +160,42 @@ floating point number.
 With `auto`, floating point values being initialized as a `double` by default and `float`
 and `long double` literals being specified by `f` and `l` literal suffixes.
 
-```cpp
-auto const f = -0.06f;
-auto const d = 47.5768;
-auto const l = -655456.457567l;
+```cpp,icon=%cplusplus
+const auto f = -0.06f;
+const auto d = 47.5768;
+const auto l = -655456.457567l;
 ```
 
 We can also initialize floating points using exponential form:
 
-```cpp
-auto const f = -6e-2f;
-auto const d = 475768e4;
-auto const l = -655456457567le7l;
+```cpp,icon=%cplusplus
+const auto f = -6e-2f;
+const auto d = 475768e4;
+const auto l = -655456457567le7l;
 ```
 
 #### Arithmetic Operations
 
 Integral and floating point types are categorized as *arithmetic* types which mean they
 support the common arithmetic operations like addition, subtraction etc.
-```cpp
+
+```cpp,icon=%cplusplus,fp=main.cxx
 auto main() -> int {
     // addition
-    auto const sum = 4 + 6;
+    const auto sum = 4 + 6;
 
     // subtraction
-    auto const diff = 10 - 5.5;
+    const auto diff = 10 - 5.5;
 
     // multiplication
-    auto const mul = 5 * 3.2;
+    const auto mul = 5 * 3.2;
 
     // division
-    auto const idiv = 10 / 3;
-    auto const fdif = 13.5 / 2.4;
+    const auto idiv = 10 / 3;
+    const auto fdif = 13.5 / 2.4;
 
     // remainder
-    auto const = 23 % 4;
+    const auto = 23 % 4;
 
     return 0;
 }
@@ -223,14 +220,14 @@ restricted to a set of named variants or *enumerators*. These named constants ha
 underlying integral type. Specifying the underlying type is optional ie. omit the
 `: type` in the enum declaration.
 
-```cpp
+```cpp,icon=%cplusplus
 enum class colour : char {
     red,
     green,
     blue
 };
 
-auto const c = colour::red;
+const auto c = colour::red;
 ```
 
 
@@ -242,22 +239,22 @@ declared. Tuples in C++ are not language types but are provided by the standard 
 in the `<tuple>` header and is called `std::tuple`. We create a tuple using brace
 initialization (top) or using the helper function `std::make_tuple()`.
 
-```cpp
-auto const t = std::tuple { 5u, 5.34f, -345, "abc", false };
-auto const u = std::make_tuple(5u, 5.f, -345, "abc", false);
+```cpp,icon=%cplusplus
+const auto t = std::tuple { 5u, 5.34f, -345, "abc", false };
+const auto u = std::make_tuple(5u, 5.f, -345, "abc", false);
 ```
 
 Tuples can be accessed using `std::get<I>(t)` with `I` being the index of the value we
 want to access and `t` is the tuple object.
 
-```cpp
-auto const e = std::get<2>(t);  // e := -345
+```cpp,icon=%cplusplus
+const auto e = std::get<2>(t);  // e := -345
 ```
 
 You can also destructure tuples into its constituent values like so.
 
-```cpp
-auto const [v, w, x, y, z] = t;
+```cpp,icon=%cplusplus
+const auto [v, w, x, y, z] = t;
 ```
 
 There is a specialization of *tuples* called `std::pair` which holds just two values. The
@@ -265,10 +262,10 @@ values of a pair can be extracted using the same methods as tuples but they also
 public members `std::pair::first` and `std::pair::second` which allows you to access the
 data.
 
-```cpp
-auto const p = std::pair {5, 'a'};
-auto const [x, y] = p;
-auto const z = p.second;
+```cpp,icon=%cplusplus
+const auto p = std::pair {5, 'a'};
+const auto [x, y] = p;
+const auto z = p.second;
 ```
 
 ## Special Types
@@ -279,8 +276,8 @@ fundamental to the language.
 The first is the `void` type is an incomplete type that is used to indicate that a
 function does not return a value.
 
-```cpp
-auto foo(auto const i) -> void {
+```cpp,icon=%cplusplus
+auto foo(const auto i) -> void {
    i + 5; 
 }
 ```
@@ -297,9 +294,9 @@ with indices starting at 0. The subscript element access does not perform bounds
 while `array::at()` does, meaning the later will throw and exception if an out of bounds
 index is used while the former will crash the program... sometimes.
 
-```cpp
-auto const a = std::array { 1, 2, 3, 4, 5 };
-auto const e1 = a[0]; // valid
-auto const e2 = a.at(5); // exception std::out_of_range
+```cpp,icon=%cplusplus
+const auto a = std::array { 1, 2, 3, 4, 5 };
+const auto e1 = a[0]; // valid
+const auto e2 = a.at(5); // exception std::out_of_range
 ```
 
