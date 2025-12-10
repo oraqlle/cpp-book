@@ -7,27 +7,12 @@
     },
     "configurePresets": [
         {
-            "name": "vcpkg",
-            "hidden": true,
-            "toolchainFile": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake"
-        },
-        {
-            "name": "std-cxx",
-            "hidden": true,
-            "cacheVariables": {
-                "CMAKE_CXX_EXTENSIONS": "OFF",
-                "CMAKE_CXX_STANDARD": "20",
-                "CMAKE_CXX_STANDARD_REQUIRED": "ON"
-            }
-        },
-        {
             "name": "common",
             "hidden": true,
-            "inherits": [
-                "std-cxx",
-                "vcpkg"
-            ],
             "cacheVariables": {
+                "CMAKE_CXX_STANDARD": "17",
+                "CMAKE_CXX_STANDARD_REQUIRED": "ON"
+                "CMAKE_CXX_EXTENSIONS": "OFF",
                 "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"           
             }
         },

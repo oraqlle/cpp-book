@@ -13,40 +13,50 @@ B".
 ## Creating a Project Directory
 
 First, you'll create a new directory to store you C++ code. It is a good idea to create a
-'projects' or 'dev' directory within you home or user directory in order to store any
-project you might develop for this book an beyond. Open a terminal and run the following
-commands.
+'projects' or 'dev' directory within your 'home' or 'user' directory in order to store
+any project you might develop for this book and beyond. Open a terminal and run the
+following commands.
 
-Linux, MacOS or PowerShell on Windows:
+#### Shell Script
 
-```sh
-$ mkdir ~/projects
-$ cd ~/projects
-$ mkdir hello_world
-$ cd hello_world
+```sh,icon=%gnubash,fp=Shell
+mkdir ~/projects
+cd ~/projects
+mkdir hello_world
+cd hello_world
+touch main.cxx
 ```
 
-CMD on Windows:
+#### PowerShell
 
-```cmd
-> mkdir "%userprofile%\projects"
-> cd "%userprofile%\projects"
-> mkdir hello_world
-> cd hello_world
+```haskell,icon=,fp=PowerShell
+New-Item -Path . -Name "projects" -ItemType "Directory"
+Set-Location projects
+New-Item -Path . -Name "hello_world" -ItemType "Directory"
+Set-Location hello_world
+New-Item -Path . -Name "main.cxx" -ItemType "File"
+```
+
+#### Command Prompt
+
+```haskell,icon=,fp=CommandPrompt
+mkdir "%userprofile%\projects"
+cd "%userprofile%\projects"
+mkdir hello_world
+cd hello_world
+echo. > main.cxx
 ```
 
 ## Writing and Running a C++ Program
 
-Within this new 'hello_world' directory we will create a new file called *main.cxx*. This
-is called a C++ source file. A C++ program is then built from one or more of these files.
-We use the file extension `*.cxx` to denote that this file contains C++ source code. If a
-filename contains multiple words the convention is to separate the words with an
-underscore eg. *hello_world.cxx* over *helloworld.cxx*. Now open the file you have just
-created and copy the code from [Listing 1-1](#listing1-1) into the file.
+Within this new 'hello_world' directory we have created a new file called *main.cxx*.
+This is called a C++ source file. A C++ program is then built from one or more of these
+files. We use the file extension `*.cxx` to denote that this file contains C++ source
+code. If a filename contains multiple words the convention is to separate the words with
+an underscore eg. *hello_world.cxx* over *helloworld.cxx*. Now open the file you have
+just created and copy the code from below into the file.
 
-<span id="listing1-1" class="caption">Listing 1-1: Program the prints `Hello, world!`</span>
-
-```cpp
+```cpp,icon=%cplusplus,fp=main.cxx
 {{#include examples/hello_world/main.cxx}}
 ```
 
@@ -57,21 +67,21 @@ same extension type across a project so no matter which one you use, just be con
 ```
 
 Save the file and return to your terminal open to the *~/projects/hello_world* directory
-and run the following command.
+and run the following commands....
 
-On Linux or MacOS
+.... on Linux or macOS ....
 
-```sh
-$ g++ -std=c++20 -o hello_world main.cxx
+```sh,icon=%gnubash,fp=Shell
+$ g++ -std=c++17 -o hello_world main.cxx
 $ ./hello_world
 Hello, world!
 ```
 
-On Windows
+.... on Windows ....
 
-```console
+```haskell,icon=,fp=CommandPrompt
 :: Must be done in a 'Developer Command Prompt for VS ...' 
-> cl /std:c++20 /EHsc /Fe: hello_world.exe main.cxx
+> cl /std:c++17 /EHsc /Fe: hello_world.exe main.cxx
 > .\hello_world.exe
 Hello, world!
 ```
@@ -82,8 +92,8 @@ written your first C++ program!
 ```admonish note
 - You can swap the `g++` command with the `clang++` command if you want to use the Clang
 compiler instead of the GCC compiler.
-- The `-std=c++20` (GCC/Clang) and `/std:c++20` flag options specify the compiler to use
-the C++20 (2020) version of C++. The `-o <name>` is used to specify the name and/or
+- The `-std=c++17` (GCC/Clang) and `/std:c++17` flag options specify the compiler to use
+the C++17 (2017) version of C++. The `-o <name>` is used to specify the name and/or
 directory for the compiled program.
 ```
 
@@ -92,7 +102,7 @@ directory for the compiled program.
 Let's go into some more detail on the structure of our "Hello, world!" program. The first
 component to cover is:
 
-```cpp
+```cpp,icon=%cplusplus,fp=main.cxx
 {{#include examples/hello_world/main.cxx:3}}
 
 {{#include examples/hello_world/main.cxx:6}}
@@ -106,7 +116,7 @@ the function is wrapped in curly braces `{}`.
 
 The body of the function contains the following two lines:
 
-```cpp
+```cpp,icon=%cplusplus,fp=main.cxx
 {{#include examples/hello_world/main.cxx:4:5}}
 ```
 
@@ -137,7 +147,7 @@ would need to provide you own definition for custom types.
 
 You'll also notice at the top of the file the following line:
 
-```cpp
+```cpp,icon=%cplusplus,fp=main.cxx
 {{#include examples/hello_world/main.cxx:1}}
 ```
 
@@ -147,8 +157,41 @@ stream comes from. We include libraries by utilising the preprocessor directive
 `#include` which basically copies and pastes the contents of the file indicating within
 the `<>` symbols into our program, which in this case is the file 'iostream'. Assume this
 file's location (and the location of any others used in the same manner) is known to your
-compiler unless specified otherwise. Files imported using `#include` are known as headers
-.
+compiler unless specified otherwise. Files imported using `#include` are known as
+headers.
+
+## Compiler Flags
+
+Compilers have a great many flags that you can provide to turn or off certain features,
+compile in a different mode or introduce instrumentation to track various properties
+about program or library. Because each compiler has different options and specifies them
+in different ways, there is no universal set of flags that you can specify to all
+compilers and because of how many options there are, it would be ludicrous to try and
+outline them all here. However, it is good practice to turn on all the warnings such
+that you can identify problematic code and remove it when appropriate.
+
+GCC and Clang have an almost identical set of flags with MSVC being the outlier. The
+flags I'd highly recommend specify whenever compiling C++ is as follows for each of the
+compilers.
+
+#### GCC and Clang
+
+* `-Wall` - Turn 'all' warnings on
+* `-Wextra` - Turn 'extra' warnings on
+* `-Werror` - Turn warnings into errors (very harsh)
+* `-Wpedantic` - Ensure strict ISO C++ Standard is Followed
+
+```sh,icon=%gnushell,fp=Shell
+g++ -std=c++17 -Wall -Wextra -Werror -Wpedantic -o hello_world main.cxx
+```
+
+#### MSVC
+
+* `/W4` - Warning Level 4
+
+```haskell,icon=,fp=CommandPrompt
+cl /std:c++17 /W4 /EHsc /Fe: hello_world.exe main.cxx
+```
 
 ## Compiling and Running Are Separate Steps
 

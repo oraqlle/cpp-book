@@ -28,6 +28,17 @@ Not every topic or capability of C++ will be explored in this book. For a compre
 reference on the language explore [cppreference.com](https://en.cppreference.com/w/).
 ```
 
+```admonish warning title="Author's note on C++ Standard Used in this Book"
+Currently this book only covers up to the C++17 Standard, even though C++20 (2020) and
+C++23 (2023) have been released since and C++26 (2026) is actively being written, C++17
+is the most supported version by compilers across all new changes. C++20 is nearly there
+with Modules being the main thing that remains to be implemented however, there is not
+much that was introduced C++20 that I plan to cover in the immediate draft and thus
+setting the baseline at C++17 narrows my focus to ensure the foundation is solid. Future
+versions of the book that introduce features from later standards will likely result in
+the suggested baseline being increased to C++20.
+```
+
 ## How to Use This Book
 
 In general, this book assumes that you're reading it in sequence from front to back.
@@ -78,6 +89,7 @@ transfer data ownership.
     - A - Operators
     - B - Value Categories
     - C - Standard Versions
+    - D - Recommended Compiler Flags
     - ~~A - Keywords~~
     - ~~D - Compilation Pipeline~~
     - ~~F - Compiler Vendors~~
