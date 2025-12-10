@@ -72,7 +72,7 @@ builtin CMake feature `cxx_std_17` to our executable which ensures it is built u
 ```
 
 ```admonish info
-See [Appendix C](../appendix/standard-versions.md) for more information on C++ Standards.
+See [Appendix C](/appendix/standard-versions.md) for more information on C++ Standards.
 ```
 
 <!--
@@ -153,8 +153,9 @@ CMake, do not fret, we will reinstate them now.
 ```
 
 Yes, CMake has conditionals and yes they look a little weird but this is greatly the
-extent I will be discussing CMake until [chapter 06](../ch06/larger-projects.md) when
-we look multi-file project structures.
+extent I will be discussing CMake until
+[chapter 06](/ch06-larger-projects/larger-projects.md) when we look multi-file project
+structures.
 
 <!--
 ## Compiling with Flags (Optional)
@@ -183,7 +184,7 @@ handle exporting libraries.
 <span id="listing1-4" class="caption">Listing 1-4: Base `CMakePresets.json` for a single cross-platform executable target with compiler flags set.</span>
 
 ```json
-{{#include ../ch02-guessing-game/CMakePresets.json}}
+{{#include /ch02-guessing-game/CMakePresets.json}}
 ```
 
 <span id="listing1-5" class="caption">Listing 1-5: Commands for building with [Listing 1-4's](#listing1-4) presets.</span>
