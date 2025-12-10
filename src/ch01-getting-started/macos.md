@@ -53,8 +53,8 @@ InstalledDir: /Library/Developer/CommandLineTools/usr/bin
 ```
 
 ```admonish note
-> Any details displayed from verifying a given newly installed tool may differ to what is
-> displayed in this book.
+Any details displayed from verifying a given newly installed tool may differ to what is
+displayed in this book.
 ```
 
 ```admonish tip

@@ -8,129 +8,85 @@ testing. This allows a single project to build many different outputs for differ
 platforms from a single source. Targets can also be consumed by other targets allowing
 more modular builds.
 
-## Creating a Project with CMake
+## Adapting our hello_world Project
 
-To start off, go back to your `projects/` directory and create a new directory called
-'hello_cmake'.
+To start off, go back to your `projects/hello_world` directory and create a new file
+`CMakeLists.txt`.
 
-```sh
-$ mkdir hello_cmake
-$ cd hello_cmake
+```sh,icon=%gnubash,fp=Shell
+$ cd ~/projects/hello_world
+$ touch CMakeLists.txt
 ```
 
-Within this directory we will need to create three new files `main.cxx`, `CMakeLists.txt`
-and `CMakePresets.json`. For the `main.cxx` file you can copy the below code which is
-identical to the one found on the previous page except printing slightly different
-content.
-
-```cpp
-{{#include examples/hello_cmake/main.cxx}}
+```haskell,icon=,fp=PowerShell
+Set-Location projects/hello_world
+New-Item -Path . -Name "CMakeLists.txt" -ItemType "File"
 ```
 
-We will first look at the `CMakeLists.txt` file.
+```haskell,icon=,fp=CommandPrompt
+> cd ~/projects/hello_world
+> echo. > CMakeLists.txt
+```
 
 ### CMake Configuration Files
 
 A CMake project is defined by a set of 'CMakeLists.txt' files located in the source tree
 (directories containing your source code). These describe your projects targets, source
 files etc.. For a simple single file project we only need a single 'CMakeLists.txt'
-alongside our `main.cxx` source file. Copy the contents from [Listing 1-2](#listing1-2).
+alongside our `main.cxx` source file. Copy the contents from below.
 
-<span id="listing1-2" class="caption">Listing 1-2: Basic CMake configuration file.</span>
-
-```haskell
-{{#include examples/hello_cmake/CMakeLists.txt}}
+```haskell,icon=%cmake,fp=CMakeLists.txt
+{{#include examples/hello_world/CMakeLists.txt}}
 ```
 
 Let's break down our `CMakeLists.txt` file. First we specify the minimum required version
 of CMake this project uses. This helps to ensure that any CMake features used in the
 projects configuration are available to end users and collaborators.
 
-```haskell
-{{#include examples/hello_cmake/CMakeLists.txt:1}}
+```haskell,icon=%cmake,fp=CMakeLists.txt
+{{#include examples/hello_world/CMakeLists.txt:1}}
 ```
 
 We then define the basic information about our project such as its name, description,
 version and what languages it uses.
 
-```haskell
-{{#include examples/hello_cmake/CMakeLists.txt:3:6}}
+```haskell,icon=%cmake,fp=CMakeLists.txt
+{{#include examples/hello_world/CMakeLists.txt:3:6}}
 ```
 
 In order to mark our `main.cxx` as an executable we use the `add_executable()` function
 where we specify the executable's name ie. the name of the target created from the
 executable as well as the source file used to make the executable.
 
-```haskell
-{{#include examples/hello_cmake/CMakeLists.txt:8}}
+```haskell,icon=%cmake,fp=CMakeLists.txt
+{{#include examples/hello_world/CMakeLists.txt:8}}
 ```
 
 Finally, we can add compilation features; such as setting the C++ Standard to use for
 building the target, using the `target_compile_features()` function. Here we add the
-builtin CMake feature `cxx_std_20` to our executable which ensures it is built using the
-2020 C++ Standard.
+builtin CMake feature `cxx_std_17` to our executable which ensures it is built using the
+2017 C++ Standard.
 
-```haskell
-{{#include examples/hello_cmake/CMakeLists.txt:9}}
+```haskell,icon=%cmake,fp=CMakeLists.txt
+{{#include examples/hello_world/CMakeLists.txt:9}}
 ```
 
 ```admonish info
-See [Appendix D](../appendix/standard-versions.md) for more information on C++ Standards.
+See [Appendix C](../appendix/standard-versions.md) for more information on C++ Standards.
 ```
 
+<!--
 ### CMake Presets
 
 We can also specify presets for CMake that define different configurations by a unique
 name. These presets can be used to configure your project to compile on multiple
 different platforms as well as set various flags and options depending on how your want
 the project to be built. This is better than writing large 'CMakeLists.txt' files with
-complicated conditional logic that makes just *writing* the configuration complicated. A
-minimalistic `CMakePresets.json` file would look similar to [Listing 1-3](#listing1-3).
-
-<span id="listing1-3" class="caption">Listing 1-3: Minimalistic CMake presets file.</span>
-
-```json
-{{#include examples/hello_cmake/CMakePresets.json}}
-```
-
-A `CMakePresets.json` file is starts with a key-value pair indicating the version of the
-preset engine to use from CMake. We also specify the minimum CMake version required for
-this project, similar to the first line [Listing 1-2](#listing1-2).
-
-```json
-{{#include examples/hello_cmake/CMakePresets.json:2:7}}
-```
-
-We then have a configuration array which stores our presets objects used for configuring
-our projects for different targets. All presets must have a unique name used to identify
-them.
-
-```json
-{{#include examples/hello_cmake/CMakePresets.json:8}}
-        // ... preset objects go here
-{{#include examples/hello_cmake/CMakePresets.json:13}}
-```
-
-In our preset named "default" specify where we want the resulting binary to be put. In
-this case we specified it to be placed in the `build/` directory at the root of our
-project.
-
-```json
-{{#include examples/hello_cmake/CMakePresets.json:9:12}}
-```
-
-One final thing to mention is that `CMakePresets.json` files support macro expansions
-which allow you to obtain common variables. The syntax for expanding a macro is to use a
-dollar sign (`$`) followed by the variables identifier surrounded in braces (`{}`). We
-can see one being used in [Listing 1-3](#listing1-3) when we specify where our binary
-should be built. We can see that instead of hard coding a path or using relative path we
-can leverage CMake knowing where our projects root is (which is where the root
-`CMakeLists.txt` file is located) and obtain the root of our source directory using the
-`sourceDir` variable, hence its expansion being used on line 11 eg.
-`"binaryDir": "${sourceDir}/build"`. Variable names are always in camel case.
+complicated conditional logic that makes just *writing* the configuration complicated.
 
 More information of CMake's presets can be found on CMake's official documentation
 [cmake-presets(7)](https://cmake.org/cmake/help/latest/manual/cmake-presets.7.html).
+-->
 
 ## Building and Running a CMake Project
 
@@ -144,7 +100,7 @@ For our project we only have a single target which also happens to correspond to
 single preset so we can simply run the following to build our recipe.
 
 ```sh
-$ cmake --preset=default
+$ cmake -S . -B build
 -- The CXX compiler identification is GNU 11.4.0
 -- Detecting CXX compiler ABI info
 -- Detecting CXX compiler ABI info - done
@@ -153,33 +109,24 @@ $ cmake --preset=default
 -- Detecting CXX compile features - done
 -- Configuring done
 -- Generating done
--- Build files have been written to: /home/user/projects/hello_cmake/build
+-- Build files have been written to: /home/user/projects/hello_world/build
 ```
-
-~~~admonish info
-If you do not want to use presets you can manually build the project with the following
-command.
-
-```sh
-$ cmake -S . -B build
-```
-~~~
 
 We can then build the target using the following command:
 
 ```sh
 $ cmake --build build
-[ 50%] Building CXX object CMakeFiles/hello_cmake.dir/main.cxx.o
-[100%] Linking CXX executable hello_cmake
-[100%] Built target hello_cmake
+[ 50%] Building CXX object CMakeFiles/hello_world.dir/main.cxx.o
+[100%] Linking CXX executable hello_world
+[100%] Built target hello_world
 ```
 
-This will produce a binary called `hello_cmake` in the `build/` directory on Linux and
-MacOS and the `build/Debug/` directory on Windows. We can run our program like normal.
+This will produce a binary called `hello_world` in the `build/` directory on Linux and
+macOS and the `build/Debug/` directory on Windows. We can run our program like normal.
 
 ```sh
-$ ./build/hello_cmake  # ... or .\build\Debug\hello_cmake.exe on Windows
-Hello, CMake!
+$ ./build/hello_world  # ... or .\build\Debug\hello_world.exe on Windows
+Hello, World!
 ```
 
 ~~~admonish tip
@@ -190,11 +137,26 @@ CMake's `--config=<config>` flag during the build step. You can test creating a 
 build by running the following command which should now produce and executable in the
 `build\Release\` directory.
 
-```console
+```haskell,icon=,fp=CommandPrompt
 > cmake --build build --config=Release
 ```
 ~~~
 
+## Adding Compiler Flags to CMake Build
+
+Remember in the previous chapter how I stated that it is good to specify warning flags in
+your C++ builds to catch common bugs. We seem to have abandoned them when introducing
+CMake, do not fret, we will reinstate them now.
+
+```haskell,icon=%cmake,CMakeLists.txt
+{{#include examples/hello_world/CMakeLists2.txt}}
+```
+
+Yes, CMake has conditionals and yes they look a little weird but this is greatly the
+extent I will be discussing CMake until [chapter 06](../ch06/larger-projects.md) when
+we look multi-file project structures.
+
+<!--
 ## Compiling with Flags (Optional)
 
 Often we want to have specific flags set for the compiler(s) we are using but because
@@ -273,4 +235,4 @@ $ cmake -S . -B build/windows-x86 --preset=windows-x86   # configure
 $ cmake --build build/windows-x86 --config=Release       # build
 $ ./build/windows-x86/Release/<exe-name>.exe             # execute
 ```
-
+-->

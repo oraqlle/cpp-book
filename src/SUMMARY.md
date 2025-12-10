@@ -12,8 +12,9 @@
     - [MacOS](ch01-getting-started/macos.md)
   - ["Hello, World!"](ch01-getting-started/hello-world.md)
   - ["Hello, CMake!"](ch01-getting-started/hello-cmake.md)
-  - ["Hello, vcpkg!"](ch01-getting-started/hello-vcpkg.md)
   - ["Hello, Godbolt!"](ch01-getting-started/hello-godbolt.md)
+
+<!-- ["Hello, vcpkg!"](ch01-getting-started/hello-vcpkg.md) -->
 
 ## Sample Project
 
@@ -72,7 +73,7 @@
 <!--   - [Access Modifiers](custom-types/access-modifiers.md) -->
 <!--   - [Constructors, Destructors and RAII](custom-types/raii.md) -->
 
-## Managing Growing Projects
+## Larger Projects
 
 <!-- - [Managing Growing Projects](managing-projects/managing-projects.md) -->
 <!--   - [Namespaces](managing-projects/namespaces.md) -->
@@ -196,8 +197,9 @@
 - [Appendix](appendix/appendix.md)
   - [A - Keywords](appendix/A-keywords.md)
   - [B - Operators](appendix/B-operators.md)
+  - [C - Standard Versions](appendix/C-standard-versions.md)
+  - [D - Recommended Compiler Flags](appendix/D-cxx-flags.md)
 <!--   - [C - Developer Tools](appendix/devtools.md) -->
-<!--   - [D - Standard Versions](appendix/standard-versions.md) -->
 <!--   - [E - Value Categories](appendix/value-categories.md) -->
 <!--   - [F - Compiler Vendors](appendix/compiler-vendors.md) -->
 <!--   - [G - Compilation Pipeline](appendix/compilation-pipeline.md) -->
