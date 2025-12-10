@@ -14,8 +14,8 @@ To start off, go back to your `projects/hello_world` directory and create a new 
 `CMakeLists.txt`.
 
 ```sh,icon=%gnubash,fp=Shell
-$ cd ~/projects/hello_world
-$ touch CMakeLists.txt
+cd ~/projects/hello_world
+touch CMakeLists.txt
 ```
 
 ```haskell,icon=,fp=PowerShell
@@ -24,8 +24,8 @@ New-Item -Path . -Name "CMakeLists.txt" -ItemType "File"
 ```
 
 ```haskell,icon=,fp=CommandPrompt
-> cd ~/projects/hello_world
-> echo. > CMakeLists.txt
+cd ~/projects/hello_world
+echo. > CMakeLists.txt
 ```
 
 ### CMake Configuration Files
@@ -138,7 +138,7 @@ build by running the following command which should now produce and executable i
 `build\Release\` directory.
 
 ```haskell,icon=,fp=CommandPrompt
-> cmake --build build --config=Release
+cmake --build build --config=Release
 ```
 ~~~
 

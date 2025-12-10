@@ -5,17 +5,16 @@
 #include <random>
 #include <string>
 
-auto main() -> int
-{
+auto main() -> int {
     std::cout << "Guessing Game!\n";
 
-    auto rd = std::random_device {};
-    auto gen = std::mt19937 { rd() };
-    auto distrib = std::uniform_int_distribution { 1, 100 };
+    auto rd = std::random_device{};
+    auto gen = std::mt19937{ rd() };
+    auto distrib = std::uniform_int_distribution{ 1, 100 };
 
-    auto const secret_number = distrib(gen);
-    auto input = std::string {};
-    auto guess = int {};
+    const auto secret_number = distrib(gen);
+    auto input = std::string{};
+    auto guess = int{0};
 
     while (true) {
         std::cout << "Please input your guess: ";
