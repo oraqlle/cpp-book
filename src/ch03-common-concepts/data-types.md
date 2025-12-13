@@ -1,10 +1,9 @@
 # Data Types
 
-As we mentioned on the last page, C++ is a *statically typed* language which means the
-type of data must be known (or deducable) to the compiler. C++ has a large selection of
-types available to use, some are language primitives and others are defined in the
-standard library. In this page we will look at four categories of types,
-*scalar integrals*, *floating point*, *compound* and special types.
+The type of a value is important in C++ as it determines the permissible actions that
+can be performed on the value as well as determine the size of the value in memory. C++
+has a great many types but we'll begin by looking at some of the most simple, ones you
+will find in every program your read or write.
 
 ## Scalar Types
 
@@ -14,7 +13,7 @@ types but C++ character and Boolean types.
 ### Integer Types
 
 An *integer* is a whole number. C++ has a few different integer types which have 
-diffenent bit widths. The default `int` is 32-bits wide on most platforms. By default
+different bit widths. The default `int` is 32-bits wide on most platforms. By default
 integer types are signed ie. they can represent both positive and negative numbers. If
 you need unsigned numbers we can use the `unsigned` qualifier.
 
@@ -88,14 +87,18 @@ for an 8-bit number and for an unsigned number the range is \\(2^N-1\\) eg. valu
 In addition to these integer types there are `std::size_t` and `std::ptrdiff_t` which
 are the unsigned and signed types respectively that have the max bit width available on a
 given architecture, eg. 64 bits on 64-bit architecture. `std::size_t` is the type used
-when index arrays or getting the size of objects. The odd name for `std::ptrdiff_t` is
-because this is the type returned after pointer arithmetic however, it is really the
-largest signed integer type.
+when indexing arrays or getting the size of objects.
 
 #### Literals
 
-You can specify the type/width of an integer using a literal suffix from the table below
-with the `u` suffix being able to be used in combination with the other two.
+Literals are the symbols that represent an actual value in C++ source code. They are
+mostly used to initialize a variable. For example, `1` is an integer literal of type
+`int` while `"Hello"` is a string literal of type `const char*` (ignore the meaning of
+this type for now).
+
+Literals can have a suffix operator applied to specify the literal has a specific type
+or bit width. Some can be used in combination with others such as the `u` literal suffix
+on integer literals.
 
 | Keyword      | Description |
 |--------------|:-----------:|
@@ -135,7 +138,7 @@ const auto y = 'b';
 ### Boolean Type
 
 C++'s Boolean type is called `bool` and can either hold the value `true` or `false`.
-Booleans are used mostly in conditional and loop statements eg. `if` and `while`.
+Booleans are mostly used in conditional and loop statements eg. `if` and `while`.
 
 ```cpp,icon=%cplusplus
 bool x = false;
@@ -157,8 +160,8 @@ fractional components. These types are the `float`, `double` and `long double`; 
 (64-bit) numbers and `long double` being an extended or quadruple precision (128-bit)
 floating point number.
 
-With `auto`, floating point values being initialized as a `double` by default and `float`
-and `long double` literals being specified by `f` and `l` literal suffixes.
+All floating point literals have the type of `double` with the `f` and `l` literal suffix
+operators specifying a type of `float` and `long double` respectively.
 
 ```cpp,icon=%cplusplus
 const auto f = -0.06f;
@@ -180,12 +183,14 @@ Integral and floating point types are categorized as *arithmetic* types which me
 support the common arithmetic operations like addition, subtraction etc.
 
 ```cpp,icon=%cplusplus,fp=main.cxx
+$#include <iostream>
+$
 auto main() -> int {
     // addition
     const auto sum = 4 + 6;
 
     // subtraction
-    const auto diff = 10 - 5.5;
+    const auto sub = 10 - 5.5;
 
     // multiplication
     const auto mul = 5 * 3.2;
@@ -195,9 +200,18 @@ auto main() -> int {
     const auto fdif = 13.5 / 2.4;
 
     // remainder
-    const auto = 23 % 4;
+    const auto rem = 23 % 4;
 
-    return 0;
+    // --snip--
+$
+$    std::cout << "sum: " << sum << "\n";
+$    std::cout << "sub: " << sub << "\n";
+$    std::cout << "mul: " << mul << "\n";
+$    std::cout << "idiv: " << idiv << "\n";
+$    std::cout << "fdiv: " << fdiv << "\n";
+$    std::cout << "rem: " << rem << "\n";
+$
+$    return 0;
 }
 ```
 
@@ -221,13 +235,23 @@ underlying integral type. Specifying the underlying type is optional ie. omit th
 `: type` in the enum declaration.
 
 ```cpp,icon=%cplusplus
+$#include <iostream>
+$
 enum class colour : char {
     red,
     green,
     blue
 };
 
-const auto c = colour::red;
+auto main() -> int {
+    const auto col = colour::red;
+
+    // --snip--
+$
+$    std::cout << "colour internal value is: " << col << "\n";
+$
+$    return 0;
+}
 ```
 
 
@@ -240,34 +264,87 @@ in the `<tuple>` header and is called `std::tuple`. We create a tuple using brac
 initialization (top) or using the helper function `std::make_tuple()`.
 
 ```cpp,icon=%cplusplus
-const auto t = std::tuple { 5u, 5.34f, -345, "abc", false };
-const auto u = std::make_tuple(5u, 5.f, -345, "abc", false);
+$#include <iostream>
+$#include <tuple>
+$
+auto main() -> int {
+    const auto t = std::tuple{ 5u, 5.34f, -345, "abc", false };
+    const auto u = std::make_tuple(5u, 5.f, -345, "abc", false);
+$
+$    return 0;
+}
 ```
 
 Tuples can be accessed using `std::get<I>(t)` with `I` being the index of the value we
 want to access and `t` is the tuple object.
 
 ```cpp,icon=%cplusplus
-const auto e = std::get<2>(t);  // e := -345
+$#include <iostream>
+$#include <tuple>
+$
+auto main() -> int {
+    const auto t = std::tuple{ 5u, 5.34f, -345, "abc", false };
+    const auto u = std::make_tuple(5u, 5.f, -345, "abc", false);
+    
+    const auto e = std::get<2>(t);  // e := -345
+
+    // --snip--
+$
+$    std::cout << "2nd tuple element is: " << e << "\n";
+$
+$    return 0;
+}
 ```
 
 You can also destructure tuples into its constituent values like so.
 
 ```cpp,icon=%cplusplus
-const auto [v, w, x, y, z] = t;
+$#include <iostream>
+$#include <tuple>
+$
+auto main() -> int {
+    const auto t = std::tuple{ 5u, 5.34f, -345, "abc", false };
+    const auto u = std::make_tuple(5u, 5.f, -345, "abc", false);
+    
+    const auto [v, w, x, y, z] = t;
+
+    // --snip--
+$
+$    std::cout << "v: " << v << "\n";
+$    std::cout << "w: " << w << "\n";
+$    std::cout << "x: " << x << "\n";
+$    std::cout << "y: " << y << "\n";
+$    std::cout << "z: " << z << "\n";
+$
+$    return 0;
+}
 ```
 
-There is a specialization of *tuples* called `std::pair` which holds just two values. The
-values of a pair can be extracted using the same methods as tuples but they also have
-public members `std::pair::first` and `std::pair::second` which allows you to access the
-data.
+There is a specialization of *tuples* called `std::pair` found in the `<utility>` header
+which holds just two values. The values of a pair can be extracted using the same methods
+as tuples but they also have public members `std::pair::first` and `std::pair::second`
+which allows you to access the data.
 
 ```cpp,icon=%cplusplus
-const auto p = std::pair {5, 'a'};
-const auto [x, y] = p;
-const auto z = p.second;
+$#include <iostream>
+$#include <utility>
+$
+auto main() -> int {
+    const auto p = std::pair{5, 'a'};
+    const auto [x, y] = p;
+    
+    // --snip--
+$
+$    std::cout << "first: " << p.first << "\n";
+$    std::cout << "second: " << p.second << "\n";
+$    std::cout << "x: " << x << "\n";
+$    std::cout << "y: " << y << "\n";
+$
+$    return 0;
+}
 ```
 
+<!--
 ## Special Types
 
 C++ has a handful of special types that you won't use as directly as types but are
@@ -277,26 +354,38 @@ The first is the `void` type is an incomplete type that is used to indicate that
 function does not return a value.
 
 ```cpp,icon=%cplusplus
-auto foo(const auto i) -> void {
+auto foo(const int i) -> void {
    i + 5; 
 }
 ```
 
 The other type is `std::nullptr_t` which is the type of `nullptr` the value of a pointer
 pointing to nothing.
+-->
 
 ## Array Types
 
-C++ array type is a fixed sized container where elements are all of the same type.
-The array type is called `std::array` and is found in the `<array>` header. Array
-elements can be accessed using the subscript operator `[]` or the `array::at()` method
-with indices starting at 0. The subscript element access does not perform bounds checking
-while `array::at()` does, meaning the later will throw and exception if an out of bounds
-index is used while the former will crash the program... sometimes.
+C++'s array type is a fixed sized container where every elements is of of the same type
+and located contiguously next to each other in memory. Much like other types it is found
+in the `std` namespace and is called; as you might of guess `std::array`, which You can
+import from the `<array>` header. An element in an array can be accessed using the
+subscript operator `[]` or the `array::at()` method with indices starting at 0. The
+subscript operator access does not perform bounds checking while `array::at()` does,
+meaning the latter will throw and exception if an out of bounds index is used while the
+former will results in 'Undefined Behaviour' which may or may not crash the program.
 
 ```cpp,icon=%cplusplus
-const auto a = std::array { 1, 2, 3, 4, 5 };
-const auto e1 = a[0]; // valid
-const auto e2 = a.at(5); // exception std::out_of_range
+$#include <array>
+$#include <iostream>
+$
+auto main() -> int {
+    const auto a = std::array{ 1, 2, 3, 4, 5 };
+    const auto e1 = a[0]; // valid
+    const auto e2 = a.at(5); // exception std::out_of_range
+    
+    // --snip--
+$
+$    return 0;
+}
 ```
 
