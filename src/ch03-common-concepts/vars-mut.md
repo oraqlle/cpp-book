@@ -5,12 +5,14 @@ where we used them to store the guess of the user and create our PRNG etc.. Let'
 what happens when we try to modify constant data and when we would want to allow
 mutations.
 
+<!--
 ```admonish danger
 By default, variables are mutable, allowing you to modify them freely. While this offers
 great flexibiliy and ease of programming, it is beneficial to opt-in to immutabilty using
 the `const` keyword which data that does not need to change, cannot change; opting to
 remove the `const` keyword when data needs to be mutable.
 ```
+-->
 
 Create a new project have done before, with a `main.cxx` and `CMakeLists.txt` and add the
 following contents. This will act as out scratchbook project for tinkering with examples.
@@ -42,20 +44,37 @@ endif()
 #include <iostream>
 
 auto main() -> int {
-    const auto x = 42;
-
-    std::cout << x << std::endl;
-    x = 43;
-    std::cout << x << std::endl;
-    
     return 0;
 }
 ```
 
-When we try to compile this we should get an error like so:
+## Declaring Variables and Constants
+
+To start with we will explore how your declare variables and constants and what happens
+when you try to change the value for each. Below outlines a program that declares a
+constant with the name `x` and assigns it the value `42` and displays the result. Very
+straight forward, basically the same as 'Hello, world!'. We then reassign `x` to `43` and
+print the result. The question is, would this compile? Let's take a look.
+
+```cpp,icon=%cplusplus,fp=main.cxx
+$#include <iostream>
+$
+auto main() -> int {
+    const auto x = 42;
+    std::cout << x << "\n";
+
+    x = 43;
+    std::cout << x << "\n";
+$    
+$    return 0;
+}
+```
+
+ When we try to compile the above we should get an error like so:
 
 ```sh,icon=%gnubash,fp=Shell
 $ cmake -S . -B build
+...
 $ cmake --build build
 [ 50%] Building CXX object CMakeFiles/main.dir/main.cxx.o
 /home/user/projects/common/main.cxx: In function ‘int main()’:
@@ -67,39 +86,35 @@ gmake[1]: *** [CMakeFiles/Makefile2:83: CMakeFiles/main.dir/all] Error 2
 gmake: *** [Makefile:91: all] Error 2
 ```
 
-It is vital that we catch errors like this are compile time as it prevents us writing bad
-and security vulnerable code. Constant data is also easier to reason about as we can
-assume that no part of the program will modify this piece of data. The benefits of this
-do not emerge properly until we introduce functions and have to share data across the
-function boundaries where we expect the function to not mutate data passed to it even
-though the surrounding scope might. More on this later.
-
-Even though immutable data is easier to reason about, mutating data is where the fun
-parts of computing occur. We can see that by dropping the `const` we can mutate the
-variable freely.
+The answer is a definitive no. Why? Because `x` in this program is a constant meaning its
+value does not change over its lifetime. If `x` is meant to change we drop the `const`
+keyword, allowing `x` to be mutated and thus making it a *variable*.
 
 ```cpp,icon=%cplusplus,fp=main.cxx
-#include <iostream>
-
+$#include <iostream>
+$
 auto main() -> int {
     auto x = 42;
-
     std::cout << x << std::endl;
+
     x = 43;
     std::cout << x << std::endl;
-    
-    return 0;
+$    
+$    return 0;
 }
 ```
 
 ```sh,icon=%gnubash,fp=Shell
 $ cmake -S . -B build
+...
 $ cmake --build build
+...
 $ ./build/main
 42
 43
 ```
 
+<!--
 ## Constant Expressions
 
 C++ allows for us to define constants whose value is computed at compile time using the
@@ -191,34 +206,64 @@ It should be noted that `constexpr` only indicates to the compiler that this exp
 could be computable at compile time but makes no guarantee that it will. For that,
 `consteval` was introduced.
 ```
+-->
 
 ## Type Deduction
 
-You may be wondering why we I am using `auto` to declare variables instead of writing the
-type like below. C++ is a statically typed language after all... right?
+It is time to address the elephant in the room, `auto`. You may be asking;
+* "What is this peculiar keyword and why are we declaring constants and variables with
+   it?"
+* "I thought C++ was a typed language, where are the types?" etc..
 
-```cpp
+All valid questions and if we are to continue using `auto` we should address what it is
+doing. `auto` does *not* introduce dynamically typed variables into C++, the type is
+still there it is just *inferred* by the compiler. This is a mechanism called *type
+deduction* and it allows for the type of many expressions to be resolved by the compiler
+rather than the programmer. This feature was introduced with C++11 allows for simpler
+expressions to be written in the language.
+
+Take a look at the example below, both lines declare a variable with one explicitly
+stating the type of `x` while the other lets the compiler deduce the type of `y` for you
+but with both variables having the type `int`.
+
+```cpp,icon=%cplusplus
 int x = 5;
 auto y = 6;
 ```
 
-`auto` is a keyword that allows the compiler to perform *type deduction*, which means we
-allow the compiler to infer the type of a variable or function return signature
-from the context it is given.
+As discussed in the chapter 02, you can still mark the type of an expression explicit by
+making it explicitly known on the right hand side of the equals sign, like we did for
+`std::string`.
+
+```cpp,icon%cplusplus
+int x = 5;
+auto y = int{6};
+```
 
 ## Storage Duration
 
-Data in C++ falls into different storage duration categories which dictates the lifetime
-of the data. So far we have seen data with automatic storage duration, this is data
-that is automatically freed when it goes out of scope. These are variables that do not
-allocate heap memory and instead live entirely on the stack and thus are freed when stack
-frames are popped, which occurs naturally as functions return.
+The primary goal of variables (and constants) is to store data. Whether that be numbers,
+characters, memory address etc.. How long a variable is around for (known as its
+lifetime) is determined by where space for the data was made available from and can be
+labelled by one of three categories known as "storage durations".
 
-Data with dynamic storage duration is data that is created at runtime and must be
-deallocated manually before the program finishes. This is data that is usually stored on
-the heap or what C++ formally calls the *free store*.
+So far we have seen data with *automatic storage duration*, which means the lifetime of
+that data is tied directly to the scope it was declared in. Currently we have only been
+working in the scope of the `main()` function, thus when we `return` from `main()`, the
+variables we have declared will become unavailable.
 
-One we haven't looked at yet is static storage duration. This is data that is encoded
+Soon we will look at data that has *dynamic storage duration*. This is data whose
+lifetime is managed manually by the program and thus by the programmer. You must
+explicitly request the space for the data and remember to return it once you no longer
+require it.
+
+These two storage duration categories are often tied to the notion of the stack and the
+free store respectively. Data with automatic storage duration is allocated on the stack
+allowing for the usual mechanisms of the stack to handle the allocation and deallocation
+of the slots used for the data, and the free store being the region in which dynamic data
+is located.
+
+One we haven't looked at yet is *static storage duration*. This is data that is encoded
 directly in the binary of a program and thus lives for the entire duration of the
 program. To give data this storage duration we declare it with the `static` keyword.
 Global variables declared outside of a functions are implicitly `static`.
