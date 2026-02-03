@@ -43,18 +43,16 @@ Copyright (C) Microsoft Corporation.  All rights reserved.
 usage: cl [ option... ] filename... [ /link linkoption... ]
 ```
 
-```admonish note
-Any details displayed from verifying a given newly installed tool may differ to what is
-displayed in this book.
-```
+> [!NOTE]
+> Any details displayed from verifying a given newly installed tool may differ to what is
+> displayed in this book.
 
-```admonish tip
-Alternatively you can follow [Microsoft's tutorial](https://learn.microsoft.com/en-us/cpp/build/vscpp-step-1-create?view=msvc-170)
-for creating a new C++ VS Project. This will be more convenient than opening a
-'Developer Command Prompt' every time you want to compile a program and having to run
-the `cl` command manually but it takes more work setting compiler flags etc. for simple
-projects.
-```
+> [!TIP]
+> Alternatively you can follow [Microsoft's tutorial](https://learn.microsoft.com/en-us/cpp/build/vscpp-step-1-create?view=msvc-170)
+> for creating a new C++ VS Project. This will be more convenient than opening a
+> 'Developer Command Prompt' every time you want to compile a program and having to run
+> the `cl` command manually but it takes more work setting compiler flags etc. for simple
+> projects.
 
 CMake is a build tool for C++ projects. It is used to manage different configurations for
 a projects. You can download the latest release from [CMake's Release Page](https://cmake.org/download/#latest:~:text=Files-,Windows%20x64%20Installer%3A,-cmake%2D3.27.8%2Dwindows)

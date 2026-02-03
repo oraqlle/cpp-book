@@ -1,8 +1,7 @@
 # The `span` and `string_view` types
 
-```admonish warning
-🚧 Page Under Construction! 🏗️
-```
+> [!WARNING]
+> 🚧 Page Under Construction! 🏗️
 
 ## `string_view`
 
@@ -31,11 +30,10 @@ $    return 0;
 }
 ```
 
-```admonish  note
-The `string::data()` method is used to get the address of the first element in a `string`
-thus we can use it to get the starting address of our substring by offsetting it by the
-correct number of characters as seen above.
-```
+> [!NOTE]
+> The `string::data()` method is used to get the address of the first element in a
+> `string` thus we can use it to get the starting address of our substring by offsetting
+> it by the correct number of characters as seen above.
 
 We can also use `string_view` to handle *string literals*, these are the strings we create
 using double quotes (`""`). This makes string literals; which previously was just an
@@ -61,14 +59,13 @@ $    return 0;
 }
 ```
 
-```admonish tip
-We can create `strings` and `string_views` from *string literals* using
-*literal operators*. Literal operators are suffixes you attach to a literals; like the
-`u` suffix to make an integer literal `unsigned`, that can be used to construct a custom
-type from the literals. In this case, we can make a `string` or `string_view` using the
-`s` or `sv` literal operators respectively. These are found in the namespace
-`std::literals` which we expose globally in the line above `main()`.
-```
+> [!TIP]
+> We can create `strings` and `string_views` from *string literals* using
+> *literal operators*. Literal operators are suffixes you attach to a literals; like the
+> `u` suffix to make an integer literal `unsigned`, that can be used to construct a
+> custom type from the literals. In this case, we can make a `string` or `string_view`
+> using the `s` or `sv` literal operators respectively. These are found in the namespace
+> `std::literals` which we expose globally in the line above `main()`.
 
 ## Spans
 
@@ -99,16 +96,15 @@ $}
     // --snip--
 ```
 
-```admonish danger
-You don't need to worry about why C-arrays are unsafe for the purposes of
-this book. In a nutshell C-arrays (and string literals for that matter) are very
-primitive structures that do not provide any guards from misuse.
-
-This has the benefit of allowing clever uses of the structures for the sake of
-performance and optimization which can be a good thing for system languages especially
-for the time period C came onto the scene however, when learning a system language guards
-help ensure correct practices are followed and engrained early in your journey so they do
-not become *footguns* in the future. This is why this book does not cover content from C
-as C++ has given many safer alternatives for decades.
-```
+> [!CAUTION]
+> You don't need to worry about why C-arrays are unsafe for the purposes of this book. In
+> a nutshell C-arrays (and string literals for that matter) are very primitive structures
+> that do not provide any guards from misuse.
+>
+> This has the benefit of allowing clever uses of the structures for the sake of
+> performance and optimization which can be a good thing for system languages especially
+> for the time period C came onto the scene however, when learning a system language
+> guards help ensure correct practices are followed and engrained early in your journey
+> so they do not become *footguns* in the future. This is why this book does not cover
+> content from C as C++ has given many safer alternatives for decades.
 

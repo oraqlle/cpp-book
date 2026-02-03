@@ -54,7 +54,7 @@ $    return 0;
 }
 ```
 
-```admonish tip
+> [!tip]
 - The line starting with the `using` keyword is used introduce a *type alias*. This allows
 us to define a shorter name for a type we are using frequently. This is particularly
 useful for tuples such that we can distinguish two tuples of the same underlying types
@@ -62,7 +62,6 @@ but with different purposes.
 - We could also have used `std::make_tuple()` to create our tuple object in `main()`
 however, I used the brace-initialized from with the type alias to make it clearer what
 type `v` is supposed to be.
-```
 
 ## Refactoring with structs
 

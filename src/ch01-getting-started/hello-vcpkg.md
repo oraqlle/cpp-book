@@ -49,9 +49,8 @@ our `CMakePresets.json` file with an entry in the new object for the variable
 This leverages the `$env{}` macro which obtains environment variables, in this case the
 variable `$VCPKG_ROOT` variable which is where our vcpkg install lives.
 
-```admonish warning
-Make sure to have a comma at the end of the line for the `"binaryDir"` entry. 
-```
+> [!WARNING]
+> Make sure to have a comma at the end of the line for the `"binaryDir"` entry. 
 
 ## Adding Packages
 
@@ -121,11 +120,10 @@ into the projects `main.cxx`.
 {{#include examples/hello_vcpkg/main.cxx}}
 ```
 
-```admonish note
-The use of two braces in the format string of `fmt::println()` is so the one pair is
-actually printed in th output. Normally braces have a special meaning in `{fmt}` but if
-we need a literal `'{'` or `'}'` we use two. 
-```
+> [!NOTE]
+> The use of two braces in the format string of `fmt::println()` is so the one pair is
+> actually printed in th output. Normally braces have a special meaning in `{fmt}` but if
+> we need a literal `'{'` or `'}'` we use two. 
 
 ## Building and Running with vcpkg
 

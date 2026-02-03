@@ -26,32 +26,31 @@ $    return 0;
 }
 ```
 
-```admonish abstract
-A function must be declared before it can be used as the compiler has to know the
-function symbol (name + parameter and return types) exists however, it does not have to
-defined.
-
-~~~cpp
-$#include <iostream>
-$
-// declaration
-auto foo() -> void;
-
-auto main() -> int {
-    std::cout << "Main function!\n";
-
-    foo();
-$
-$    return 0;
-}
-
-// definition
-auto foo() -> void {
-    std::cout << "Another one!\n";
-    return;
-}
-~~~
-```
+> [!TIP]
+> A function must be declared before it can be used as the compiler has to know the
+> function symbol (name + parameter and return types) exists however, it does not have to
+> defined.
+>
+> ```cpp
+> $#include <iostream>
+> $
+> // declaration
+> auto foo() -> void;
+> 
+> auto main() -> int {
+>     std::cout << "Main function!\n";
+> 
+>     foo();
+> $
+> $    return 0;
+> }
+> 
+> // definition
+> auto foo() -> void {
+>     std::cout << "Another one!\n";
+>     return;
+> }
+> ```
 
 ## Parameters
 
@@ -104,10 +103,9 @@ $    return 0;
 }
 ```
 
-```admonish tip
-Previously, 
-The empty `return` statement can be omitted if the function
-```
+> [!TIP]
+> Previously, 
+> The empty `return` statement can be omitted if the function
 
 
 ## Overloading
@@ -178,8 +176,7 @@ auto main() -> int {
 }
 ```
 
-```admonish warning
-There are a few operators that cannot be overloaded such as scope lookup (`::`), and
-member access operators (`.`, `->`, `.*` and `->*`).
-```
+> [!WARNING]
+> There are a few operators that cannot be overloaded such as scope lookup (`::`), and
+> member access operators (`.`, `->`, `.*` and `->*`).
 

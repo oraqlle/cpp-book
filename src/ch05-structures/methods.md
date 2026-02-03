@@ -35,12 +35,10 @@ $    return 0;
 }
 ```
 
-```admonish note
-The `const` after the parameter declaration and before the trailing return arrow does not
-mean the return type is constant, but rather indicates that this method does not modify
-the member variables of this `vec3` instance and thus can be used on on `const`
-instances.
-```
+> Note: The `const` after the parameter declaration and before the trailing return arrow
+> does not mean the return type is constant, but rather indicates that this method does
+> not modify the member variables of this `vec3` instance and thus can be used on on
+> `const` instances.
 
 ## `this` keyword
 
@@ -103,10 +101,9 @@ $    return 0;
 }
 ```
 
-```admonish warning
-We will discuss pointers properly and in detail in *Chapter 13 - Memory* but for now,
-think of pointers as like references but closer to a hardware concept.
-```
+> [!WARNING]
+> We will discuss pointers properly and in detail in *Chapter 13 - Memory* but for now,
+> think of pointers as like references but closer to a hardware concept.
 
 ## Taking Parameters
 

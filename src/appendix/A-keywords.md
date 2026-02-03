@@ -1,8 +1,7 @@
 # A - Keywords
 
-```admonish warning
-🚧 Page Under Construction! 🏗️
-```
+> [!WARNING]
+> 🚧 Page Under Construction! 🏗️
 
 This is the list of keywords reserved by C++. This means these words cannot be used as an
 identifier for variables, functions, class/struct member names etc.. Some are reserved

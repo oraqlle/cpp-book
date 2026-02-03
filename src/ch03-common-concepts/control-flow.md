@@ -1,8 +1,7 @@
 # Control Flow
 
-```admonish warning
-🚧 Page Under Construction! 🏗️
-```
+> [!WARNING]
+> 🚧 Page Under Construction! 🏗️
 
 Control flow is how we get our programs to do interesting things, it allows us to write
 programs that do different things depending on conditions (branch) or easily repeat code
@@ -123,12 +122,11 @@ $    return 0;
 }
 ```
 
-```admonish note
-Because enums are fundamentally based on an underlying integral type, `switch` statements
-thus can work on any integral type like `char` or `int` however, you have to be sure to
-cover all the cases as there is no formally notion of pattern matching over integral
-ranges.
-```
+> [!NOTE]
+> Because enums are fundamentally based on an underlying integral type, `switch`
+> statements thus can work on any integral type like `char` or `int` however, you have to
+> be sure to cover all the cases as there is no formally notion of pattern matching over
+> integral ranges.
 
 ## Loops
 

@@ -105,15 +105,14 @@ which is used to bind a value to a variable. Here is another!
 auto boxes = 7;
 ```
 
-~~~admonish note
-Note the lack of a type after the `=` like when we initialized a `std::string`. This is
-because we have initialize `boxes` with a `int` literal and thus the type is inferred. If
-you wanted to you could explicitly specify the type as such:
-
-```cpp,icon=%cplusplus
-auto boxes = int{7};
-```
-~~~
+> [!IMPORTANT]
+> Notice the lack of a type after the `=` like when we initialized a `std::string`. This
+> is because we have initialize `boxes` with a `int` literal and thus the type is
+> inferred. If you wanted to you could explicitly specify the type as such:
+>
+> ```cpp,icon=%cplusplus
+> auto boxes = int{7};
+> ```
 
 In C++ variables are mutable by default which means we are allowed to change it's value.
 This concept will be discussed more in
@@ -126,11 +125,10 @@ const auto boxes = 7;  // constant
 auto crates = 4;  // mutable
 ```
 
-```admonish tip
-The `//` syntax indicates a comment that continues until the end of the line. Everything
-in a comment is ignored by C++. You will learn more about them in
-[Chapter 3 | Comments](/ch03-common-concepts/comments.md).
-```
+> [!TIP]
+> The `//` syntax indicates a comment that continues until the end of the line.
+> Everything in a comment is ignored by C++. You will learn more about them in
+> [Chapter 3 | Comments](/ch03-common-concepts/comments.md).
 
 In this case of our variable `guess` in our guessing game program, we have (default)
 constructed a temporary value with the type `std::string` which we then bind to the
@@ -145,12 +143,11 @@ compiler will do that for us!
     std::string input = std::string{}; 
 ```
 
-```admonish tip
-When constructing our `std::string` we have used what is known as brace initialization.
-This is a modern (C++11) method for initializing objects and is used to avoid the
-narrowing of types. The empty `{}` indicates we a constructing the object in its default 
-state, which for `std::string` is an empty string.
-```
+> [!TIP]
+> When constructing our `std::string` we have used what is known as brace initialization.
+> This is a modern (C++11) method for initializing objects and is used to avoid the
+> narrowing of types. The empty `{}` indicates we a constructing the object in its
+> default state, which for `std::string` is an empty string.
 
 ### Receiving User Input
 
@@ -189,11 +186,10 @@ and take user input, in global stream objects eg. `std::cin`, `std::cout` and `s
 which meant they could be manipulated using the same API and functionality provided by
 the standard C++ IO library.
 
-```admonish note
-The C++23 Standard includes a new header `<print>`[^9] with functions like
-`std::println()` which use the C++20 formatting library[^10] which make printing much
-more intuitive and faster. This library was directly inspired by the `{fmt}` library.
-```
+> [!NOTE]
+> The C++23 Standard includes a new header `<print>`[^9] with functions like
+> `std::println()` which use the C++20 formatting library[^10] which make printing much
+> more intuitive and faster. This library was directly inspired by the `{fmt}` library.
 
 If you are familiar with other languages you may be wondering why `<<` is used to push to
 a streams as this operator is normally used for the left bit shifting[^11] operations.
@@ -387,10 +383,9 @@ used to indicate that the input value cannot fit into the conversion type. For e
 because the max value that can be fit inside an `int` is `2147483647` which is much
 smaller than `38574876546456476745`.
 
-```admonish tip
-The `std::sto*` function family will 'successfully' parse inputs like "34abc" as they
-extract the number from the front and will discard the rest.
-```
+> [!TIP]
+> The `std::sto*` function family will 'successfully' parse inputs like "34abc" as they
+> extract the number from the front and will discard the rest.
 
 ### Catching Exceptions
 
@@ -448,18 +443,17 @@ $    return 0;
 }
 ```
 
-```admonish warning
-While `try-catch` block's do model a form of control flow they are very different to
-regular control flow mechanisms like `if` statements. You should not be used `try-catch`
-blocks to control the regular/expected execution pathway of a program as they are much
-slower nor should you throw exceptions in order to jump out to a particular scope.
-Exceptions should only be used to indicate that a recoverable error has occurred and
-`try-catch` blocks being used to handle recovering from this event eg. giving any
-allocated resources back to the OS, as such exceptions should be used only in
-*exceptional* (pun most definitely intended) cases and when appropriate for your domain
-(as they can be undesirable in many situations). The main purpose of showing exceptions
-now is to demonstrate how to ***handle*** them not throw your own.
-```
+> [!WARNING]
+> While `try-catch` block's do model a form of control flow they are very different to
+> regular control flow mechanisms like `if` statements. You should not be used
+> `try-catch` blocks to control the regular/expected execution pathway of a program as
+> they are much slower nor should you throw exceptions in order to jump out to a
+> particular scope. Exceptions should only be used to indicate that a recoverable error
+> has occurred and `try-catch` blocks being used to handle recovering from this event eg.
+> giving any allocated resources back to the OS, as such exceptions should be used only
+> in *exceptional* (pun most definitely intended) cases and when appropriate for your
+> domain (as they can be undesirable in many situations). The main purpose of showing
+> exceptions now is to demonstrate how to ***handle*** them not throw your own.
 
 ## Allowing Multiple Guesses with a Loop
 

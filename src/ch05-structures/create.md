@@ -1,8 +1,7 @@
 # Creating Structures
 
-```admonish warning
-🚧 Page Under Construction! 🏗️
-```
+> [!WARNING]
+> 🚧 Page Under Construction! 🏗️
 
 To declare a struct we use the `struct` keyword followed by the name of the new type.
 Members are defined inside curly braces using the same variable and function declaration
@@ -79,9 +78,9 @@ $    return 0;
 }
 ```
 
-```admonish tip
-You can mark individual member variables as `const` so only certain data can be modified.
-```
+> [!TIP]
+> You can mark individual member variables as `const` so only certain data can be
+> modified.
 
 Functions can return structs just like builtin types. Here we have a function that
 creates a `Person`.
@@ -157,9 +156,10 @@ $    return 0;
 }
 ```
 
-```admonish example title="Constructors"
-We will explore constructors *Chapter 8 - Custom Types* and how we can use them to control
-the initialization of our own types. We will also explore how to disable certain
-constructors to disallow certain behaviours from our types.
-```
+> [!IMPORTANT]
+> *Constructors*
+>
+> We will explore constructors *Chapter 8 - Custom Types* and how we can use them to
+> control the initialization of our own types. We will also explore how to disable
+> certain constructors to disallow certain behaviours from our types.
 

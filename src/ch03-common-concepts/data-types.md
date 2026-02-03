@@ -145,11 +145,10 @@ bool x = false;
 auto y = true;
 ```
 
-```admonish tip
-The C language; C++'s mother language, originally did not have a native Boolean type with
-Boolean expressions return 1 for `true` and 0 for `false`. Later in the 1999 standard of
-C (C99), the `_Bool` type was introduced to support Booleans.
-```
+> [!TIP]
+> The C language; C++'s mother language, originally did not have a native Boolean type
+> with Boolean expressions return 1 for `true` and 0 for `false`. Later in the 1999
+> standard of C (C99), the `_Bool` type was introduced to support Booleans.
 
 ## Floating Point Types
 
@@ -215,12 +214,10 @@ $    return 0;
 }
 ```
 
-```admonish tip
-- Division between two integrals performs *integer division* and truncates towards 0 while
-if one argument is a floating point then floating point division is performed.
-- Remainder is only valid between integral types.
-
-```
+> [!TIP]
+> - Division between two integrals performs *integer division* and truncates towards 0
+> while if one argument is a floating point then floating point division is performed.
+> - Remainder is only valid between integral types.
 
 ## Compound Data Types
 

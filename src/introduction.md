@@ -23,21 +23,21 @@ book without any prior experience to programming but some concepts may not click
 quickly if you have never programmed before. The purpose of _this_ book is to showcase
 how to program using C++ and explore the capabilities the language possesses.
 
-```admonish note
-Not every topic or capability of C++ will be explored in this book. For a comprehensive
-reference on the language explore [cppreference.com](https://en.cppreference.com/w/).
-```
+> [!NOTE]
+> Not every topic or capability of C++ will be explored in this book. For a comprehensive
+> reference on the language explore [cppreference.com].
 
-```admonish warning title="Author's note on C++ Standard Used in this Book"
-Currently this book only covers up to the C++17 Standard, even though C++20 (2020) and
-C++23 (2023) have been released since and C++26 (2026) is actively being written, C++17
-is the most supported version by compilers across all new changes. C++20 is nearly there
-with Modules being the main thing that remains to be implemented however, there is not
-much that was introduced C++20 that I plan to cover in the immediate draft and thus
-setting the baseline at C++17 narrows my focus to ensure the foundation is solid. Future
-versions of the book that introduce features from later standards will likely result in
-the suggested baseline being increased to C++20.
-```
+> [!IMPORTANT]
+> *Author's note on C++ Standard Used in this Book*
+>
+> Currently this book only covers up to the C++17 Standard, even though C++20 (2020) and
+> C++23 (2023) have been released since and C++26 (2026) is actively being written, C++17
+> is the most supported version by compilers across all new changes. C++20 is nearly
+> there with Modules being the main thing that remains to be implemented however, there
+> is not much that was introduced C++20 that I plan to cover in the immediate draft and
+> thus setting the baseline at C++17 narrows my focus to ensure the foundation is solid.
+> Future versions of the book that introduce features from later standards will likely
+> result in the suggested baseline being increased to C++20.
 
 ## How to Use This Book
 
@@ -46,8 +46,9 @@ Later chapters build on concepts in earlier chapters. Some chapters will explore
 mini projects that combine concepts from recent chapters to allow you to get some
 experience writing complete C++ programs.
 
-> Note: You can also search for specific content using the search button in the top left
-> or by pressing the <kbd>S</kbd> key.
+> [!TIP]
+> You can also search for specific content using the search button in the top left or by
+> pressing the <kbd>S</kbd> key.
 
 ### Synopsis
 
@@ -124,18 +125,19 @@ the compiler will show you in each situation. Know that if you enter and run a r
 example, it may not compile! Make sure you read the surrounding text to see whether the
 example you're trying to run is meant to error.
 
-> Note: the error message style and content can be dramatically different given a
-> different compiler, compiler version and standard of C++ being used.
+> [!NOTE]
+> The error message style and content can be dramatically different given a different
+> compiler, compiler version and standard of C++ being used.
 
 ## Source Code
 
-The [source code](https://github.com/oraqlle/cpp-book) from which this book is generated
+The [source code] from which this book is generated
 can be found on GitHub. Refer to the supporting docs on the books repo for details on how
 to contribute changes, fix typos or create new content for this book.
 
 ## External Resources
 
-- [cppreference](https://en.cppreference.com/w/Main_Page)
+- [cppreference.com]
 - [Compiler Explorer](https://www.godbolt.org/)
 
 ---
@@ -145,3 +147,6 @@ to contribute changes, fix typos or create new content for this book.
     <img src="https://img.shields.io/github/v/release/oraqlle/cpp-book?include_prereleases" alt="Current Release">
   </center>
 </div>
+
+[cppreference.com]: https://en.cppreference.com/w/
+[source code]: https://codeberg.org/oraqlle/cpp-book

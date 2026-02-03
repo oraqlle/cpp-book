@@ -71,9 +71,8 @@ builtin CMake feature `cxx_std_17` to our executable which ensures it is built u
 {{#include examples/hello_world/CMakeLists.txt:9}}
 ```
 
-```admonish info
-See [Appendix C](/appendix/standard-versions.md) for more information on C++ Standards.
-```
+> [!TIP]
+> See [Appendix C](/appendix/standard-versions.md) for more information on C++ Standards.
 
 <!--
 ### CMake Presets
@@ -129,18 +128,17 @@ $ ./build/hello_world  # ... or .\build\Debug\hello_world.exe on Windows
 Hello, World!
 ```
 
-~~~admonish tip
-The reason for Windows based builds having an additional intermediate directory `Debug/`
-for the output is because the underlying builder(s) used on Windows can be configured to
-output both debug and release builds from the same recipe which is controlled with
-CMake's `--config=<config>` flag during the build step. You can test creating a 'Release'
-build by running the following command which should now produce and executable in the
-`build\Release\` directory.
-
-```haskell,icon=,fp=CommandPrompt
-cmake --build build --config=Release
-```
-~~~
+> [!TIP]
+> The reason for Windows based builds having an additional intermediate directory
+> `Debug/` for the output is because the underlying builder(s) used on Windows can be
+> configured to output both debug and release builds from the same recipe which is
+> controlled with CMake's `--config=<config>` flag during the build step. You can test
+> creating a 'Release' build by running the following command which should now produce
+> and executable in the `build\Release\` directory.
+>
+> ```haskell,icon=,fp=CommandPrompt
+> cmake --build build --config=Release
+> ```
 
 ## Adding Compiler Flags to CMake Build
 
@@ -173,13 +171,12 @@ by inheriting the `"std-cxx"` preset in the non-hidden platform presets.
 the executable target for each preset. From now on in the book, I will assuming the use
 of presets for building C++.
 
-```admonish note
-- You'll have to specify the build directory using the `-B` flag like it is shown in
-[Listing 1-5](#listing1-5) because the presets do not define this however, this allows
-you to customize the build location.
-- These presets are for tailored for a single executable target and may not be robust to
-handle exporting libraries.
-```
+> [!NOTE]
+> - You'll have to specify the build directory using the `-B` flag like it is shown in
+> [Listing 1-5](#listing1-5) because the presets do not define this however, this allows
+> you to customize the build location.
+> - These presets are for tailored for a single executable target and may not be robust
+> to handle exporting libraries.
 
 <span id="listing1-4" class="caption">Listing 1-4: Base `CMakePresets.json` for a single cross-platform executable target with compiler flags set.</span>
 

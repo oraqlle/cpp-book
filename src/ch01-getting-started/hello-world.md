@@ -4,11 +4,10 @@ Now that you've installed a C++ compiler, its time to write your first C++ progr
 tradition when learning a new programming language to write a program that prints "Hello,
 world!" to the screen and we'll be doing the same.
 
-```admonish info
-"Hello, world!" was first introduced as a teaching mechanism for people learning a new
-programming language in Brian Kernighan's 1972 "A Tutorial Introduction to the Language
-B".
-```
+> [!TIP]
+> "Hello, world!" was first introduced as a teaching mechanism for people learning a new
+> programming language in Brian Kernighan's 1972 "A Tutorial Introduction to the Language
+> B".
 
 ## Creating a Project Directory
 
@@ -60,11 +59,11 @@ just created and copy the code from below into the file.
 {{#include examples/hello_world/main.cxx}}
 ```
 
-```admonish info
-C++ source files can have various different extensions such as `*.cpp`, or `*.c++`
-however, for this book the `*.cxx` style will be used. Is also good practice to use the 
-same extension type across a project so no matter which one you use, just be consistent.
-```
+> [!TIP]
+> C++ source files can have various different extensions such as `*.cpp`, or `*.c++`
+> however, for this book the `*.cxx` style will be used. Is also good practice to use the 
+> same extension type across a project so no matter which one you use, just be
+> consistent.
 
 Save the file and return to your terminal open to the *~/projects/hello_world* directory
 and run the following commands....
@@ -89,13 +88,12 @@ Hello, world!
 If you see "Hello, world!" printed on your terminal, congratulations, you've officially
 written your first C++ program!
 
-```admonish note
-- You can swap the `g++` command with the `clang++` command if you want to use the Clang
-compiler instead of the GCC compiler.
-- The `-std=c++17` (GCC/Clang) and `/std:c++17` flag options specify the compiler to use
-the C++17 (2017) version of C++. The `-o <name>` is used to specify the name and/or
-directory for the compiled program.
-```
+> [!NOTE]
+> - You can swap the `g++` command with the `clang++` command if you want to use the
+> Clang compiler instead of the GCC compiler.
+> - The `-std=c++17` (GCC/Clang) and `/std:c++17` flag options specify the compiler to
+> use the C++17 (2017) version of C++. The `-o <name>` is used to specify the name and/or
+> directory for the compiled program.
 
 ## Anatomy of a C++ Program
 
@@ -139,11 +137,10 @@ has been written to the terminal.
 You'll notice that we end the line with a semicolon `;`. Semicolon's are used to indicate
 the end of an expression.
 
-```admonish note
-The operator `<<` has been overloaded for use with `cout` (and other output streams), as
-such it is only defined to work with C++'s primitive and standard library types. You
-would need to provide you own definition for custom types. 
-```
+> [!NOTE]
+> The operator `<<` has been overloaded for use with `cout` (and other output streams),
+> as such it is only defined to work with C++'s primitive and standard library types. You
+> would need to provide you own definition for custom types. 
 
 You'll also notice at the top of the file the following line:
 

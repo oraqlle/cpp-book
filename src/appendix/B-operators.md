@@ -1,8 +1,7 @@
 # B - Operators
 
-```admonish warning
-🚧 Page Under Construction! 🏗️
-```
+> [!WARNING]
+> 🚧 Page Under Construction! 🏗️
 
 This page is a high level overview of C++ operators and other symbols and what they do.
 

@@ -6,12 +6,11 @@ what happens when we try to modify constant data and when we would want to allow
 mutations.
 
 <!--
-```admonish danger
-By default, variables are mutable, allowing you to modify them freely. While this offers
-great flexibiliy and ease of programming, it is beneficial to opt-in to immutabilty using
-the `const` keyword which data that does not need to change, cannot change; opting to
-remove the `const` keyword when data needs to be mutable.
-```
+> [!CAUTION]
+> By default, variables are mutable, allowing you to modify them freely. While this
+> offers great flexibiliy and ease of programming, it is beneficial to opt-in to
+> immutabilty using the `const` keyword which data that does not need to change, cannot
+> change; opting to remove the `const` keyword when data needs to be mutable.
 -->
 
 Create a new project have done before, with a `main.cxx` and `CMakeLists.txt` and add the
@@ -186,26 +185,24 @@ a very powerful feature of C++ and is capable of computing super complex express
 at compile time, even expression involving objects that typically interact with runtime
 only entities like the heap however, we'll learn more about this in future chapters.
 
-```admonish abstract
-\*This initialization and immediate change is necessary to force the compiler to generate
-the unoptimized assembly I wanted to show off. Compilers have gotten so good that
-regardless of `constexpr` or no `constexpr`, a variable directly initialized to this
-expression will cause the compiler to optimize the whole thing away into the result
-of the expression and directly initialize the variable with that value.
+> [!IMPORTANT]
+> \*This initialization and immediate change is necessary to force the compiler to
+> generate the unoptimized assembly I wanted to show off. Compilers have gotten so good
+> that regardless of `constexpr` or no `constexpr`, a variable directly initialized to
+> this expression will cause the compiler to optimize the whole thing away into the
+> result of the expression and directly initialize the variable with that value.
+>
+> In fact, it completely removes the definition of `sum()` as it is only used in these
+> expressions which run at compile time, so there is no need to store the functions code
+> in the resulting binary if it is never used again. Setting the second value to a
+> temporary value disallows the compiler to make these optimizations.
+>
+> It's amazing how much heavy lifting compilers are able to do for us.
 
-In fact, it completely removes the definition of `sum()` as it is only used in these
-expressions which run at compile time, so there is no need to store the functions code
-in the resulting binary if it is never used again. Setting the second value to a
-temporary value disallows the compiler to make these optimizations.
-
-It's amazing how much heavy lifting compilers are able to do for us.
-```
-
-```admonish note
-It should be noted that `constexpr` only indicates to the compiler that this expression
-could be computable at compile time but makes no guarantee that it will. For that,
-`consteval` was introduced.
-```
+> [!NOTE]
+> It should be noted that `constexpr` only indicates to the compiler that this expression
+> could be computable at compile time but makes no guarantee that it will. For that,
+> `consteval` was introduced.
 -->
 
 ## Type Deduction

@@ -1,8 +1,7 @@
 # References and Moves
 
-```admonish warning
-🚧 Page Under Construction! 🏗️
-```
+> [!WARNING]
+> 🚧 Page Under Construction! 🏗️
 
 ## Reference Semantics
 
@@ -63,11 +62,10 @@ $    return 0;
 }
 ```
 
-```admonish note
-Binding a referencing to another reference doesn't create a reference to a reference.
-This is because references pass information through themselves thus the new reference
-points the original object.
-```
+> [!NOTE}
+> Binding a referencing to another reference doesn't create a reference to a reference.
+> This is because references pass information through themselves thus the new reference
+> points the original object.
 
 References have a few special semantics, for one references; once bound, cannot be
 rebound and thus will refer to the same object for the references lifetime. References
@@ -157,13 +155,12 @@ $    return 0;
 }
 ```
 
-```admonish note
-We have to make `s1` non-`const` to see the behaviour I specified above because if `s1`
-were `const` deleted the stored data would violate the invariant that `s1` is `const`
-as we would have mutated it thus `const` data will invoke a copy not a *move*.
-
-This restriction is due to moves not being *destructive* in C++ which would mean `s1`
-would become an invalid object and generate a compiler warning if we accessed it after
-moving from it.
-```
+> [!NOTE]
+> We have to make `s1` non-`const` to see the behaviour I specified above because if `s1`
+> were `const` deleted the stored data would violate the invariant that `s1` is `const`
+> as we would have mutated it thus `const` data will invoke a copy not a *move*.
+> 
+> This restriction is due to moves not being *destructive* in C++ which would mean `s1`
+> would become an invalid object and generate a compiler warning if we accessed it after
+> moving from it.
 

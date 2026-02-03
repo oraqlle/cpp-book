@@ -4,14 +4,13 @@ title = "The C++ Programming Language"
 description = "The C++ Programming Language"
 
 language = "en"
-multilingual = false
 
 src = "src"
 
 [output.html]
 mathjax-support = true
 git-repository-url = "https://github.com/oraqlle/cpp-book"
-additional-css = ["./mdbook-admonish.css", "./whichlang.css"]
+additional-css = ["./whichlang.css"]
 additional-js = ["./whichlang.js"]
 hash-files = true
 
@@ -21,8 +20,3 @@ editable = true
 [output.html.code.hidelines]
 cpp = "$"
 
-[preprocessor]
-
-[preprocessor.admonish]
-command = "mdbook-admonish"
-assets_version = "3.1.0" # do not edit: managed by `mdbook-admonish install`
