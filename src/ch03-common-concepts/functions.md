@@ -88,7 +88,7 @@ $#include <iostream>
 $#include <sstream>
 $#include <string>
 $
-auto foo(int const x, int const y) -> std::string {
+auto foo(const int x, const int y) -> std::string {
     auto ss = std::stringstring{};
     ss << "x: " << x << ", y: " << y << "\n";
     return ss.str();
@@ -102,11 +102,6 @@ $
 $    return 0;
 }
 ```
-
-> [!TIP]
-> Previously, 
-> The empty `return` statement can be omitted if the function
-
 
 ## Overloading
 
@@ -122,14 +117,14 @@ $#include <sstream>
 $#include <string>
 // --snip--
 
-auto another_one(int const x, int const y) -> std::string {
+auto another_one(const int x, const int y) -> std::string {
 $    auto ss = std::stringstream {};
 $    ss << "x: " << x << ", y: " << y << "\n";
 $    return ss.str();
 // --snip--
 }
 
-auto another_one(float const x, float const y) -> std::string {
+auto another_one(const float x, const float y) -> std::string {
     auto ss = std::stringstream {};
     ss << std::setprecision(4) 
        << "x: "
@@ -168,7 +163,7 @@ auto operator<<(std::ostream& os, std::pair<int, int> p) -> std::ostream& {
 }
 
 auto main() -> int {
-    auto const p = std::pair {7, 6};
+    auto const p = std::pair{7, 6};
 
     std::cout << p << "\n";
     return 0;

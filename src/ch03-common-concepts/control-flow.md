@@ -1,8 +1,5 @@
 # Control Flow
 
-> [!WARNING]
-> 🚧 Page Under Construction! 🏗️
-
 Control flow is how we get our programs to do interesting things, it allows us to write
 programs that do different things depending on conditions (branch) or easily repeat code
 (loops). C++ also has various relational and logical operators used to construct
@@ -23,7 +20,7 @@ $#include <iostream>
 // --snip--
 
 auto main() -> int {
-    auto const x = 6;
+    const auto x = 6;
 
     if (x % 2 == 0) {
         std::cout << "Even\n";
@@ -43,7 +40,7 @@ $#include <iostream>
 // --snip--
 
 auto main() -> int {
-    auto const x = 5;
+    const auto x = 5;
 
     if (x % 2 == 0) {
         std::cout << "Even\n";
@@ -64,7 +61,7 @@ $#include <iostream>
 // --snip--
 
 auto main() -> int {
-    auto const x = 5;
+    const auto x = 5;
 
     if (x % 2 == 0) {
         std::cout << "Even\n";
@@ -100,7 +97,7 @@ enum class colour : char {
 };
 
 auto main() -> int {
-    auto const c = colour::red;
+    const auto c = colour::red;
     
     switch (c) {
         case colour::red:
@@ -217,10 +214,10 @@ $#include <array>
 // --snip--
 
 auto main() -> int {
-    auto const a = std::array {1, 2, 3, 4, 5};
+    const auto a = std::array{1, 2, 3, 4, 5};
     auto acc = 0uLL;
 
-    for (auto const x : a) {
+    for (const auto x : a) {
         acc += x;
     }
 

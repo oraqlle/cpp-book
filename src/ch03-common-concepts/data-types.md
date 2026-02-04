@@ -265,7 +265,7 @@ $#include <iostream>
 $#include <tuple>
 $
 auto main() -> int {
-    const auto t = std::tuple{ 5u, 5.34f, -345, "abc", false };
+    const auto t = std::tuple{5u, 5.34f, -345, "abc", false};
     const auto u = std::make_tuple(5u, 5.f, -345, "abc", false);
 $
 $    return 0;
@@ -280,7 +280,7 @@ $#include <iostream>
 $#include <tuple>
 $
 auto main() -> int {
-    const auto t = std::tuple{ 5u, 5.34f, -345, "abc", false };
+    const auto t = std::tuple{5u, 5.34f, -345, "abc", false};
     const auto u = std::make_tuple(5u, 5.f, -345, "abc", false);
     
     const auto e = std::get<2>(t);  // e := -345
@@ -376,7 +376,7 @@ $#include <array>
 $#include <iostream>
 $
 auto main() -> int {
-    const auto a = std::array{ 1, 2, 3, 4, 5 };
+    const auto a = std::array{1, 2, 3, 4, 5};
     const auto e1 = a[0]; // valid
     const auto e2 = a.at(5); // exception std::out_of_range
     
