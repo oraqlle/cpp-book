@@ -1,8 +1,5 @@
 # The `span` and `string_view` types
 
-> [!WARNING]
-> 🚧 Page Under Construction! 🏗️
-
 ## `string_view`
 
 Often we want to reference only part of a `string`, in the past we would use
@@ -19,8 +16,8 @@ $#include <string_view>
 // --snip--
 
 auto main() -> int {
-    auto s = std::string { "hello" };
-    auto sv = std::string_view { s.data() + 1, 3 };
+    auto s = std::string("hello");
+    auto sv = std::string_view(s.data() + 1, 3);
 
     std::cout << s << "\n";
     std::cout << sv << "\n";
@@ -35,9 +32,9 @@ $    return 0;
 > `string` thus we can use it to get the starting address of our substring by offsetting
 > it by the correct number of characters as seen above.
 
-We can also use `string_view` to handle *string literals*, these are the strings we create
-using double quotes (`""`). This makes string literals; which previously was just an
-address to the character data, much easier to use and much closer to `strings`, with the
+We can also use `string_view` to handle *string literals*, these are the strings we
+create using double quotes (`""`). This makes string literals; which previously was just
+an address to the character data, much easier to use and much closer to `strings`, with
 the constraint that you cannot modify this text.
 
 ```cpp
@@ -48,7 +45,7 @@ $#include <string_view>
 using namespace std::literals;
 
 auto main() -> int {
-    auto sv1 = std::string_view { "hello" };
+    auto sv1 = std::string_view{"hello"};
     auto sv2 = "bye"sv;
 
     std::cout << sv1 << "\n";
@@ -85,11 +82,11 @@ $
 $auto main() -> int {
     // --snip--
 
-    auto a1 = std::array { 1, 2, 3, 4, 5 };
-    auto s1 = std::span { a1.data() + 1, 3 };
+    auto a1 = std::array{1, 2, 3, 4, 5};
+    auto s1 = std::span(a1.data() + 1, 3);
 
-    int a2[] = { 1, 2, 3, 4, 5 }; // C-array
-    auto s2 = std::span { a2 };
+    int a2[] = {1, 2, 3, 4, 5}; // C-array
+    auto s2 = std::span{a2};
     
 $    return 0;
 $}

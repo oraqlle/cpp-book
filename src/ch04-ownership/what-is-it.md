@@ -1,8 +1,5 @@
 # What is Ownership?
 
-> [!WARNING]
-> 🚧 Page Under Construction! 🏗️
-
 *Ownership* is the notion that some data is managed or *owned* by a particular variable
 and thus is responsible for ensuring that it's data lives long enough for all parts of
 the program that *reference* the data can correctly access the data.
@@ -61,7 +58,7 @@ of the statement body. In fact, you can introduce an unnamed scope using a brace
 
 ```cpp
 {
-    auto const x = 5;
+    const auto x = 5;
 
     // do stuck with x
 }
@@ -78,8 +75,8 @@ $#include <iostream>
 // --snip--
 
 $auto main() -> {
-    auto const x = 5;
-    auto const y = x;
+    const auto x = 5;
+    const auto y = x;
 
     std::cout << &x << "\n";
     std::cout << &y << "\n";
@@ -127,7 +124,7 @@ $#include <string>
 
 $auto main() -> {
     {
-        auto const s = std::string {"hello"};
+        const auto s = std::string {"hello"};
 
         // s is in scope
     }

@@ -1,8 +1,5 @@
 # References and Moves
 
-> [!WARNING]
-> 🚧 Page Under Construction! 🏗️
-
 ## Reference Semantics
 
 So how do dynamic objects like `string` interact with C++ copy semantics? Well, they obey
@@ -14,12 +11,12 @@ $#include <iostream>
 $#include <string>
 // --snip--
 
-auto foo(std::string const s) {
+auto foo(const std::string s) {
     std::cout << "Address of s: " << static_cast<const void*>(s.data()) << "\n";
 }
 
 auto main() -> int {
-    auto const s = std::string {"hello"};
+    const auto s = std::string{"hello"};
 
     std::cout << "Address of s: " << static_cast<const void*>(s.data()) << "\n";
 
@@ -45,13 +42,13 @@ $#include <iostream>
 $#include <string>
 // --snip--
 
-auto foo(std::string const& s) {
+auto foo(const std::string& s) {
     std::cout << "Address of s: " << static_cast<const void*>(s.data()) << "\n";
 }
 
 auto main() -> int {
-    auto const s1 = std::string {"hello"};
-    auto const& s2 = std::string {"hello"};
+    const auto s1 = std::string{"hello"};
+    const auto& s2 = std::string{"hello"};
 
     std::cout << "Address of s: " << static_cast<const void*>(s.data()) << "\n";
     std::cout << "Address of s: " << static_cast<const void*>(s.data()) << "\n";
@@ -62,7 +59,7 @@ $    return 0;
 }
 ```
 
-> [!NOTE}
+> [!NOTE]
 > Binding a referencing to another reference doesn't create a reference to a reference.
 > This is because references pass information through themselves thus the new reference
 > points the original object.
@@ -85,14 +82,14 @@ $#include <sstream>
 $#include <string>
 // --snip--
 
-auto foo(std::string const& s) -> std::string const& {
-    auto ss = std::stringstream {};
+auto foo(const std::string& s) -> const std::string& {
+    auto ss = std::stringstream{};
     ss << "Address of s: " << static_cast<const void*>(s.data()) << "\n";
     return ss.str(); // error: returning reference to temporary
 }
 
 auto main() -> int {
-    auto const s = std::string {"hello"};
+    auto const s = std::string{"hello"};
 
     std::cout << "Address of s: " << static_cast<const void*>(s.data()) << "\n";
     std::cout << foo(s);
@@ -136,16 +133,16 @@ $#include <string>
 $#include <utility>
 // --snip--
 
-auto constexpr str_addr(std::string const& s) -> const void* {
+auto constexpr str_addr(const std::string& s) -> const void* {
     return static_cast<const void*>(s.data());
 }
 
 auto main() -> int {
-    auto s1 = std::string {"hello this is a really long string"};
+    auto s1 = std::string{"hello this is a really long string"};
     std::cout << sizeof(s1) << "\n";
     
     std::cout << "String: " << s1 << " | addr: " << str_addr(s1) << "\n";
-    auto const s2 = std::move(s1);
+    const auto s2 = std::move(s1);
 
     std::cout << "String: " << s1 << " | addr: " << str_addr(s1) << "\n";
     std::cout << "String: " << s2 << " | addr: " << str_addr(s2) << "\n";
