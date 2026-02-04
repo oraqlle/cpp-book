@@ -33,7 +33,7 @@ This page is a high level overview of C++ operators and other symbols and what t
 |    `%=`    |                 `var %= expr`                 |           Arithmetic remainder and assignment           |       ✅      |
 |    `~`     |                    `~expr`                    |                    Bitwise Complement                   |       ✅      |
 |    `&`     |                    `&expr`                    |                        Address of                       |       ✅      |
-|    `&`     |      `type ident&`, `type ident const&`       |                      Reference type                     |       ❌      |
+|    `&`     |      `type ident&`, `const type ident&`       |                      Reference type                     |       ❌      |
 |    `&`     |                 `expr & expr`                 |                       Bitwise AND                       |       ✅      |
 |    `&=`    |                 `var &= expr`                 |                Bitwise AND and assignment               |       ✅      |
 |    `&&`    |                 `expr && expr`                |                       Logical AND                       |       ☑️       |
@@ -72,7 +72,7 @@ This page is a high level overview of C++ operators and other symbols and what t
 |   Operator  |            Example           |                                Description                               |
 |:-----------:|:----------------------------:|:------------------------------------------------------------------------:|
 |    `new`    |    `new type (init-list)`    | Allocate a heap memory object constructed with parameters in *init-list* |
-|   `new []`  | `new type[size] {init-list}` |   Allocate a heap memory block initialized with elements in *init-list*  |
+|   `new []`  | `new type[size]{init-list}`  |   Allocate a heap memory block initialized with elements in *init-list*  |
 |   `delete`  |         `delete expr`        |                         Delete heap memory object                        |
 | `delete []` |       `delete [] expr`       |                         Deletes heap memory block                        |
 

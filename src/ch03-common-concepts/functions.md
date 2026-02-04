@@ -89,7 +89,7 @@ $#include <sstream>
 $#include <string>
 $
 auto foo(const int x, const int y) -> std::string {
-    auto ss = std::stringstring{};
+    auto ss = std::stringstream{};
     ss << "x: " << x << ", y: " << y << "\n";
     return ss.str();
 }
@@ -118,14 +118,14 @@ $#include <string>
 // --snip--
 
 auto another_one(const int x, const int y) -> std::string {
-$    auto ss = std::stringstream {};
+$    auto ss = std::stringstream{};
 $    ss << "x: " << x << ", y: " << y << "\n";
 $    return ss.str();
 // --snip--
 }
 
 auto another_one(const float x, const float y) -> std::string {
-    auto ss = std::stringstream {};
+    auto ss = std::stringstream{};
     ss << std::setprecision(4) 
        << "x: "
        << x
@@ -157,13 +157,13 @@ functions can only take two parameters except unary operators, which can only ta
 // --snip--
 
 auto operator<<(std::ostream& os, std::pair<int, int> p) -> std::ostream& {
-    auto const [x, y] = p;
+    const auto [x, y] = p;
     os << "x: " << x << ", y: " << y << "\n";
     return os;
 }
 
 auto main() -> int {
-    auto const p = std::pair{7, 6};
+    const auto p = std::pair{7, 6};
 
     std::cout << p << "\n";
     return 0;

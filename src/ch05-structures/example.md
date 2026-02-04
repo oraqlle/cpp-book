@@ -7,14 +7,14 @@ simple program to calculate operations on a 3D vector type.
 $#include <cmath>
 $#include <iostream>
 $
-auto magnitude(auto const x, auto const y, auto const z) -> double {
+auto magnitude(const double x, const double y, const double z) -> double {
     return std::sqrt(x * x + y * y + z * z);
 }
 
 auto main() -> int {
-    auto const x = 2.;
-    auto const y = 3.;
-    auto const z = 5.;
+    const auto x = 2.;
+    const auto y = 3.;
+    const auto z = 5.;
 
     std::cout << "The magnitude of the vector is "
               << magnitude(x, y, z)
@@ -38,13 +38,13 @@ $#include <tuple>
 $
 using vec3 = std::tuple<double, double, double>;
 
-auto magnitude(vec3 const vec) -> double {
-    auto const& [x, y, z] = v;
+auto magnitude(const vec3 vec) -> double {
+    const auto& [x, y, z] = v;
     return std::sqrt(x * x + y * y + z * z);
 }
 
 auto main() -> int {
-    auto const v = vec3 { 2., 3., 5. };
+    const auto v = vec3{2., 3., 5.};
 
     std::cout << "The magnitude of the vector is "
               << magnitude(v)
@@ -78,14 +78,14 @@ struct vec3 {
     double z;
 };
 
-auto magnitude(vec3 const vec) -> double {
+auto magnitude(const vec3 vec) -> double {
     return std::sqrt(vec.x * vec.x
                    + vec.y * vec.y
                    + vec.z * vec.z);
 }
 
 auto main() -> int {
-    auto const v = vec3 { 2., 3., 5. };
+    const auto v = vec3{2., 3., 5.};
 
     std::cout << "The magnitude of the vector is "
               << magnitude(v)

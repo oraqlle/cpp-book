@@ -300,7 +300,7 @@ $#include <iostream>
 $#include <tuple>
 $
 auto main() -> int {
-    const auto t = std::tuple{ 5u, 5.34f, -345, "abc", false };
+    const auto t = std::tuple{5u, 5.34f, -345, "abc", false};
     const auto u = std::make_tuple(5u, 5.f, -345, "abc", false);
     
     const auto [v, w, x, y, z] = t;

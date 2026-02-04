@@ -8,8 +8,8 @@ auto main() -> int {
     std::cout << "Guessing Game!\n";
 
     auto rd = std::random_device{};
-    auto gen = std::mt19937{ rd() };
-    auto distrib = std::uniform_int_distribution{ 1, 100 };
+    auto gen = std::mt19937{rd()};
+    auto distrib = std::uniform_int_distribution{1, 100};
 
     const auto secret_number = distrib(gen);
     auto input = std::string{};

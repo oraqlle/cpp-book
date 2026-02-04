@@ -89,7 +89,7 @@ auto foo(const std::string& s) -> const std::string& {
 }
 
 auto main() -> int {
-    auto const s = std::string{"hello"};
+    const auto s = std::string{"hello"};
 
     std::cout << "Address of s: " << static_cast<const void*>(s.data()) << "\n";
     std::cout << foo(s);
@@ -133,7 +133,7 @@ $#include <string>
 $#include <utility>
 // --snip--
 
-auto constexpr str_addr(const std::string& s) -> const void* {
+constexpr auto str_addr(const std::string& s) -> const void* {
     return static_cast<const void*>(s.data());
 }
 

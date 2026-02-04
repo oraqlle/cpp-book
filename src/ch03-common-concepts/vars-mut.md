@@ -130,7 +130,7 @@ value.
 ```cpp,icon=%cplusplus,fp=main.cxx
 #include <iostream>
 
-auto constexpr sum(auto const n) {
+constexpr auto sum(const auto n) {
     auto acc = 0;
     for (auto i = 0; i < n; ++i) {
         acc += 1;
@@ -140,7 +140,7 @@ auto constexpr sum(auto const n) {
 }
 
 auto main() -> int {
-    auto constexpr x = (42 + 7) / sum(23);
+    constexpr auto x = (42 + 7) / sum(23);
     auto y = 6;
     y = (42 + 7) / sum(23);
 

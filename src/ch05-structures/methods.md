@@ -25,7 +25,7 @@ struct vec3 {
 };
 
 auto main() -> int {
-    auto const v = vec3 { 2., 3., 5. };
+    const auto v = vec3{2., 3., 5.};
 
     std::cout << "The magnitude of the vector is "
               << v.magnitude()
@@ -64,13 +64,13 @@ $        return std::sqrt(x * x + y * y + z * z);
 $    }
 $
     auto normalized() const -> vec3 {
-        auto const sz = this->magnitude();
-        return vec3 { x / sz, y / sz, z / sz };
+        const auto sz = this->magnitude();
+        return vec3{x / sz, y / sz, z / sz};
     }
 $
 $    // Helper method for stringifying vec3
 $    auto to_string() const -> std::string {
-$        auto ss = std::stringstream {};
+$        auto ss = std::stringstream{};
 $        ss << "{ "
 $           << x
 $           << ", "
@@ -83,13 +83,13 @@ $        return ss.str();
 };
 
 auto main() -> int {
-    auto const v = vec3 { 2., 3., 5. };
+    const auto v = vec3{2., 3., 5.};
 $
 $    std::cout << "The magnitude of the vector is "
 $              << v.magnitude()
 $              << "\n";
 $
-    auto const n = v.normalized();
+    const auto n = v.normalized();
 
     std::cout << "Vector v: "
               << v.to_string()
@@ -126,17 +126,17 @@ $        return std::sqrt(x * x + y * y + z * z);
 $    }
 $
 $    auto normalized() const -> vec3 {
-$        auto const sz = this->magnitude();
-$        return vec3 { x / sz, y / sz, z / sz };
+$        const auto sz = this->magnitude();
+$        return vec3{x / sz, y / sz, z / sz};
 $    }
 $
-    auto dot(vec3 const& u) const -> double {
+    auto dot(const vec3& u) const -> double {
         return x * u.x + y * u.y + z * u.z;
     }
 $
 $    // Helper method for stringifying vec3
 $    auto to_string() const -> std::string {
-$        auto ss = std::stringstream {};
+$        auto ss = std::stringstream{};
 $        ss << "{ "
 $           << x
 $           << ", "
@@ -150,13 +150,13 @@ $    }
 };
 
 auto main() -> int {
-    auto const v = vec3 { 2., 3., 5. };
+    const auto v = vec3{2., 3., 5.};
 $
 $    std::cout << "The magnitude of the vector is "
 $              << v.magnitude()
 $              << "\n";
 $
-$    auto const n = v.normalized();
+$    const auto n = v.normalized();
 $
 $    std::cout << "Vector v: "
 $              << v.to_string()
@@ -164,7 +164,7 @@ $              << " is: "
 $              << n.to_string()
 $              << "\n";
 $
-    auto const u = vec3 { 2., -3., 5. };
+    const auto u = vec3{2., -3., 5.};
 
     std::cout << "Dot product of v: "
               << v.to_string()
@@ -200,21 +200,21 @@ $        return std::sqrt(x * x + y * y + z * z);
 $    }
 $
 $    auto normalized() const -> vec3 {
-$        auto const sz = this->magnitude();
-$        return vec3 { x / sz, y / sz, z / sz };
+$        const auto sz = this->magnitude();
+$        return vec3{x / sz, y / sz, z / sz};
 $    }
 $
-$    auto dot(vec3 const& u) const -> double {
+$    auto dot(const vec3& u) const -> double {
 $        return x * u.x + y * u.y + z * u.z;
 $    }
 $
-    auto operator*(vec3 const& u) const -> double {
+    auto operator*(const vec3& u) const -> double {
         return this->dot(u);
     }
 $
 $    // Helper method for stringifying vec3
 $    auto to_string() const -> std::string {
-$        auto ss = std::stringstream {};
+$        auto ss = std::stringstream{};
 $        ss << "{ "
 $           << x
 $           << ", "
@@ -228,13 +228,13 @@ $    }
 };
 
 auto main() -> int {
-    auto const v = vec3 { 2., 3., 5. };
+    const auto v = vec3{2., 3., 5.};
 $
 $    std::cout << "The magnitude of the vector is "
 $              << v.magnitude()
 $              << "\n";
 $
-$    auto const n = v.normalized();
+$    const auto n = v.normalized();
 $
 $    std::cout << "Vector v: "
 $              << v.to_string()
@@ -242,7 +242,7 @@ $              << " is: "
 $              << n.to_string()
 $              << "\n";
 $
-    auto const u = vec3 { 2., -3., 5. };
+    const auto u = vec3{2., -3., 5.};
 
     std::cout << "Dot product of v: "
               << v.to_string()
@@ -277,19 +277,19 @@ $        return std::sqrt(x * x + y * y + z * z);
 $    }
 $
 $    auto normalized() const -> vec3 {
-$        auto const sz = this->magnitude();
-$        return vec3 { x / sz, y / sz, z / sz };
+$        const auto sz = this->magnitude();
+$        return vec3{x / sz, y / sz, z / sz};
 $    }
 $
-$    auto dot(vec3 const& u) const -> double {
+$    auto dot(const vec3& u) const -> double {
 $        return x * u.x + y * u.y + z * u.z;
 $    }
 $
-$    auto operator*(vec3 const& u) const -> double {
+$    auto operator*(const vec3& u) const -> double {
 $        return this->dot(u);
 $    }
 $
-    friend auto operator<<(std::ostream& os, vec3 const& v) -> std::ostream& {
+    friend auto operator<<(std::ostream& os, const vec3& v) -> std::ostream& {
         os << "{ "
            << x
            << ", "
@@ -303,13 +303,13 @@ $
 };
 
 auto main() -> int {
-    auto const v = vec3 { 2., 3., 5. };
+    const auto v = vec3{2., 3., 5.};
 $
 $    std::cout << "The magnitude of the vector is "
 $              << v.magnitude()
 $              << "\n";
 $
-$    auto const n = v.normalized();
+$    const auto n = v.normalized();
 $
 $    std::cout << "Vector v: "
 $              << v
@@ -317,7 +317,7 @@ $              << " is: "
 $              << n
 $              << "\n";
 $
-    auto const u = vec3::unit_x();
+    const auto u = vec3{2., -3., 5.};
 
     std::cout << "Dot product of v: "
               << v
@@ -348,7 +348,7 @@ $    double y;
 $    double z;
 $
     static auto unit_x() -> vec3 {
-        return vec3 { 1., 0., 0. };
+        return vec3{1., 0., 0.};
     }
 $
 $    auto magnitude() const -> double {
@@ -356,20 +356,20 @@ $        return std::sqrt(x * x + y * y + z * z);
 $    }
 $
 $    auto normalized() const -> vec3 {
-$        auto const sz = this->magnitude();
-$        return vec3 { x / sz, y / sz, z / sz };
+$        const auto sz = this->magnitude();
+$        return vec3{x / sz, y / sz, z / sz};
 $    }
 $
-$    auto dot(vec3 const& u) const -> double {
+$    auto dot(const vec3& u) const -> double {
 $        return x * u.x + y * u.y + z * u.z;
 $    }
 $
-$    auto operator*(vec3 const& u) const -> double {
+$    auto operator*(const vec3& u) const -> double {
 $        return this->dot(u);
 $    }
 $
 $    // Helper method for stringifying vec3
-$    friend auto operator<<(std::ostream& os, vec3 const& v) -> std::ostream& {
+$    friend auto operator<<(std::ostream& os, const vec3& v) -> std::ostream& {
 $        os << "{ "
 $           << x
 $           << ", "
@@ -383,13 +383,13 @@ $    }
 };
 
 auto main() -> int {
-    auto const v = vec3 { 2., 3., 5. };
+    const auto v = vec3{2., 3., 5.};
 $
 $    std::cout << "The magnitude of the vector is "
 $              << v.magnitude()
 $              << "\n";
 $
-$    auto const n = v.normalized();
+$    const auto n = v.normalized();
 $
 $    std::cout << "Vector v: "
 $              << v
@@ -397,7 +397,7 @@ $              << " is: "
 $              << n
 $              << "\n";
 $
-    auto const u = vec3 { 2., -3., 5. };
+    const auto u = vec3{2., -3., 5.};
 
     std::cout << "Dot product of v: "
               << v

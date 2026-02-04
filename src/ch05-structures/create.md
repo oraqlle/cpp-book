@@ -1,8 +1,5 @@
 # Creating Structures
 
-> [!WARNING]
-> 🚧 Page Under Construction! 🏗️
-
 To declare a struct we use the `struct` keyword followed by the name of the new type.
 Members are defined inside curly braces using the same variable and function declaration
 syntax we have seen previously; although variables do not need an initializer and thus
@@ -40,7 +37,7 @@ $    std::string email;
 $};
 $
 auto main() -> int {
-    auto const p = Person {
+    const auto p = Person{
         true,
         23,
         "John Doe",
@@ -100,16 +97,13 @@ auto make_person(std::string_view const name, std::string_view const email) -> P
     return Person {
         true,
         0,
-        std::string{ name },
-        std::string{ email }
+        std::string{name},
+        std::string{email}
     };
 }
 
 auto main() -> int {
-    auto const p = make_person(
-            "John Doe",
-            "johnd@example.com"
-    );
+    const auto p = make_person("John Doe", "johnd@example.com");
 $
 $    return 0;
 }
@@ -135,19 +129,16 @@ $auto make_person(std::string_view const name, std::string_view const email) -> 
 $    return Person {
 $        true,
 $        0,
-$        std::string{ name },
-$        std::string{ email }
+$        std::string{name},
+$        std::string{email}
 $    };
 $}
 $
 auto main() -> int {
-    auto const p1 = make_person(
-            "John Doe",
-            "johnd@example.com"
-    );
+    const auto p1 = make_person("John Doe", "johnd@example.com");
     
     // Default construct
-    auto p2 = Person {};
+    auto p2 = Person{};
 
     // Copy
     auto p3 = p1;

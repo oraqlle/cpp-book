@@ -9,12 +9,12 @@ auto main() -> int {
     std::cout << "Guessing Game!\n";
 
     auto rd = std::random_device{};
-    auto gen = std::mt19937{ rd() };
-    auto distrib = std::uniform_int_distribution{ 1, 100 };
+    auto gen = std::mt19937{rd()};
+    auto distrib = std::uniform_int_distribution{1, 100};
 
     const auto secret_number = distrib(gen);
     auto input = std::string{};
-    auto guess = int{0};
+    auto guess = 0;
 
     while (true) {
         std::cout << "Please input your guess: ";
@@ -22,15 +22,15 @@ auto main() -> int {
 
         try {
             guess = std::stoi(input);
-        } catch (std::invalid_argument const&) {
+        } catch (const std::invalid_argument&) {
             std::cout << "Invalid input " << std::quoted(input) << "!\n";
             continue;
-        } catch (std::out_of_range const&) {
+        } catch (const std::out_of_range&) {
             std::cout << "Input " << std::quoted(input) << " is too large!" << '\n';
             continue;
         }
 
-        if (auto const cmp = guess <=> secret_number; std::is_eq(cmp)) {
+        if (const auto cmp = guess <=> secret_number; std::is_eq(cmp)) {
             std::cout << "You guessed correctly!\n";
             break;
         } else if (std::is_lt(cmp)) {

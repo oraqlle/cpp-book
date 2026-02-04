@@ -241,9 +241,9 @@ which contains a bunch of facilities for generating random numbers. Update your
 auto main() -> int {
     std::cout << "Guessing Game!\n";
 
-    auto rd = std::random_device {};
-    auto gen = std::mt19937 { rd() };
-    auto distrib = std::uniform_int_distribution<unsigned> { 1u, 100u };
+    auto rd = std::random_device{};
+    auto gen = std::mt19937{rd()};
+    auto distrib = std::uniform_int_distribution<unsigned>{1u, 100u};
     const auto secret_number = distrib(gen);
 
     std::cout << "The secret number is: " << secret_number << '\n';
@@ -263,8 +263,8 @@ number generation types. Next we add the lines
 
 ```cpp,icon=%cplusplus,fp=main.cxx:8:10
     auto rd = std::random_device{};
-    auto gen = std::mt19937{ rd() };
-    auto distrib = std::uniform_int_distribution{ 1, 100 };
+    auto gen = std::mt19937{rd()};
+    auto distrib = std::uniform_int_distribution<unsigned>{1u, 100u};
 ```
 
 The first line (default) constructs a new `std::random_device`[^14]. This is a uniformly
@@ -280,7 +280,7 @@ This sets up our random number generator. To obtain a random number we can call 
 distribution object, passing in the generator and returning a new random value.
 
 ```cpp,icon=%cplusplus,fp=main.cxx:11
-    auto const secret_number = distrib(gen);
+    const auto secret_number = distrib(gen);
 ```
 
 ## Comparing the Guess to the Secret Number
@@ -297,9 +297,9 @@ auto main() -> int {
     std::cout << "Guessing Game!\n";
 
     auto rd = std::random_device{};
-    auto gen = std::mt19937{ rd() };
-    auto distrib = std::uniform_int_distribution{ 1, 100 };
-    auto const secret_number = distrib(gen);
+    auto gen = std::mt19937{rd()};
+    auto distrib = std::uniform_int_distribution<unsigned>{1u, 100u};
+    const auto secret_number = distrib(gen);
 
     std::cout << "The secret number is: " << secret_number << '\n';
     std::cout << "Please input your guess: ";
@@ -407,9 +407,9 @@ auto main() -> int {
 $    std::cout << "Guessing Game!\n";
 $
 $    auto rd = std::random_device{};
-$    auto gen = std::mt19937{ rd() };
-$    auto distrib = std::uniform_int_distribution{ 1, 100 };
-$    auto const secret_number = distrib(gen);
+$    auto gen = std::mt19937{rd()};
+$    auto distrib = std::uniform_int_distribution{1, 100};
+$    const auto secret_number = distrib(gen);
 $
 $    std::cout << "The secret number is: " << secret_number << '\n';
 $    std::cout << "Please input your guess: ";
@@ -420,10 +420,10 @@ $
 
     try {
         guess = std::stoi(input);
-    } catch (std::invalid_argument const&) {
+    } catch (const std::invalid_argument&) {
         std::cerr << "Invalid input " << std::quoted(input) << "!\n";
         std::exit(0);
-    } catch (std::out_of_range const&) {
+    } catch (const std::out_of_range&) {
         std::cerr << "Input " << std::quoted(input) << " is too large!" << '\n';
         std::exit(0);
     }
@@ -484,9 +484,9 @@ auto main() -> int {
 $    std::cout << "Guessing Game!\n";
 $
 $    auto rd = std::random_device{};
-$    auto gen = std::mt19937{ rd() };
-$    auto distrib = std::uniform_int_distribution{ 1, 100 };
-$    auto const secret_number = distrib(gen);
+$    auto gen = std::mt19937{rd()};
+$    auto distrib = std::uniform_int_distribution{1, 100};
+$    const auto secret_number = distrib(gen);
 $
 $    std::cout << "The secret number is: " << secret_number << '\n';
 $    auto input = std::string{};
@@ -501,10 +501,10 @@ $        std::getline(std::cin, input);
 $
         try {
             guess = std::stoi(input);
-        } catch (std::invalid_argument const&) {
+        } catch (const std::invalid_argument&) {
             std::cerr << "Invalid input " << std::quoted(input) << "!\n";
             continue;
-        } catch (std::out_of_range const&) {
+        } catch (const std::out_of_range&) {
             std::cerr << "Input " << std::quoted(input) << " is too large!" << '\n';
             continue;
         }
