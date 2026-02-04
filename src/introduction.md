@@ -64,20 +64,21 @@ details.
 and data types to creating functions and controlling the execution flow of a program.
 4. Ownership, will cover C++'s ownership model and how you are able share data or even
 transfer data ownership.
-5. Structured Data will look at how to create custom types using structs.
+5. Structured Data will look at how to create custom types using structures and classes.
 
 ### Planned
 
 6. In Managing Projects we'll use CMake to compile multiple files, manage dependencies
    and create libraries.
-7. Custom Types explores how to create more powerful custom types and how to manage the
-   lifetime of data.
-8. Error Handling will look at the various ways to verify the correctness of your
+7. Error Handling will look at the various ways to verify the correctness of your
    programs at compile time. We will also look at recovering from errors to prevent
    crashes.
+8. Containers explores the most commonly used container types available in the standard
+   library.
 9. Templates covers C++'s meta-programming capabilities that allow you to write code once
    and have the compiler generate the implementation for you.
-10. In Functional Language Features we will look
+10. In Algorithms we'll explore the plethora of standardised algorithms available in the
+    standard library and how they interact with containers.
 11. The IO chapter will look deeper at C++ IO capabilities using streams and explore the
     filesystem library.
 12. In the Memory chapter we will explore how to safely (and unsafely ... for science)
@@ -111,7 +112,7 @@ principles you may be familiar with from other languages.
 - Date, Time and Localization, introduces C++ support for working with time and dates
 how to change the locale currently being used to express said times and dates.
 
-There is no wrong way to read this book: if you want to skip ahead, go for it! You might
+There is no wrong way to read this book; if you want to skip ahead, go for it! You might
 have to jump back to earlier chapters if you experience any confusion. But do whatever
 works for you.
 
