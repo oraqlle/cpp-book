@@ -14,8 +14,6 @@
   * ["Hello, CMake!"](ch01-getting-started/hello-cmake.md)
   * ["Hello, Godbolt!"](ch01-getting-started/hello-godbolt.md)
 
-<!-- - ["Hello, vcpkg!"](ch01-getting-started/hello-vcpkg.md) -->
-
 ## Sample Project
 
 * [Project: Guessing Game](ch02-guessing-game/guessing-game.md)
@@ -42,8 +40,8 @@
   * [Creating Structures](ch05-structures/create.md)
   * [Using Structures](ch05-structures/example.md)
   * [Methods](ch05-structures/methods.md)
-  * [Access Modifiers]()
-  * [Constructors & Destructors]()
+  * [Constructors & Destructors](ch05-structures/ctors-dtors.md)
+  * [Access Modifiers](ch05-structures/access-mods.md)
 
 ## Managing Projects
 

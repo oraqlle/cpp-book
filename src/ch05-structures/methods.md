@@ -291,11 +291,11 @@ $    }
 $
     friend auto operator<<(std::ostream& os, const vec3& v) -> std::ostream& {
         os << "{ "
-           << x
+           << v.x
            << ", "
-           << y
+           << v.y
            << ", "
-           << z
+           << v.z
            << " }";
 
         return os;
@@ -305,13 +305,13 @@ $
 auto main() -> int {
     const auto v = vec3{2., 3., 5.};
 $
-$    std::cout << "The magnitude of the vector is "
+$    std::cout << "the magnitude of the vector is "
 $              << v.magnitude()
 $              << "\n";
 $
 $    const auto n = v.normalized();
 $
-$    std::cout << "Vector v: "
+$    std::cout << "vector v: "
 $              << v
 $              << " is: "
 $              << n
@@ -319,7 +319,7 @@ $              << "\n";
 $
     const auto u = vec3{2., -3., 5.};
 
-    std::cout << "Dot product of v: "
+    std::cout << "dot product of v: "
               << v
               << " and u: "
               << u
@@ -331,6 +331,7 @@ $    return 0;
 }
 ```
 
+<!--
 ## Static Functions
 
 We can also declare `static` methods on a struct which do not operate on an instance but
@@ -410,10 +411,5 @@ $
 $    return 0;
 }
 ```
-
-## Summary
-
-While this chapter has only a handful of pages we covered a lot of new features and
-syntax. From defining and creating structs, attaching methods to structures and even
-static methods!
+-->
 
