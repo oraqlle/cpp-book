@@ -150,7 +150,6 @@ $    return 0;
 > [!IMPORTANT]
 > *Constructors*
 >
-> We will explore constructors *Chapter 8 - Custom Types* and how we can use them to
-> control the initialization of our own types. We will also explore how to disable
-> certain constructors to disallow certain behaviours from our types.
+> We will explore defining constructors later in this chapter. We will also explore how
+> to disable certain constructors to disallow certain behaviours from our types.
 

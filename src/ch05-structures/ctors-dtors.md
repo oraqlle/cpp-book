@@ -9,7 +9,7 @@ pint I should clarify what the purpose of the `vec3` type is so we know what we 
 working towards.
 
 > [!IMPORTANT]
-> `vec3` represents a mathematical vector with three components 'x', 'y' and 'z'. We
+> `vec3` represents a mathematical vector with three components `x`, `y` and `z`. We
 > expect to use it to represent, points, velocities in 3D space, It could even represent
 > an RGB colour if needed. Given these expected use cases, we expect it to possess
 > methods the implement the mathematical operations expected from a 3-component vector.
@@ -231,11 +231,180 @@ $    return 0;
 
 ### Copy Constructors and Copy Assignments
 
-ABC
+Now what if you wanted to copy the values of a type from one instance to another? C++ has
+a constructor form to achieve that which is cleverly known as a Copy Constructor.
+Moreover, if you want to be able to use the assignment operator (`=`) to copy values, you
+can overload it to have a similar form.
+
+```cpp
+$#include <cmath>
+$#include <iostream>
+$#include <ostream>
+$
+struct vec3 {
+$    double x;
+$    double y;
+$    double z;
+$
+$    vec3() noexcept
+$    : x(0.0), y(0.0), z(0.0) {}
+$
+$    explicit vec3(double x, double y, double z) noexcept
+$    : x(x), y(y), z(z) {}
+
+    vec3(const vec3& other) noexcept
+    : x(other.x), y(other.y), z(other.z) {}
+
+    auto operator=(const vec3& other) noexcept -> vec3 {
+        x = other.x;
+        y = other.y;
+        z = other.z;
+
+        return *this;
+    }
+$
+$    auto magnitude() const -> double {
+$        return std::sqrt(x * x + y * y + z * z);
+$    }
+$
+$    auto normalized() const -> vec3 {
+$        const auto sz = this->magnitude();
+$        return vec3{x / sz, y / sz, z / sz};
+$    }
+$
+$    auto dot(const vec3& u) const -> double {
+$        return x * u.x + y * u.y + z * u.z;
+$    }
+$
+$    auto operator*(const vec3& u) const -> double {
+$        return this->dot(u);
+$    }
+$
+$    friend auto operator<<(std::ostream& os, const vec3& v) -> std::ostream& {
+$        os << "{ " << v.x << ", " << v.y << ", " << v.z << " }";
+$        return os;
+$    }
+};
+
+auto main() -> int {
+    const auto v = vec3(2.0, 3.0, 5.0);
+    const vec3 u(v);  // copy ctor
+    const auto w = v; // copy assignment
+
+    std::cout << "v = " << v << "\n"
+              << "u = " << u << "\n"
+              << "w = " << w << "\n";
+$
+$    return 0;
+}
+```
+
+> [!NOTE]
+>
+> A copy constructor and copy assignment both take a parameter in the same form. For our
+> given struct type `T`, a copy constructor/assignment will take a parameter of
+> `const T&`.
 
 ### Move Constructors and Move Assignments
 
-ABC
+Earlier we introduced the concept of *move semantics* where ownership of data is
+transferred from one instance to another. While `vec3` does not own any resources that
+warrant a move constructor, how to define one will still be demonstrated.
+
+```cpp
+$#include <cmath>
+$#include <iostream>
+$#include <ostream>
+#include <utility>
+$
+struct vec3 {
+$    double x;
+$    double y;
+$    double z;
+$
+$    vec3() noexcept
+$    : x(0.0), y(0.0), z(0.0) {}
+$
+$    explicit vec3(double x, double y, double z) noexcept
+$    : x(x), y(y), z(z) {}
+$
+$    vec3(const vec3& other) noexcept
+$    : x(other.x), y(other.y), z(other.z) {}
+$
+$    auto operator=(const vec3& other) noexcept -> vec3 {
+$        x = other.x;
+$        y = other.y;
+$        z = other.z;
+$
+$        return *this;
+$    }
+
+    vec3(vec3&& other) noexcept
+    : x(std::exchange(other.x, 0.0))
+    , y(std::exchange(other.y, 0.0))
+    , z(std::exchange(other.z, 0.0))
+    {}
+
+    auto operator=(vec3&& other) noexcept -> vec3 {
+        x = std::exchange(other.x, 0.0);
+        y = std::exchange(other.y, 0.0);
+        z = std::exchange(other.z, 0.0);
+
+        // If vec3 owned a resource eg. a std::string,
+        // std::move() would be called on it so its
+        // move ctor can be used:
+        // str = std::move(other.str);
+
+        return *this;
+    }
+$
+$    auto magnitude() const -> double {
+$        return std::sqrt(x * x + y * y + z * z);
+$    }
+$
+$    auto normalized() const -> vec3 {
+$        const auto sz = this->magnitude();
+$        return vec3{x / sz, y / sz, z / sz};
+$    }
+$
+$    auto dot(const vec3& u) const -> double {
+$        return x * u.x + y * u.y + z * u.z;
+$    }
+$
+$    auto operator*(const vec3& u) const -> double {
+$        return this->dot(u);
+$    }
+$
+$    friend auto operator<<(std::ostream& os, const vec3& v) -> std::ostream& {
+$        os << "{ " << v.x << ", " << v.y << ", " << v.z << " }";
+$        return os;
+$    }
+};
+
+auto main() -> int {
+    const auto v = vec3(2.0, 3.0, 5.0);
+    const vec3 u(std::move(v));  // move ctor
+    const auto w = std::move(v); // move assignment
+
+    std::cout << "v = " << v << "\n"
+              << "u = " << u << "\n"
+              << "w = " << w << "\n";
+$
+$    return 0;
+}
+```
+
+> [!TIP]
+>
+> `std::exchange()` is a utility function that replaces the left parameter value with the
+> right parameter and returns the left's old value.
+
+> [!NOTE]
+>
+> Like copy constructors, move constructors/assignment both take a parameter in the same
+> form. That is for our given struct type `T`, a move constructor/assignment will take a
+> parameter of `T&&`. Notice that this parameter is not `const` as we want to be able to
+> be able to modify the moved from object.
 
 ## Destructors
 

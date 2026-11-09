@@ -60,7 +60,7 @@ of the statement body. In fact, you can introduce an unnamed scope using a brace
 {
     const auto x = 5;
 
-    // do stuck with x
+    // do stuff with x
 }
 // x out of scope
 ```
