@@ -1,7 +1,7 @@
 # Constructors & Destructors
 
 So far we have only constructed objects of our types using aggregate initialisation
-and while this is useful for simple data bundles, lacks the nuance required for
+and while this is useful for simple data bundles, this form lacks the nuance required for
 constructing more complicated types.
 
 For the following examples we are going to continue building up our `vec3` type. At this
@@ -25,6 +25,83 @@ compiler resolving which constructor to execute based on the arguments passed to
 constructor call. The `this` implicit variable pointer is available within a constructor
 to allow explicit access to the members of the "in-construction" object.
 
+### Default Constructor
+
+Default Constructor's are used to initialise a type into its *default* state. For our
+`vec3` type, this would be a zero-ed vector ie. all components are set to zero.
+
+```cpp
+$#include <cmath>
+$#include <iostream>
+$#include <ostream>
+$
+struct vec3 {
+$    double x;
+$    double y;
+$    double z;
+$
+    vec3() noexcept {
+        this->x = 0.0;
+        this->y = 0.0;
+        this->z = 0.0;
+    }
+$
+$    auto magnitude() const -> double {
+$        return std::sqrt(x * x + y * y + z * z);
+$    }
+$
+$    auto normalized() const -> vec3 {
+$        const auto sz = this->magnitude();
+$        return vec3{x / sz, y / sz, z / sz};
+$    }
+$
+$    auto dot(const vec3& u) const -> double {
+$        return x * u.x + y * u.y + z * u.z;
+$    }
+$
+$    auto operator*(const vec3& u) const -> double {
+$        return this->dot(u);
+$    }
+$
+$    friend auto operator<<(std::ostream& os, const vec3& v) -> std::ostream& {
+$        os << "{ " << v.x << ", " << v.y << ", " << v.z << " }";
+$        return os;
+$    }
+};
+
+auto main() -> int {
+    auto v = vec3(); // selects default constructor;
+    auto u = vec3();
+
+    v.x = 2.0;
+    v.y = 3.0;
+    v.z = 5.0;
+
+    u.x = 2.0;
+    u.y = -3.0;
+    u.z = 5.0;
+
+    std::cout << "v * u = " << v * u << " units \n";
+$
+$    return 0;
+}
+```
+
+That's it! We can now guarantee that a default `vec3` is constructed the same way every
+time.
+
+> [!TIP]
+> The odd keyword `noexcept` is placed at the end of the constructor's signature to
+> indicate this constructor does not throw an exception and thus; by extension, cannot
+> fail. This allows the compiler to not have to generate a recovery path for handling
+> exceptions in relation to this constructor which can save binary space and execution
+> time but, if an exception did bubble out of this constructor, the program would
+> encounter a hard error and `std::terminate()` will be called, killing the program.
+> Thankfully, for our very simple example with no resource management and simple member
+> initialisation it is impossible for an exception to occur. It is general practice to
+> place the `noexcept` keyword after a constructor by default unless you expect it to 
+> throw or bubble-up an exception.
+
 ### Explicit Constructors
 
 Explicit Constructors allow you to define a arbitrary parameters that are used to
@@ -45,6 +122,12 @@ struct vec3 {
 $    double x;
 $    double y;
 $    double z;
+$
+$    vec3() noexcept {
+$        this->x = 0.0;
+$        this->y = 0.0;
+$        this->z = 0.0;
+$    }
 
     explicit vec3(double x, double y, double z) noexcept {
         this->x = x;
@@ -76,9 +159,9 @@ $    }
 };
 
 auto main() -> int {
-    const auto v = vec3(2., 3., 5.);
-    const auto u = vec3(2., -3., 5.);  // explicitly passing three doubles resolves to
-                                       // the constructor we just wrote.
+    const auto v = vec3(2.0, 3.0, 5.0);
+    const auto u = vec3(2.0, -3.0, 5.0);  // explicitly passing three doubles resolves to
+                                          // the constructor we just wrote.
 
     std::cout << "v * u = " << v * u << " units \n";
 $
@@ -91,23 +174,11 @@ $    return 0;
 > with the same kind of signature but without `explicit` is called a
 > [converting constructor].
 
-> [!TIP]
-> The odd keyword `noexcept` is placed at the end of the constructor's signature to
-> indicate this constructor does not throw an exception and thus; by extension, cannot
-> fail. This allows the compiler to not have to generate a recovery path for handling
-> exceptions in relation to this constructor which can save binary space and execution
-> time but, if an exception did bubble out of this constructor, the program would
-> encounter a hard error and `std::terminate()` will be called, killing the program.
-> Thankfully, for our very simple example with no resource management and simple member
-> initialisation it is impossible for an exception to occur. It is general practice to
-> place the `noexcept` keyword after a constructor by default unless you expect it to 
-> throw or bubble-up an exception.
-
 #### Member Initialiser List
 
-There is another way we can initialise members in a constructor called a
-'Member Initialiser List' which allows you to initialise the members directly and has
-the following syntax.
+There is another form that can be used to initialise members in a constructor called
+'Member Initialiser List'. Each member variable is initialised using the syntax
+`member(parameter)`, in effect all the constructor of that member.
 
 ```cpp
 $#include <cmath>
@@ -118,6 +189,9 @@ struct vec3 {
 $    double x;
 $    double y;
 $    double z;
+
+    vec3() noexcept
+    : x(0.0), y(0.0), z(0.0) {}
 
     explicit vec3(double x, double y, double z) noexcept
     : x(x), y(y), z(z) {}
@@ -146,79 +220,14 @@ $    }
 };
 
 auto main() -> int {
-    const auto v = vec3(2., 3., 5.);
-    const auto u = vec3(2., -3., 5.);
+    const auto v = vec3(2.0, 3.0, 5.0);
+    const auto u = vec3(2.0, -3.0, 5.0);
 
     std::cout << "v * u = " << v * u << " units \n";
 $
 $    return 0;
 }
 ```
-
-This syntax may be a little less clear the intention due to using the same name for
-parameters as members, the syntax shows the member being called (much like how we end up
-calling this constructor for `vec3` later in `main()`) and taking the corresponding
-parameter of the same name ie. `member(parameter)`. While this obfuscates the code in
-this example due to the constructors simplicity, this pattern is very common pattern in
-C++ constructors so it is good to see it early on.
-
-### Default Constructor
-
-Now we can construct a `vec3` with its components explicitly set which is very useful
-however, it is very cumbersome (relatively) to create a zero-vec3 ie. an origin. To
-resolve this we'll make a Default Constructor. Default Constructor's initialise a type
-into; well, its *default* state.
-
-```cpp
-$#include <cmath>
-$#include <iostream>
-$#include <ostream>
-$
-struct vec3 {
-$    double x;
-$    double y;
-$    double z;
-$
-    vec3() noexcept
-    : x(0), y(0), z(0) {}
-$
-$    explicit vec3(double x, double y, double z) noexcept
-$    : x(0), y(0), z(0) {}
-$
-$    auto magnitude() const -> double {
-$        return std::sqrt(x * x + y * y + z * z);
-$    }
-$
-$    auto normalized() const -> vec3 {
-$        const auto sz = this->magnitude();
-$        return vec3{x / sz, y / sz, z / sz};
-$    }
-$
-$    auto dot(const vec3& u) const -> double {
-$        return x * u.x + y * u.y + z * u.z;
-$    }
-$
-$    auto operator*(const vec3& u) const -> double {
-$        return this->dot(u);
-$    }
-$
-$    friend auto operator<<(std::ostream& os, const vec3& v) -> std::ostream& {
-$        os << "{ " << v.x << ", " << v.y << ", " << v.z << " }";
-$        return os;
-$    }
-};
-
-auto main() -> int {
-    const auto v = vec3(2., 3., 5.);
-    const auto u = vec3(); // selects default constructor
-
-    std::cout << "v * u = " << v * u << " units \n";
-$
-$    return 0;
-}
-```
-
-That's it! Pretty simple, but we are creating only a simple type so that is expected.
 
 ### Copy Constructors and Copy Assignments
 
