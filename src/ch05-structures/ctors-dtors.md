@@ -255,7 +255,7 @@ $    : x(x), y(y), z(z) {}
     vec3(const vec3& other) noexcept
     : x(other.x), y(other.y), z(other.z) {}
 
-    auto operator=(const vec3& other) noexcept -> vec3 {
+    auto operator=(const vec3& other) noexcept -> vec3& {
         x = other.x;
         y = other.y;
         z = other.z;
@@ -316,7 +316,7 @@ $#include <cmath>
 $#include <iostream>
 $#include <ostream>
 #include <utility>
-$
+
 struct vec3 {
 $    double x;
 $    double y;
@@ -331,7 +331,7 @@ $
 $    vec3(const vec3& other) noexcept
 $    : x(other.x), y(other.y), z(other.z) {}
 $
-$    auto operator=(const vec3& other) noexcept -> vec3 {
+$    auto operator=(const vec3& other) noexcept -> vec3& {
 $        x = other.x;
 $        y = other.y;
 $        z = other.z;
@@ -345,7 +345,7 @@ $    }
     , z(std::exchange(other.z, 0.0))
     {}
 
-    auto operator=(vec3&& other) noexcept -> vec3 {
+    auto operator=(vec3&& other) noexcept -> vec3& {
         x = std::exchange(other.x, 0.0);
         y = std::exchange(other.y, 0.0);
         z = std::exchange(other.z, 0.0);
@@ -408,19 +408,231 @@ $    return 0;
 
 ## Destructors
 
-ABC
+What if we want to control how data is freed? This is where a destructor is defined.
+There is only one destructor for a given type and it is defined using the types name,
+like other constructors, with a tilde (`~`) in front of it. The `vec3` we have defined
+thus far does not have any resources to free but again, we'll define one for arguments
+sake.
 
-## Letting the Compiler do the Heavy Lifting
+```cpp
+$#include <cmath>
+$#include <iostream>
+$#include <ostream>
+$#include <utility>
+$
+struct vec3 {
+$    double x;
+$    double y;
+$    double z;
+$
+$    vec3() noexcept
+$    : x(0.0), y(0.0), z(0.0) {}
+$
+$    explicit vec3(double x, double y, double z) noexcept
+$    : x(x), y(y), z(z) {}
+$
+$    vec3(const vec3& other) noexcept
+$    : x(other.x), y(other.y), z(other.z) {}
+$
+$    auto operator=(const vec3& other) noexcept -> vec3& {
+$        x = other.x;
+$        y = other.y;
+$        z = other.z;
+$
+$        return *this;
+$    }
+$
+$    vec3(vec3&& other) noexcept
+$    : x(std::exchange(other.x, 0.0))
+$    , y(std::exchange(other.y, 0.0))
+$    , z(std::exchange(other.z, 0.0))
+$    {}
+$
+$    auto operator=(vec3&& other) noexcept -> vec3& {
+$        x = std::exchange(other.x, 0.0);
+$        y = std::exchange(other.y, 0.0);
+$        z = std::exchange(other.z, 0.0);
+$
+$        return *this;
+$    }
 
-ABC
-<!-- constructors default implementation -->
+    ~vec3() noexcept {
+        // free resources
+        std::cout << "Dtor called\n";
+    }
+$
+$    auto magnitude() const -> double {
+$        return std::sqrt(x * x + y * y + z * z);
+$    }
+$
+$    auto normalized() const -> vec3 {
+$        const auto sz = this->magnitude();
+$        return vec3{x / sz, y / sz, z / sz};
+$    }
+$
+$    auto dot(const vec3& u) const -> double {
+$        return x * u.x + y * u.y + z * u.z;
+$    }
+$
+$    auto operator*(const vec3& u) const -> double {
+$        return this->dot(u);
+$    }
+$
+$    friend auto operator<<(std::ostream& os, const vec3& v) -> std::ostream& {
+$        os << "{ " << v.x << ", " << v.y << ", " << v.z << " }";
+$        return os;
+$    }
+};
+
+auto main() -> int {
+    const auto v = vec3(2.0, 3.0, 5.0);
+    const auto u = vec3(2.0, -3.0, 5.0);
+
+    std::cout << "v * u = " << v * u << "\n";
+
+    return 0;
+    // destructors called here
+}
+```
+
+## Let the Compiler Define Them
+
+As stated throughout this page, our `vec3` type is not very complex with the default,
+copy and move constructors we have defined thus far are pretty trivial. Even out
+destructor doesn't do anything. In these cases, we can let the compiler define these
+constructors for use using the `= default` keyword.
+
+```cpp
+$#include <cmath>
+$#include <iostream>
+$#include <ostream>
+$
+struct vec3 {
+$    double x;
+$    double y;
+$    double z;
+$
+    vec3() noexcept = default;
+$
+$    explicit vec3(double x, double y, double z) noexcept
+$    : x(x), y(y), z(z) {}
+
+    vec3(const vec3& other) noexcept = default;
+    vec3(vec3&& other) noexcept = default;
+
+    auto operator=(const vec3& other) noexcept -> vec3& = default;
+    auto operator=(vec3&& other) noexcept -> vec3& = default;
+
+    ~vec3() noexcept = default;
+$
+$    auto magnitude() const -> double {
+$        return std::sqrt(x * x + y * y + z * z);
+$    }
+$
+$    auto normalized() const -> vec3 {
+$        const auto sz = this->magnitude();
+$        return vec3{x / sz, y / sz, z / sz};
+$    }
+$
+$    auto dot(const vec3& u) const -> double {
+$        return x * u.x + y * u.y + z * u.z;
+$    }
+$
+$    auto operator*(const vec3& u) const -> double {
+$        return this->dot(u);
+$    }
+$
+$    friend auto operator<<(std::ostream& os, const vec3& v) -> std::ostream& {
+$        os << "{ " << v.x << ", " << v.y << ", " << v.z << " }";
+$        return os;
+$    }
+};
+
+auto main() -> int {
+    const auto v = vec3(2.0, 3.0, 5.0);
+    const auto u = vec3(2.0, -3.0, 5.0);
+
+    std::cout << "v * u = " << v * u << "\n";
+$
+$    return 0;
+}
+```
+
+> [!NOTE]
+>
+> Explicit constructor or converting constructors cannot be *defaulted* as these
+> constructors are more specialised.
+
+## Disabling Behaviour
+
+In a similar vein, we disable a constructor using the `= delete` keyword. This is useful
+if a type cannot have the semantics associated with the constructor eg. a handle to a
+file should not be copied as that could introduce multiple owners but should be allowed
+to change owners via moves.
+
+```cpp
+$#include <cmath>
+$#include <iostream>
+$#include <ostream>
+$
+struct vec3 {
+$    double x;
+$    double y;
+$    double z;
+$
+    vec3() noexcept = delete;
+$
+$    explicit vec3(double x, double y, double z) noexcept
+$    : x(x), y(y), z(z) {}
+$
+$    vec3(const vec3& other) noexcept = default;
+$    vec3(vec3&& other) noexcept = default;
+$
+$    auto operator=(const vec3& other) noexcept -> vec3& = default;
+$    auto operator=(vec3&& other) noexcept -> vec3& = default;
+$
+$    ~vec3() noexcept = default;
+$
+$    auto magnitude() const -> double {
+$        return std::sqrt(x * x + y * y + z * z);
+$    }
+$
+$    auto normalized() const -> vec3 {
+$        const auto sz = this->magnitude();
+$        return vec3{x / sz, y / sz, z / sz};
+$    }
+$
+$    auto dot(const vec3& u) const -> double {
+$        return x * u.x + y * u.y + z * u.z;
+$    }
+$
+$    auto operator*(const vec3& u) const -> double {
+$        return this->dot(u);
+$    }
+$
+$    friend auto operator<<(std::ostream& os, const vec3& v) -> std::ostream& {
+$        os << "{ " << v.x << ", " << v.y << ", " << v.z << " }";
+$        return os;
+$    }
+};
+
+auto main() -> int {
+    const auto v = vec3(2.0, 3.0, 5.0);
+    const auto u = vec3(2.0, -3.0, 5.0);
+    const auto w = vec3(); // deleted ctor, fails to compile
+
+    std::cout << "v * u = " << v * u << "\n";
+$
+$    return 0;
+}
+```
 
 ## Other Constructors...?
 
 There are quite few ways to construct a type in C++ which gives you an enourmous amount
 of control over your programs behaviour but can be a lot for a beginner to learn so we
 are going to leave it here. If you want to learn more, check out the
-[page on cppreference.com].
+[page on cppreference.com](https://en.cppreference.com/cpp/language/constructor).
 
 ## Summary
 
